@@ -15,7 +15,21 @@
 *.iws
 *.iml
 *.ipr
-
+/target/*
+/.settings/*
+*.classpath
+*.springBeans
+*.project
+*/target/
+/cikers-log/*
+*.iml
+*/*.iml
+.idea/*
+*.class
+*.sql
+/.mvn/*
+.md
+*.jar
 ### NetBeans ###
 /nbproject/private/
 /build/
