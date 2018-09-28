@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.springboot.sample" level="TRACE"/>
+
+    <!-- 开发环境 -->
+    <springProfile name="dev">
+        <logger name="org.springframework.web" level="INFO"/>
+        <logger name="org.springboot.sample" level="INFO"/>
+        <logger name="com.suyou.cloud" level="INFO"/>
+        <logger name="org.apache.http" level="INFO"/>
+        <logger name="com.suyou.cloud.dao" level="INFO"/>
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss} - %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <appender name="logFile"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <Prudent>true</Prudent>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>
+                    demo-log/%d{yyyy-MM-dd}.log
+                </FileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>
+                    %d{HH:mm:ss} - %-5level %logger{36} - %msg%n
+                </Pattern>
+            </layout>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="console" />
+        </root>
+        <root level="INFO">
+            <appender-ref ref="logFile" />
+        </root>
+    </springProfile>
+    <!-- 测试环境 -->
+    <springProfile name="test">
+        <logger name="org.springframework.web" level="WARN"/>
+        <logger name="org.springboot.sample" level="WARN"/>
+        <logger name="com.example.demo" level="INFO"/>
+        <logger name="org.apache.http" level="INFO"/>
+        <logger name="com.example.demo.mapper" level="INFO"/>
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss} - %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <appender name="logFile"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <Prudent>true</Prudent>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>
+                    demo-log/%d{yyyy-MM-dd}.log
+                </FileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>
+                    %d{HH:mm:ss} - %-5level %logger{36} - %msg%n
+                </Pattern>
+            </layout>
+        </appender>
+        <root level="WARN">
+            <appender-ref ref="console" />
+        </root>
+        <root level="WARN">
+            <appender-ref ref="logFile" />
+        </root>
+    </springProfile>
+    <!-- 测试环境 -->
+    <springProfile name="prod">
+        <logger name="org.springframework.web" level="WARN"/>
+        <logger name="org.springboot.sample" level="WARN"/>
+        <logger name="com.example.demo" level="INFO"/>
+        <logger name="org.apache.http" level="INFO"/>
+        <logger name="com.example.demo.mapper" level="INFO"/>
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss} - %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <appender name="logFile"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <Prudent>true</Prudent>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <FileNamePattern>
+                    demo-log/%d{yyyy-MM-dd}.log
+                </FileNamePattern>
+                <maxHistory>30</maxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <Pattern>
+                    %d{HH:mm:ss} - %-5level %logger{36} - %msg%n
+                </Pattern>
+            </layout>
+        </appender>
+        <root level="WARN">
+            <appender-ref ref="console" />
+        </root>
+        <root level="ERROR">
+            <appender-ref ref="logFile" />
+        </root>
+    </springProfile>
+    <!--<springProfile name="prod">-->
+        <!--<logger name="org.springframework.web" level="ERROR"/>-->
+        <!--<logger name="org.springboot.sample" level="ERROR"/>-->
+        <!--<logger name="com.cikers.wechat.mall" level="ERROR"/>-->
+        <!--<logger name="com.cikers.wechat.mall.modules.sys.dao" level="INFO"/>-->
+        <!--<logger name="org.apache.http" level="WARN"/>-->
+    <!--</springProfile>-->
+
+</configuration>

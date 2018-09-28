@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suyou.eurekaclient.dao.UserDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.suyou.eurekaclient.entity.UserEntity" id="userMap">
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="mobile" column="mobile"/>
+        <result property="password" column="password"/>
+        <result property="createdDate" column="created_date"/>
+        <result property="playerId" column="player_id"/>
+        <result property="openId" column="open_id"/>
+        <result property="officialAccountsOpenId" column="official_accounts_open_id"/>
+        <result property="unionId" column="union_id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="gender" column="gender"/>
+        <result property="userLevel" column="user_level"/>
+        <result property="formId" column="form_id"/>
+        <result property="prepayId" column="prepay_id"/>
+        <result property="formidDate" column="formid_date"/>
+        <result property="prepayidDate" column="prepayid_date"/>
+    </resultMap>
+
+
+</mapper>
