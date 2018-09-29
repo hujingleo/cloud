@@ -39,6 +39,7 @@ public class PageEntity implements Serializable {
 	/**
 	 * 
 	 */
+	private String pageTitle;
 	private String pageContent;
 	/**
 	 * 

@@ -9,6 +9,7 @@
         <result property="pageName" column="page_name"/>
         <result property="pageStyle" column="page_style"/>
         <result property="pageUrl" column="page_url"/>
+        <result property="pageTitle" column="page_title"/>
         <result property="pageContent" column="page_content"/>
         <result property="pageState" column="page_state"/>
         <result property="createdDate" column="created_date"/>
