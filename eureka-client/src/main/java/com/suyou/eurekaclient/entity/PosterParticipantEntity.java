@@ -33,6 +33,10 @@ public class PosterParticipantEntity implements Serializable {
 	 */
 	private Integer posterId;
 	/**
+	 *
+	 */
+	private Integer type;
+	/**
 	 * 
 	 */
 	private Date createdDate;

@@ -27,25 +27,33 @@ public class PosterEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String posterName;
+	private String name;
 	/**
 	 * 
 	 */
-	private String posterType;
+	private String type;
 	/**
 	 * 
 	 */
-	private String posterContent;
+	private String content;
 	/**
 	 * 
 	 */
-	private Integer posterStyle;
+	private Integer style;
 	/**
 	 * 
 	 */
-	private String posterState;
+	private String state;
 	/**
 	 * 
+	 */
+	private Date startDate;
+	/**
+	 *
+	 */
+	private Date endDate;
+	/**
+	 *
 	 */
 	private Date createdDate;
 	/**

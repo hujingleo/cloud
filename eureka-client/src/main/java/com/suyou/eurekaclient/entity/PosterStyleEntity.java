@@ -27,15 +27,15 @@ public class PosterStyleEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String styleName;
+	private String name;
 	/**
 	 * 
 	 */
-	private String styleContent;
+	private String content;
 	/**
 	 * 
 	 */
-	private String styleStructure;
+	private String structure;
 	/**
 	 * 
 	 */

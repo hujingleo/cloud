@@ -27,24 +27,24 @@ public class PageEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String pageName;
+	private String name;
 	/**
 	 * 
 	 */
-	private String pageStyle;
+	private String style;
 	/**
 	 * 
 	 */
-	private String pageUrl;
+	private String url;
 	/**
 	 * 
 	 */
-	private String pageTitle;
-	private String pageContent;
+	private String title;
+	private String content;
 	/**
 	 * 
 	 */
-	private String pageState;
+	private String state;
 	/**
 	 * 
 	 */
