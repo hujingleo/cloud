@@ -1,12 +1,14 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.suyou.eurekaclient.entity.SysUserEntity;
 import com.suyou.eurekaclient.service.SysUserService;
 import com.suyou.eurekaclient.utils.BaseResp;
+import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
 import com.suyou.eurekaclient.utils.StringTool;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -36,13 +38,11 @@ public class SysUserController {
     /**
      * 列表
      */
-//    @RequestMapping("/list")
-//    @RequiresPermissions("generator:sysuser:list")
-//    public R list(@RequestParam Map<String, Object> params){
-//        PageUtils page = sysUserService.queryPage(params);
-//
-//        return R.ok().put("page", page);
-//    }
+    @RequestMapping("/list")
+    public BaseResp list(){
+        List<SysUserEntity> list= sysUserService.selectList(new EntityWrapper<SysUserEntity>());
+        return BaseResp.ok(list);
+    }
 
 
     /**
@@ -53,13 +53,11 @@ public class SysUserController {
 			SysUserEntity sysUser = sysUserService.selectOne(new EntityWrapper<SysUserEntity>().eq("username",username));
            if (null==sysUser){
                return BaseResp.error("账号不存在");
-           }else {
-               return BaseResp.ok("登录成功");
            }
-//            if (sysUser.getPassword().equalsIgnoreCase(StringTool.Encrypt(password, "MD5"))){
-//                return R.ok();
-//            }
-//        return BaseResp.error("密码错误");
+            if (sysUser.getPassword().equalsIgnoreCase(password)){
+                return BaseResp.ok("登录成功");
+            }
+        return BaseResp.error("密码错误");
     }
 
     /**
@@ -95,4 +93,8 @@ public class SysUserController {
         return R.ok();
     }
 
+//    public static void main(String[] args) {
+//        String password = StringTool.Encrypt("123456", "MD5");
+//        System.out.println("MD5加密后得到: "+password);
+//    }
 }

@@ -10,7 +10,7 @@
         <logger name="org.springboot.sample" level="INFO"/>
         <logger name="com.suyou.cloud" level="INFO"/>
         <logger name="org.apache.http" level="INFO"/>
-        <logger name="com.suyou.cloud.dao" level="INFO"/>
+        <logger name="com.suyou.eurekaclient.dao" level="DEBUG"/>
         <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
                 <pattern>%d{HH:mm:ss} - %-5level %logger{36} - %msg%n</pattern>
@@ -30,7 +30,7 @@
                 </Pattern>
             </layout>
         </appender>
-        <root level="INFO">
+        <root level="DEBUG">
             <appender-ref ref="console" />
         </root>
         <root level="INFO">
