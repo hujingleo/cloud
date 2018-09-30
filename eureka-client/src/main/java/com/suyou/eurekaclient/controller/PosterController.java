@@ -1,10 +1,13 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.service.PosterService;
+import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -26,21 +29,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2018-09-28 15:58:47
  */
 @RestController
-@RequestMapping("generator/poster")
+@RequestMapping("poster")
 public class PosterController {
     @Autowired
     private PosterService posterService;
 
-//    /**
-//     * 列表
-//     */
-//    @RequestMapping("/list")
-//    @RequiresPermissions("generator:poster:list")
-//    public R list(@RequestParam Map<String, Object> params){
-//        PageUtils page = posterService.queryPage(params);
-//
-//        return R.ok().put("page", page);
-//    }
+    /**
+     * 列表
+     */
+    @RequestMapping("/list")
+    public BaseResp list(){
+        List<PosterEntity> list = posterService.selectList(new EntityWrapper<PosterEntity>());
+        return BaseResp.ok(list);
+    }
 
 
     /**

@@ -12,6 +12,11 @@
         <result property="content" column="content"/>
         <result property="style" column="style"/>
         <result property="state" column="state"/>
+        <result property="imageUrl" column="image_url"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="birthdayPerson" column="birthday_person"/>
+        <result property="awardTo" column="award_to"/>
+        <result property="remindBeford" column="remind_beford"/>
         <result property="startDate" column="start_date"/>
         <result property="endDate" column="ent_date"/>
         <result property="createdDate" column="created_date"/>

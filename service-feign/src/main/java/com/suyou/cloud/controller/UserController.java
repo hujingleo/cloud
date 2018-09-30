@@ -23,4 +23,12 @@ public class UserController {
     public BaseResp sysUserLilst(Model model){
          return  userService.list();
     }
+    @RequestMapping(value = "/pageList",method = RequestMethod.GET)
+    public BaseResp pageList(){
+        return  userService.pageList();
+    }
+    @RequestMapping(value = "/posterList",method = RequestMethod.GET)
+    public BaseResp posterList(){
+        return  userService.posterList();
+    }
 }

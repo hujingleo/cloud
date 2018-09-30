@@ -1,10 +1,13 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.suyou.eurekaclient.entity.PageEntity;
 import com.suyou.eurekaclient.service.PageService;
+import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -26,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2018-09-28 15:58:47
  */
 @RestController
-@RequestMapping("generator/page")
+@RequestMapping("page")
 public class PageController {
     @Autowired
     private PageService pageService;
@@ -34,13 +37,11 @@ public class PageController {
     /**
      * 列表
      */
-//    @RequestMapping("/list")
-//    @RequiresPermissions("generator:page:list")
-//    public R list(@RequestParam Map<String, Object> params){
-//        PageUtils page = pageService.queryPage(params);
-//
-//        return R.ok().put("page", page);
-//    }
+    @RequestMapping("/list")
+    public BaseResp list(){
+        List<PageEntity> list = pageService.selectList(new EntityWrapper<>());
+        return BaseResp.ok(list);
+    }
 
 
     /**

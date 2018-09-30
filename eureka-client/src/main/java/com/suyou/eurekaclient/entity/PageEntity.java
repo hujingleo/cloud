@@ -35,7 +35,7 @@ public class PageEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String url;
+	private String imageUrl;
 	/**
 	 * 
 	 */
@@ -45,6 +45,10 @@ public class PageEntity implements Serializable {
 	 * 
 	 */
 	private String state;
+	/**
+	 *
+	 */
+	private String createdBy;
 	/**
 	 * 
 	 */

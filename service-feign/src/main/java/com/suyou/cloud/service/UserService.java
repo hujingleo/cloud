@@ -16,4 +16,8 @@ public interface UserService {
     BaseResp login(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password);
     @RequestMapping(value = "/sysUser/list",method = RequestMethod.GET)
     BaseResp list();
+    @RequestMapping(value = "/page/list",method = RequestMethod.GET)
+    BaseResp pageList();
+    @RequestMapping(value = "/poster/list",method = RequestMethod.GET)
+    BaseResp posterList();
 }

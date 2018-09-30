@@ -33,6 +33,10 @@ public class PosterEntity implements Serializable {
 	 */
 	private String type;
 	/**
+	 *
+	 */
+	private String title;
+	/**
 	 * 
 	 */
 	private String content;
@@ -44,6 +48,22 @@ public class PosterEntity implements Serializable {
 	 * 
 	 */
 	private String state;
+	/**
+	 *
+	 */
+	private String imageUrl;
+	/**
+	 *
+	 */
+	private String createdBy;
+	/**
+	 *
+	 */
+	private String birthdayPerson;
+	/**
+	 *
+	 */
+	private String awardTo;
 	/**
 	 * 
 	 */
