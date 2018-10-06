@@ -25,7 +25,7 @@ public class PosterController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public BaseResp list(){
         return posterService.list();
     }

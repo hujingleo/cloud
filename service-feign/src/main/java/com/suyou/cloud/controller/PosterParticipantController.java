@@ -24,7 +24,7 @@ public class PosterParticipantController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public BaseResp list(){
         return posterParticipantService.list();
     }
@@ -32,8 +32,8 @@ public class PosterParticipantController {
     /**
      *获取详情
      */
-    @GetMapping("/getById")
-    public BaseResp getById(Integer id){
-        return posterParticipantService.getById(id);
+    @GetMapping("/getByPosterId")
+    public BaseResp getById(Integer posterId){
+        return posterParticipantService.getByPosterId(posterId);
     }
 }

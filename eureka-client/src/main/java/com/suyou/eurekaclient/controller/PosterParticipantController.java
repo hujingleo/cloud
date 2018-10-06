@@ -45,7 +45,7 @@ public class PosterParticipantController {
      */
     @RequestMapping("/getByPosterId")
     public BaseResp info(Integer posterId) {
-        PosterParticipantEntity posterParticipantEntity = posterParticipantService.selectOne(new EntityWrapper<PosterParticipantEntity>().eq("posterId", posterId));
+        PosterParticipantEntity posterParticipantEntity = posterParticipantService.selectOne(new EntityWrapper<PosterParticipantEntity>().eq("poster_id", posterId));
         return BaseResp.ok(posterParticipantEntity);
     }
 

@@ -4,6 +4,7 @@ import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.service.PosterStyleService;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,4 +30,11 @@ public class PosterStyleController {
         return posterStyleService.list();
     }
 
+    /**
+     *获取详情
+     */
+    @GetMapping("/getById")
+    public BaseResp getById(Integer id){
+        return posterStyleService.getById(id);
+    }
 }

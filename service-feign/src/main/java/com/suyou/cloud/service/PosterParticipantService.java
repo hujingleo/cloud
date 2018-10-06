@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface PosterParticipantService {
     @RequestMapping(value = "/posterParticipant/list",method = RequestMethod.GET)
     BaseResp list();
-    @GetMapping(value = "/posterParticipant/getById")
-    BaseResp getById(Integer id);
+    @GetMapping(value = "/posterParticipant/getByPosterId")
+    BaseResp getByPosterId(Integer posterId);
 }
