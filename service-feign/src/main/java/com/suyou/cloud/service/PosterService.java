@@ -12,5 +12,5 @@ public interface PosterService {
     @RequestMapping(value = "/poster/list",method = RequestMethod.GET)
     BaseResp list();
     @GetMapping(value = "/poster/getById")
-    BaseResp getById(Integer id);
+    BaseResp getById(@RequestParam(value = "id")Integer id);
 }

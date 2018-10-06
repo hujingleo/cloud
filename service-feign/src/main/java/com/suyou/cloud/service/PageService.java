@@ -9,5 +9,5 @@ public interface PageService {
     @RequestMapping(value = "/page/list",method = RequestMethod.GET)
     BaseResp list();
     @GetMapping(value = "/page/getById")
-    BaseResp getById(Integer id);
+    BaseResp getById(@RequestParam(value = "id") Integer id);
 }

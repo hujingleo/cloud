@@ -40,8 +40,8 @@ public class WechatController {
     private String grantType;
     private String mchId;
     private String key;
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Autowired
+//    private RestTemplate restTemplate;
     @Autowired
     private UserService userService;
     /**
