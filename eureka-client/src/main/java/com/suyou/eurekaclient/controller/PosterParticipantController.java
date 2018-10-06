@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2018-09-28 15:58:46
  */
 @RestController
-@RequestMapping("posterparticipant")
+@RequestMapping("posterParticipant")
 public class PosterParticipantController {
     @Autowired
     private PosterParticipantService posterParticipantService;
