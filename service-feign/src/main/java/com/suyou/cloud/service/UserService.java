@@ -1,7 +1,9 @@
 package com.suyou.cloud.service;
 
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.WechatLoginForm;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,4 +22,6 @@ public interface UserService {
     BaseResp pageList();
     @RequestMapping(value = "/poster/list",method = RequestMethod.GET)
     BaseResp posterList();
+    @RequestMapping(value = "/wechat/login",method = RequestMethod.POST)
+    BaseResp wechatLogin(@RequestBody WechatLoginForm wechatLoginForm);
 }
