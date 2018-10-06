@@ -1,0 +1,823 @@
+15:34:28 - INFO  c.s.e.EurekaClientApplication - The following profiles are active: dev
+15:34:28 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4d209049: startup date [Sun Sep 30 15:34:28 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7fff3374
+15:34:30 - INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5af7b969-1487-37ce-9494-12d4c058c240
+15:34:30 - INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:34:30 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7d946c34] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:34:31 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$99ae6f31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:34:31 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8765 (http)
+15:34:31 - INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+15:34:31 - INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+15:34:31 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:34:31 - INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2785 ms
+15:34:32 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+15:34:32 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+15:34:32 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+15:34:32 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+15:34:32 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+15:34:32 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+15:34:32 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+15:34:33 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4d209049: startup date [Sun Sep 30 15:34:28 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7fff3374
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+15:34:35 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+15:34:35 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:34:35 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:34:35 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:34:36 - INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4d209049: startup date [Sun Sep 30 15:34:28 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7fff3374] and template loader path [classpath:/templates/]
+15:34:36 - INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+15:34:36 - INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:34:36 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:34:36 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:34:36 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:34:36 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'environmentManager' has been autodetected for JMX exposure
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'refreshScope' has been autodetected for JMX exposure
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=4d209049,type=ConfigurationPropertiesRebinder]
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+15:34:36 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+15:34:37 - INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+15:34:37 - INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+15:34:37 - INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+15:34:37 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+15:34:37 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+15:34:38 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+15:34:38 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+15:34:38 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+15:34:38 - INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1538292878757 with initial instances count: 0
+15:34:38 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application service-user with eureka with status UP
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538292878782, current=UP, previous=STARTING]
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:34:38 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8765 (http)
+15:34:38 - INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8765
+15:34:38 - INFO  c.s.e.EurekaClientApplication - Started EurekaClientApplication in 11.915 seconds (JVM running for 13.322)
+15:34:38 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: false
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:35:08 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:42:19 - INFO  c.s.e.EurekaClientApplication - The following profiles are active: dev
+15:42:19 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@52d29726: startup date [Sun Sep 30 15:42:19 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@79328fae
+15:42:21 - INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5af7b969-1487-37ce-9494-12d4c058c240
+15:42:21 - INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:42:21 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$489950e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:42:21 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$64b353e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:42:22 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8765 (http)
+15:42:22 - INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+15:42:22 - INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+15:42:22 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:42:22 - INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2669 ms
+15:42:22 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+15:42:22 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+15:42:22 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+15:42:22 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+15:42:22 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+15:42:22 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+15:42:22 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+15:42:24 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@52d29726: startup date [Sun Sep 30 15:42:19 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@79328fae
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PageController.list()
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterController.list()
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+15:42:25 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+15:42:25 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:42:25 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:42:25 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:42:26 - INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@52d29726: startup date [Sun Sep 30 15:42:19 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@79328fae] and template loader path [classpath:/templates/]
+15:42:26 - INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+15:42:26 - INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:42:26 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:42:26 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:42:26 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:42:26 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'environmentManager' has been autodetected for JMX exposure
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'refreshScope' has been autodetected for JMX exposure
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=52d29726,type=ConfigurationPropertiesRebinder]
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+15:42:26 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+15:42:27 - INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+15:42:27 - INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+15:42:27 - INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+15:42:28 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+15:42:28 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+15:42:28 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+15:42:28 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+15:42:28 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+15:42:28 - INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1538293348681 with initial instances count: 2
+15:42:28 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application service-user with eureka with status UP
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293348703, current=UP, previous=STARTING]
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:42:28 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:42:28 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8765 (http)
+15:42:28 - INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8765
+15:42:28 - INFO  c.s.e.EurekaClientApplication - Started EurekaClientApplication in 11.054 seconds (JVM running for 12.306)
+15:44:05 - INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@79328fae: startup date [Sun Sep 30 15:42:18 CST 2018]; root of context hierarchy
+15:44:05 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@52d29726: startup date [Sun Sep 30 15:42:19 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@79328fae
+15:44:05 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application service-user with eureka with status DOWN
+15:44:05 - WARN  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293445054, current=DOWN, previous=UP]
+15:44:05 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:44:05 - INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+15:44:05 - INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+15:44:05 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:44:05 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - deregister  status: 200
+15:44:05 - INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+15:44:05 - INFO  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 0
+15:44:05 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+15:44:05 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+15:44:05 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+15:44:06 - INFO  c.s.e.EurekaClientApplication - The following profiles are active: dev
+15:44:06 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50649bbe: startup date [Sun Sep 30 15:44:06 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50b02f7e
+15:44:07 - INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5af7b969-1487-37ce-9494-12d4c058c240
+15:44:07 - INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:44:07 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$489950e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:44:07 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$64b353e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:44:07 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8765 (http)
+15:44:07 - INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+15:44:07 - INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+15:44:07 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:44:07 - INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1576 ms
+15:44:07 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+15:44:07 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+15:44:07 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+15:44:07 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+15:44:07 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+15:44:07 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+15:44:07 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+15:44:08 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50649bbe: startup date [Sun Sep 30 15:44:06 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50b02f7e
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PageController.list()
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterController.list()
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+15:44:09 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+15:44:09 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:44:09 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:44:09 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:44:09 - INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50649bbe: startup date [Sun Sep 30 15:44:06 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50b02f7e] and template loader path [classpath:/templates/]
+15:44:09 - INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+15:44:09 - INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:44:09 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:44:09 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'environmentManager' has been autodetected for JMX exposure
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'refreshScope' has been autodetected for JMX exposure
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=50649bbe,type=ConfigurationPropertiesRebinder]
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+15:44:09 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+15:44:10 - INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+15:44:10 - INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+15:44:10 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+15:44:10 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+15:44:10 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+15:44:10 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+15:44:10 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+15:44:10 - INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1538293450618 with initial instances count: 2
+15:44:10 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application service-user with eureka with status UP
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293450621, current=UP, previous=STARTING]
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:44:10 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:44:10 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8765 (http)
+15:44:10 - INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8765
+15:44:10 - INFO  c.s.e.EurekaClientApplication - Started EurekaClientApplication in 5.089 seconds (JVM running for 114.162)
+15:44:13 - INFO  o.s.c.a.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@50b02f7e: startup date [Sun Sep 30 15:44:05 CST 2018]; root of context hierarchy
+15:44:13 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@50649bbe: startup date [Sun Sep 30 15:44:06 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50b02f7e
+15:44:13 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application service-user with eureka with status DOWN
+15:44:13 - WARN  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293453423, current=DOWN, previous=UP]
+15:44:13 - INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+15:44:13 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:44:13 - INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+15:44:13 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:44:13 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - deregister  status: 200
+15:44:13 - INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+15:44:13 - INFO  o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 0
+15:44:13 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+15:44:13 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+15:44:13 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+15:44:14 - INFO  c.s.e.EurekaClientApplication - The following profiles are active: dev
+15:44:14 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@43d9b7f: startup date [Sun Sep 30 15:44:14 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3e45e069
+15:44:15 - INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=5af7b969-1487-37ce-9494-12d4c058c240
+15:44:15 - INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:44:15 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$489950e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:44:15 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$64b353e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:44:15 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8765 (http)
+15:44:15 - INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+15:44:15 - INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+15:44:15 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:44:15 - INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1446 ms
+15:44:16 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+15:44:16 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+15:44:16 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+15:44:16 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+15:44:16 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+15:44:16 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+15:44:16 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+15:44:17 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@43d9b7f: startup date [Sun Sep 30 15:44:14 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3e45e069
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PageController.list()
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterController.list()
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+15:44:17 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+15:44:17 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:44:17 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:44:18 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:44:18 - INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@43d9b7f: startup date [Sun Sep 30 15:44:14 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3e45e069] and template loader path [classpath:/templates/]
+15:44:18 - INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+15:44:18 - INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:44:18 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:44:18 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'environmentManager' has been autodetected for JMX exposure
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'refreshScope' has been autodetected for JMX exposure
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=43d9b7f,type=ConfigurationPropertiesRebinder]
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+15:44:18 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+15:44:19 - INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+15:44:19 - INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+15:44:19 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+15:44:19 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+15:44:19 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+15:44:19 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+15:44:19 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+15:44:19 - INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1538293459185 with initial instances count: 2
+15:44:19 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application service-user with eureka with status UP
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293459188, current=UP, previous=STARTING]
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:44:19 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:44:19 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8765 (http)
+15:44:19 - INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8765
+15:44:19 - INFO  c.s.e.EurekaClientApplication - Started EurekaClientApplication in 5.205 seconds (JVM running for 122.731)
+15:45:38 - INFO  c.s.e.EurekaClientApplication - The following profiles are active: dev
+15:45:38 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@188598ad: startup date [Sun Sep 30 15:45:38 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@56f71edb
+15:45:40 - INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=813faae8-bc38-3658-979e-63f090c710cd
+15:45:40 - INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:45:41 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9d1faf47] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:45:41 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$b939b244] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:45:41 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8765 (http)
+15:45:41 - INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+15:45:41 - INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+15:45:42 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:45:42 - INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3143 ms
+15:45:42 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+15:45:42 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+15:45:42 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+15:45:42 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+15:45:42 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+15:45:42 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+15:45:42 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+15:45:45 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@188598ad: startup date [Sun Sep 30 15:45:38 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@56f71edb
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PageController.list()
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterController.list()
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+15:45:47 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+15:45:47 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:45:47 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:45:47 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:45:48 - INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@188598ad: startup date [Sun Sep 30 15:45:38 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@56f71edb] and template loader path [classpath:/templates/]
+15:45:48 - INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+15:45:48 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:45:48 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:45:48 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:45:48 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'environmentManager' has been autodetected for JMX exposure
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'refreshScope' has been autodetected for JMX exposure
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=188598ad,type=ConfigurationPropertiesRebinder]
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+15:45:49 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+15:45:49 - INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+15:45:49 - INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+15:45:49 - INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+15:45:50 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+15:45:50 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+15:45:50 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+15:45:50 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+15:45:51 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+15:45:51 - INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1538293551647 with initial instances count: 2
+15:45:51 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application service-user with eureka with status UP
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293551704, current=UP, previous=STARTING]
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:45:51 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:45:51 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8765 (http)
+15:45:51 - INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8765
+15:45:51 - INFO  c.s.e.EurekaClientApplication - Started EurekaClientApplication in 15.514 seconds (JVM running for 21.25)
+15:47:44 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+15:47:44 - INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+15:47:44 - INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+15:47:44 - DEBUG c.s.e.dao.PageDao.selectList - ==>  Preparing: SELECT id AS id,`name`,`style`,image_url AS imageUrl,title,content,`state`,created_by AS createdBy,created_date AS createdDate,updated_date AS updatedDate FROM tb_page 
+15:47:44 - DEBUG c.s.e.dao.PageDao.selectList - ==> Parameters: 
+15:47:44 - DEBUG c.s.e.dao.PageDao.selectList - <==      Total: 1
+15:48:15 - DEBUG c.s.e.dao.PosterDao.selectList - ==>  Preparing: SELECT id AS id,`name`,`type`,content,`style`,`state`,image_url AS imageUrl,created_by AS createdBy,birthday_person AS birthdayPerson,award_to AS awardTo,start_date AS startDate,end_date AS endDate,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster 
+15:48:15 - DEBUG c.s.e.dao.PosterDao.selectList - ==> Parameters: 
+15:48:15 - DEBUG c.s.e.dao.PosterDao.selectList - <==      Total: 1
+15:49:16 - DEBUG c.s.e.dao.PosterDao.selectList - ==>  Preparing: SELECT id AS id,`name`,`type`,content,`style`,`state`,image_url AS imageUrl,created_by AS createdBy,birthday_person AS birthdayPerson,award_to AS awardTo,start_date AS startDate,end_date AS endDate,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster 
+15:49:16 - DEBUG c.s.e.dao.PosterDao.selectList - ==> Parameters: 
+15:49:16 - DEBUG c.s.e.dao.PosterDao.selectList - <==      Total: 1
+15:49:49 - DEBUG c.s.e.dao.PosterDao.selectList - ==>  Preparing: SELECT id AS id,`name`,`type`,content,`style`,`state`,image_url AS imageUrl,created_by AS createdBy,birthday_person AS birthdayPerson,award_to AS awardTo,start_date AS startDate,end_date AS endDate,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster 
+15:49:49 - DEBUG c.s.e.dao.PosterDao.selectList - ==> Parameters: 
+15:49:49 - DEBUG c.s.e.dao.PosterDao.selectList - <==      Total: 1
+15:50:19 - DEBUG c.s.e.dao.PosterDao.selectList - ==>  Preparing: SELECT id AS id,`name`,`type`,content,`style`,`state`,image_url AS imageUrl,created_by AS createdBy,birthday_person AS birthdayPerson,award_to AS awardTo,start_date AS startDate,end_date AS endDate,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster 
+15:50:19 - DEBUG c.s.e.dao.PosterDao.selectList - ==> Parameters: 
+15:50:19 - DEBUG c.s.e.dao.PosterDao.selectList - <==      Total: 1
+15:50:30 - INFO  c.s.e.EurekaClientApplication - The following profiles are active: dev
+15:50:30 - INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16a5eb6d: startup date [Sun Sep 30 15:50:30 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4c2869a9
+15:50:32 - INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=813faae8-bc38-3658-979e-63f090c710cd
+15:50:32 - INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+15:50:32 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ed149126] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:50:33 - INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$92e9423] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+15:50:33 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8765 (http)
+15:50:33 - INFO  o.a.catalina.core.StandardService - Starting service Tomcat
+15:50:33 - INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+15:50:34 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:50:34 - INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3220 ms
+15:50:34 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+15:50:34 - INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'statViewServlet' to [/druid/*]
+15:50:34 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+15:50:34 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+15:50:34 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+15:50:34 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+15:50:34 - INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'webStatFilter' to urls: [/*]
+15:50:40 - INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16a5eb6d: startup date [Sun Sep 30 15:50:30 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4c2869a9
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PageController.list()
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterController.list()
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+15:50:42 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+15:50:42 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:50:42 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:50:42 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+15:50:43 - INFO  o.s.u.f.SpringTemplateLoader - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@16a5eb6d: startup date [Sun Sep 30 15:50:30 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4c2869a9] and template loader path [classpath:/templates/]
+15:50:43 - INFO  o.s.w.s.v.f.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+15:50:43 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:50:43 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:50:43 - WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+15:50:43 - INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'statFilter' has been autodetected for JMX exposure
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'environmentManager' has been autodetected for JMX exposure
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Bean with name 'refreshScope' has been autodetected for JMX exposure
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=16a5eb6d,type=ConfigurationPropertiesRebinder]
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=dataSource,type=DruidDataSourceWrapper]
+15:50:44 - INFO  o.s.j.e.a.AnnotationMBeanExporter - Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+15:50:45 - INFO  o.s.c.s.DefaultLifecycleProcessor - Starting beans in phase 0
+15:50:45 - INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+15:50:45 - INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+15:50:45 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+15:50:45 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+15:50:45 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+15:50:45 - INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+15:50:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+15:50:46 - INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1538293846484 with initial instances count: 2
+15:50:46 - INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application service-user with eureka with status UP
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1538293846536, current=UP, previous=STARTING]
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765: registering service...
+15:50:46 - INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_SERVICE-USER/AWX5J10DVZFBXYR:service-user:8765 - registration status: 204
+15:50:46 - INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8765 (http)
+15:50:46 - INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8765
+15:50:46 - INFO  c.s.e.EurekaClientApplication - Started EurekaClientApplication in 18.451 seconds (JVM running for 24.131)
+15:51:53 - INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+15:51:53 - INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+15:51:53 - INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 44 ms
+15:51:54 - DEBUG c.s.e.dao.PosterDao.selectList - ==>  Preparing: SELECT id AS id,`name`,`type`,title,content,`style`,`state`,image_url AS imageUrl,created_by AS createdBy,birthday_person AS birthdayPerson,award_to AS awardTo,start_date AS startDate,end_date AS endDate,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster 
+15:51:54 - DEBUG c.s.e.dao.PosterDao.selectList - ==> Parameters: 
+15:51:54 - DEBUG c.s.e.dao.PosterDao.selectList - <==      Total: 1
+15:54:04 - DEBUG c.s.e.dao.SysUserDao.selectList - ==>  Preparing: SELECT oid AS oid,username,`password`,salt,user_type AS userType,lastlogin_date AS lastloginDate,created_date AS createdDate,updated_date AS updatedDate FROM sys_user 
+15:54:04 - DEBUG c.s.e.dao.SysUserDao.selectList - ==> Parameters: 
+15:54:04 - DEBUG c.s.e.dao.SysUserDao.selectList - <==      Total: 2
+15:55:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:00:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:01:05 - INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.update(com.suyou.eurekaclient.entity.PageEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.delete(java.lang.Integer[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PageController.list()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.save(com.suyou.eurekaclient.entity.PageEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/page/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PageController.info(java.lang.Integer)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.update(com.suyou.eurekaclient.entity.PosterEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.delete(java.lang.Integer[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterController.list()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.save(com.suyou.eurekaclient.entity.PosterEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/poster/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterController.info(java.lang.Integer)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterparticipant/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.update(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterparticipant/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.delete(java.lang.Integer[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterparticipant/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterParticipantController.list()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterparticipant/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.save(com.suyou.eurekaclient.entity.PosterParticipantEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterparticipant/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterParticipantController.info(java.lang.Integer)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterstyle/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.update(com.suyou.eurekaclient.entity.PosterStyleEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterstyle/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.delete(java.lang.Integer[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterstyle/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.PosterStyleController.list()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterstyle/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.save(com.suyou.eurekaclient.entity.PosterStyleEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/posterstyle/info/{id}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.PosterStyleController.info(java.lang.Integer)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.update(com.suyou.eurekaclient.entity.SysPermissionEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.delete(java.lang.Long[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/list]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.save(com.suyou.eurekaclient.entity.SysPermissionEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/syspermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysPermissionController.info(java.lang.Long)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.update(com.suyou.eurekaclient.entity.SysRoleEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.delete(java.lang.Long[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.save(com.suyou.eurekaclient.entity.SysRoleEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRoleController.info(java.lang.Long)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.update(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.delete(java.lang.Long[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.save(com.suyou.eurekaclient.entity.SysRolePermissionEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysrolepermission/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysRolePermissionController.info(java.lang.Long)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.update(com.suyou.eurekaclient.entity.SysUserEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.delete(java.lang.Integer[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.list()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserController.save(com.suyou.eurekaclient.entity.SysUserEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/sysUser/login]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.SysUserController.info(java.lang.String,java.lang.String)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.update(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.delete(java.lang.Integer[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.save(com.suyou.eurekaclient.entity.SysUserRoleEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/generator/sysuserrole/info/{oid}]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.SysUserRoleController.info(java.lang.Integer)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],methods=[GET]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.index()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/hi]}" onto public java.lang.String com.suyou.eurekaclient.controller.TestController.home(java.lang.String)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/update]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.update(com.suyou.eurekaclient.entity.UserEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/delete]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.delete(java.lang.Long[])
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/list]}" onto public com.suyou.eurekaclient.utils.BaseResp com.suyou.eurekaclient.controller.UserController.list()
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/save]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.save(com.suyou.eurekaclient.entity.UserEntity)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/user/register],methods=[POST]}" onto public com.suyou.eurekaclient.utils.R com.suyou.eurekaclient.controller.UserController.info(java.lang.String,java.lang.String)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+16:01:05 - INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+16:01:07 - DEBUG c.s.e.dao.UserDao.selectList - ==>  Preparing: SELECT user_id AS userId,username,mobile,`password`,created_date AS createdDate,player_id AS playerId,open_id AS openId,official_accounts_open_id AS officialAccountsOpenId,union_id AS unionId,nick_name AS nickName,avatar_url AS avatarUrl,gender,user_level AS userLevel,form_id AS formId,prepay_id AS prepayId,formid_date AS formidDate,prepayid_date AS prepayidDate FROM tb_user 
+16:01:07 - DEBUG c.s.e.dao.UserDao.selectList - ==> Parameters: 
+16:01:07 - DEBUG c.s.e.dao.UserDao.selectList - <==      Total: 1
+16:01:15 - DEBUG c.s.e.dao.PosterStyleDao.selectList - ==>  Preparing: SELECT id AS id,`name`,content,`structure`,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster_style 
+16:01:15 - DEBUG c.s.e.dao.PosterStyleDao.selectList - ==> Parameters: 
+16:01:15 - DEBUG c.s.e.dao.PosterStyleDao.selectList - <==      Total: 1
+16:01:23 - DEBUG c.s.e.d.P.selectList - ==>  Preparing: SELECT id AS id,user_id AS userId,poster_id AS posterId,`type`,created_date AS createdDate,updated_date AS updatedDate FROM tb_poster_participant 
+16:01:23 - DEBUG c.s.e.d.P.selectList - ==> Parameters: 
+16:01:23 - DEBUG c.s.e.d.P.selectList - <==      Total: 1
+16:05:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:10:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:15:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:20:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:25:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:30:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:35:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:40:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:45:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:50:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:55:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+17:00:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+17:05:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+17:10:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+17:15:46 - INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

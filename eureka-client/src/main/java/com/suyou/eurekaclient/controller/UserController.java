@@ -1,10 +1,13 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.suyou.eurekaclient.entity.UserEntity;
 import com.suyou.eurekaclient.service.UserService;
+import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +30,11 @@ public class UserController {
     /**
      * 列表
      */
-//    @RequestMapping("/list")
-//    @RequiresPermissions("generator:user:list")
-//    public R list(@RequestParam Map<String, Object> params){
-//        PageUtils page = userService.queryPage(params);
-//
-//        return R.ok().put("page", page);
-//    }
+    @RequestMapping("/list")
+    public BaseResp list(){
+        List<UserEntity> list = userService.selectList(new EntityWrapper<>());
+        return BaseResp.ok(list);
+    }
 
 
     /**
