@@ -12,13 +12,7 @@ import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -47,12 +41,10 @@ public class PageController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
-    @RequiresPermissions("generator:page:info")
-    public R info(@PathVariable("id") Integer id){
+    @GetMapping("/getById")
+    public BaseResp info( Integer id){
 			PageEntity page = pageService.selectById(id);
-
-        return R.ok().put("page", page);
+        return BaseResp.ok(page);
     }
 
     /**

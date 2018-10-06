@@ -3,6 +3,7 @@ package com.suyou.cloud.controller;
 import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,9 +27,15 @@ public class PageController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public BaseResp list(){
         return pageService.list();
     }
-
+    /**
+     *获取详情
+     */
+    @GetMapping("/getById")
+    public BaseResp getById(Integer id){
+        return pageService.getById(id);
+    }
 }
