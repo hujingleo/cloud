@@ -47,7 +47,7 @@ public class WechatController {
     /**
      * 小程序登录
      */
-    @PostMapping("login")
+    @PostMapping("/login")
     @ApiOperation("微信登录")
     public BaseResp login(@RequestBody WechatLoginForm wechatLoginForm) {
         if (StringUtils.isBlank(wechatLoginForm.getCode())) {
