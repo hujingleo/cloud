@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
-
 /**
- * 
- *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:46
@@ -38,7 +34,7 @@ public class PosterParticipantController {
      * 列表
      */
     @RequestMapping("/list")
-    public BaseResp list(){
+    public BaseResp list() {
         List<PosterParticipantEntity> list = posterParticipantService.selectList(new EntityWrapper<>());
         return BaseResp.ok(list);
     }
@@ -47,12 +43,10 @@ public class PosterParticipantController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
-    @RequiresPermissions("generator:posterparticipant:info")
-    public R info(@PathVariable("id") Integer id){
-			PosterParticipantEntity posterParticipant = posterParticipantService.selectById(id);
-
-        return R.ok().put("posterParticipant", posterParticipant);
+    @RequestMapping("/getByPosterId")
+    public BaseResp info(Integer posterId) {
+        PosterParticipantEntity posterParticipantEntity = posterParticipantService.selectOne(new EntityWrapper<PosterParticipantEntity>().eq("posterId", posterId));
+        return BaseResp.ok(posterParticipantEntity);
     }
 
     /**
@@ -60,8 +54,8 @@ public class PosterParticipantController {
      */
     @RequestMapping("/save")
     @RequiresPermissions("generator:posterparticipant:save")
-    public R save(@RequestBody PosterParticipantEntity posterParticipant){
-			posterParticipantService.insert(posterParticipant);
+    public R save(@RequestBody PosterParticipantEntity posterParticipant) {
+        posterParticipantService.insert(posterParticipant);
 
         return R.ok();
     }
@@ -71,8 +65,8 @@ public class PosterParticipantController {
      */
     @RequestMapping("/update")
     @RequiresPermissions("generator:posterparticipant:update")
-    public R update(@RequestBody PosterParticipantEntity posterParticipant){
-			posterParticipantService.updateById(posterParticipant);
+    public R update(@RequestBody PosterParticipantEntity posterParticipant) {
+        posterParticipantService.updateById(posterParticipant);
 
         return R.ok();
     }
@@ -82,8 +76,8 @@ public class PosterParticipantController {
      */
     @RequestMapping("/delete")
     @RequiresPermissions("generator:posterparticipant:delete")
-    public R delete(@RequestBody Integer[] ids){
-			posterParticipantService.deleteBatchIds(Arrays.asList(ids));
+    public R delete(@RequestBody Integer[] ids) {
+        posterParticipantService.deleteBatchIds(Arrays.asList(ids));
 
         return R.ok();
     }

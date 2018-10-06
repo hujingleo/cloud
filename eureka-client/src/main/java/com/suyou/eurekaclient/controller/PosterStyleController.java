@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
-
 /**
- * 
- *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:46
@@ -38,7 +34,7 @@ public class PosterStyleController {
      * 列表
      */
     @RequestMapping("/list")
-    public BaseResp list(){
+    public BaseResp list() {
         List<PosterStyleEntity> list = posterStyleService.selectList(new EntityWrapper<>());
         return BaseResp.ok(list);
     }
@@ -47,12 +43,10 @@ public class PosterStyleController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
-    @RequiresPermissions("generator:posterstyle:info")
-    public R info(@PathVariable("id") Integer id){
-			PosterStyleEntity posterStyle = posterStyleService.selectById(id);
-
-        return R.ok().put("posterStyle", posterStyle);
+    @RequestMapping("/getById")
+    public BaseResp info(Integer id) {
+        PosterStyleEntity posterStyle = posterStyleService.selectById(id);
+        return BaseResp.ok(posterStyle);
     }
 
     /**
@@ -60,8 +54,8 @@ public class PosterStyleController {
      */
     @RequestMapping("/save")
     @RequiresPermissions("generator:posterstyle:save")
-    public R save(@RequestBody PosterStyleEntity posterStyle){
-			posterStyleService.insert(posterStyle);
+    public R save(@RequestBody PosterStyleEntity posterStyle) {
+        posterStyleService.insert(posterStyle);
 
         return R.ok();
     }
@@ -71,8 +65,8 @@ public class PosterStyleController {
      */
     @RequestMapping("/update")
     @RequiresPermissions("generator:posterstyle:update")
-    public R update(@RequestBody PosterStyleEntity posterStyle){
-			posterStyleService.updateById(posterStyle);
+    public R update(@RequestBody PosterStyleEntity posterStyle) {
+        posterStyleService.updateById(posterStyle);
 
         return R.ok();
     }
@@ -82,8 +76,8 @@ public class PosterStyleController {
      */
     @RequestMapping("/delete")
     @RequiresPermissions("generator:posterstyle:delete")
-    public R delete(@RequestBody Integer[] ids){
-			posterStyleService.deleteBatchIds(Arrays.asList(ids));
+    public R delete(@RequestBody Integer[] ids) {
+        posterStyleService.deleteBatchIds(Arrays.asList(ids));
 
         return R.ok();
     }

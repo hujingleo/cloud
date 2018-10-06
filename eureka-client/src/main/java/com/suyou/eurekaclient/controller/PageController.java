@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
- * 
- *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:47
@@ -32,7 +30,7 @@ public class PageController {
      * 列表
      */
     @RequestMapping("/list")
-    public BaseResp list(){
+    public BaseResp list() {
         List<PageEntity> list = pageService.selectList(new EntityWrapper<>());
         return BaseResp.ok(list);
     }
@@ -41,9 +39,9 @@ public class PageController {
     /**
      * 信息
      */
-    @GetMapping("/getById")
-    public BaseResp info( Integer id){
-			PageEntity page = pageService.selectById(id);
+    @RequestMapping("/getById")
+    public BaseResp info(Integer id) {
+        PageEntity page = pageService.selectById(id);
         return BaseResp.ok(page);
     }
 
@@ -52,8 +50,8 @@ public class PageController {
      */
     @RequestMapping("/save")
     @RequiresPermissions("generator:page:save")
-    public R save(@RequestBody PageEntity page){
-			pageService.insert(page);
+    public R save(@RequestBody PageEntity page) {
+        pageService.insert(page);
 
         return R.ok();
     }
@@ -63,8 +61,8 @@ public class PageController {
      */
     @RequestMapping("/update")
     @RequiresPermissions("generator:page:update")
-    public R update(@RequestBody PageEntity page){
-			pageService.updateById(page);
+    public R update(@RequestBody PageEntity page) {
+        pageService.updateById(page);
 
         return R.ok();
     }
@@ -74,8 +72,8 @@ public class PageController {
      */
     @RequestMapping("/delete")
     @RequiresPermissions("generator:page:delete")
-    public R delete(@RequestBody Integer[] ids){
-			pageService.deleteBatchIds(Arrays.asList(ids));
+    public R delete(@RequestBody Integer[] ids) {
+        pageService.deleteBatchIds(Arrays.asList(ids));
 
         return R.ok();
     }

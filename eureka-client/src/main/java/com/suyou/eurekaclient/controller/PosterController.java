@@ -19,11 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
-
 /**
- * 
- *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:47
@@ -38,21 +34,19 @@ public class PosterController {
      * 列表
      */
     @RequestMapping("/list")
-    public BaseResp list(){
+    public BaseResp list() {
         List<PosterEntity> list = posterService.selectList(new EntityWrapper<PosterEntity>());
         return BaseResp.ok(list);
     }
 
 
     /**
-     * 信息
+     * 详情
      */
-    @RequestMapping("/info/{id}")
-    @RequiresPermissions("generator:poster:info")
-    public R info(@PathVariable("id") Integer id){
-			PosterEntity poster = posterService.selectById(id);
-
-        return R.ok().put("poster", poster);
+    @RequestMapping("/getById")
+    public BaseResp info(Integer id) {
+        PosterEntity posterEntity = posterService.selectById(id);
+        return BaseResp.ok(posterEntity);
     }
 
     /**
@@ -60,8 +54,8 @@ public class PosterController {
      */
     @RequestMapping("/save")
     @RequiresPermissions("generator:poster:save")
-    public R save(@RequestBody PosterEntity poster){
-			posterService.insert(poster);
+    public R save(@RequestBody PosterEntity poster) {
+        posterService.insert(poster);
 
         return R.ok();
     }
@@ -71,8 +65,8 @@ public class PosterController {
      */
     @RequestMapping("/update")
     @RequiresPermissions("generator:poster:update")
-    public R update(@RequestBody PosterEntity poster){
-			posterService.updateById(poster);
+    public R update(@RequestBody PosterEntity poster) {
+        posterService.updateById(poster);
 
         return R.ok();
     }
@@ -82,8 +76,8 @@ public class PosterController {
      */
     @RequestMapping("/delete")
     @RequiresPermissions("generator:poster:delete")
-    public R delete(@RequestBody Integer[] ids){
-			posterService.deleteBatchIds(Arrays.asList(ids));
+    public R delete(@RequestBody Integer[] ids) {
+        posterService.deleteBatchIds(Arrays.asList(ids));
 
         return R.ok();
     }
