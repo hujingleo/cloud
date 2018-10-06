@@ -43,7 +43,7 @@ public class PosterEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Integer style;
+	private Integer styleId;
 	/**
 	 * 
 	 */

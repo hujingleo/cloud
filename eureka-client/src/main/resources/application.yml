@@ -82,3 +82,10 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull, oracle数据库必须配置
     jdbc-type-for-null: 'null'
+
+wechat:
+    appId: wxecd8c4fbea0e9ef1
+    appSecret: 6cb51c4ceae9ed6893f6429336515dab
+    grantType: authorization_code
+    mchId: 1252369901
+    key: RdFN333cKAFRaJVHu4xrt4QX5gADTaYk

@@ -11,4 +11,8 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements UserService {
 
 
+    @Override
+    public UserEntity queryByOpenId(String open_id) {
+        return null;
+    }
 }
