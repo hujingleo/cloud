@@ -27,7 +27,7 @@ public class PosterParticipantEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Integer openId;
+	private String openId;
 	/**
 	 * 
 	 */
@@ -35,7 +35,7 @@ public class PosterParticipantEntity implements Serializable {
 	/**
 	 *
 	 */
-	private Integer type;
+	private int type;
 	/**
 	 * 
 	 */
