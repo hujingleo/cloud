@@ -1,10 +1,12 @@
 package com.suyou.cloud.controller;
 
+import com.suyou.cloud.entity.PosterEntity;
 import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,5 +38,13 @@ public class PosterController {
     @GetMapping("/getById")
     public BaseResp getById(Integer id){
         return posterService.getById(id);
+    }
+
+    /**
+     * 保存
+     */
+    @RequestMapping("/save")
+    public BaseResp save(@RequestBody PosterEntity poster) {
+        return posterService.save(poster);
     }
 }

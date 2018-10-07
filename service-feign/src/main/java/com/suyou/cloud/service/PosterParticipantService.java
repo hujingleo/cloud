@@ -1,11 +1,9 @@
 package com.suyou.cloud.service;
 
+import com.suyou.cloud.entity.PosterParticipantEntity;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "service-user")
 public interface PosterParticipantService {
@@ -13,4 +11,6 @@ public interface PosterParticipantService {
     BaseResp list();
     @GetMapping(value = "/posterParticipant/getByPosterId")
     BaseResp getByPosterId(@RequestParam(value = "posterId")Integer posterId);
+    @PostMapping(value = "/posterParticipant/save")
+    BaseResp save(@RequestBody PosterParticipantEntity posterParticipantEntity);
 }

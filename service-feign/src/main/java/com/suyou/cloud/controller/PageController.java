@@ -1,11 +1,10 @@
 package com.suyou.cloud.controller;
 
+import com.suyou.cloud.entity.PageEntity;
 import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,5 +36,12 @@ public class PageController {
     @GetMapping("/getById")
     public BaseResp getById(Integer id){
         return pageService.getById(id);
+    }
+    /**
+     * 保存
+     */
+    @PostMapping("/save")
+    public BaseResp save(@RequestBody PageEntity pageEntity) {
+        return pageService.save(pageEntity);
     }
 }
