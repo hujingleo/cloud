@@ -56,7 +56,7 @@ public class PosterController {
      * 保存
      */
     @RequestMapping("/save")
-    public BaseResp save( PosterEntity poster) {
+    public BaseResp save(@RequestBody PosterEntity poster) {
         try {
 //            poster.setCreatedDate(new Date());
             boolean result =posterService.insert(poster);

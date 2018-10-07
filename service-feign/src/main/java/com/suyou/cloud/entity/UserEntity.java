@@ -1,7 +1,7 @@
 package com.suyou.cloud.entity;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
+//import com.baomidou.mybatisplus.annotations.TableId;
+//import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,14 +15,14 @@ import java.util.Date;
  * @date 2018-09-28 15:45:56
  */
 @Data
-@TableName("tb_user")
+//@TableName("tb_user")
 public class UserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
-	@TableId
+//	@TableId
 	private int userId;
 	/**
 	 * 

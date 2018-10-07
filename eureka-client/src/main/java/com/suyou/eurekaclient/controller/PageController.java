@@ -52,7 +52,7 @@ public class PageController {
      * 保存
      */
     @PostMapping("/save")
-    public BaseResp save( PageEntity pageEntity) {
+    public BaseResp save(@RequestBody PageEntity pageEntity) {
         try {
 //            pageEntity.setCreatedDate(new Date());
             boolean result = pageService.insert(pageEntity);

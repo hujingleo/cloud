@@ -12,5 +12,5 @@ public interface PosterService {
     @GetMapping(value = "/poster/getById")
     BaseResp getById(@RequestParam(value = "id")Integer id);
     @PostMapping(value = "/poster/save")
-    BaseResp save(PosterEntity posterEntity);
+    BaseResp save(@RequestBody PosterEntity posterEntity);
 }
