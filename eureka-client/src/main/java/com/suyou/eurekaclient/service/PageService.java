@@ -16,5 +16,6 @@ import java.util.Map;
  * @date 2018-09-28 15:58:47
  */
 public interface PageService extends IService<PageEntity> {
+    int save(PageEntity pageEntity);
 }
 

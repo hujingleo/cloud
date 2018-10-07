@@ -23,7 +23,7 @@ public class UserEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private Long userId;
+	private int userId;
 	/**
 	 * 
 	 */

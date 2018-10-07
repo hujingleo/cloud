@@ -1,6 +1,7 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.suyou.eurekaclient.service.PageService;
 import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:47
  */
+@Slf4j
 @RestController
 @RequestMapping("page")
 public class PageController {
@@ -48,19 +51,26 @@ public class PageController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    @RequiresPermissions("generator:page:save")
-    public R save(@RequestBody PageEntity page) {
-        pageService.insert(page);
-
-        return R.ok();
+    @PostMapping("/save")
+    public BaseResp save(@RequestBody PageEntity pageEntity) {
+        try {
+            pageEntity.setCreatedDate(new Date());
+            boolean result = pageService.insert(pageEntity);
+            if (result){
+                return BaseResp.ok("添加banner成功");
+            }
+        }catch (Exception e ){
+            e.printStackTrace();
+            log.error("添加banner异常，异常信息为 ： "+e.getMessage());
+            return BaseResp.error("添加banner异常");
+        }
+        return BaseResp.error("添加banner失败");
     }
 
     /**
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("generator:page:update")
     public R update(@RequestBody PageEntity page) {
         pageService.updateById(page);
 
@@ -71,7 +81,6 @@ public class PageController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("generator:page:delete")
     public R delete(@RequestBody Integer[] ids) {
         pageService.deleteBatchIds(Arrays.asList(ids));
 

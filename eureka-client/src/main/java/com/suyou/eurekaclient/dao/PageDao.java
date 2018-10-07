@@ -13,5 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface PageDao extends BaseMapper<PageEntity> {
-	
+	int save(PageEntity pageEntity);
 }

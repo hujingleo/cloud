@@ -23,7 +23,7 @@ public class PageEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private Integer id;
+	private int id;
 	/**
 	 * 
 	 */

@@ -23,7 +23,7 @@ public class SysPermissionEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private Long oid;
+	private int oid;
 	/**
 	 * 
 	 */

@@ -23,7 +23,7 @@ public class PosterStyleEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private Integer id;
+	private int id;
 	/**
 	 * 
 	 */

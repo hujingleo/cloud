@@ -23,7 +23,7 @@ public class SysUserEntity implements Serializable {
 	 * 
 	 */
 	@TableId
-	private Integer oid;
+	private int oid;
 	/**
 	 * 
 	 */

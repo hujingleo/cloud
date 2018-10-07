@@ -1,6 +1,7 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.suyou.eurekaclient.service.PosterStyleService;
 import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:46
  */
+@Slf4j
 @RestController
 @RequestMapping("posterStyle")
 public class PosterStyleController {
@@ -53,18 +56,25 @@ public class PosterStyleController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("generator:posterstyle:save")
-    public R save(@RequestBody PosterStyleEntity posterStyle) {
-        posterStyleService.insert(posterStyle);
-
-        return R.ok();
+    public BaseResp save(@RequestBody PosterStyleEntity posterStyle) {
+        try {
+            posterStyle.setCreatedDate(new Date());
+            boolean result =         posterStyleService.insert(posterStyle);
+        if (result){
+            return BaseResp.ok("添加海报风格成功");
+        }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("添加海报风格异常，异常信息为： "+ e.getMessage());
+            return BaseResp.error("添加海报风格异常");
+        }
+        return BaseResp.error("添加海报风格失败");
     }
 
     /**
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("generator:posterstyle:update")
     public R update(@RequestBody PosterStyleEntity posterStyle) {
         posterStyleService.updateById(posterStyle);
 
@@ -75,7 +85,6 @@ public class PosterStyleController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("generator:posterstyle:delete")
     public R delete(@RequestBody Integer[] ids) {
         posterStyleService.deleteBatchIds(Arrays.asList(ids));
 

@@ -51,7 +51,6 @@ public class UserController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("generator:user:save")
     public R save(@RequestBody UserEntity user){
 			userService.insert(user);
 

@@ -16,4 +16,8 @@ import java.util.Map;
 public class PageServiceImpl extends ServiceImpl<PageDao, PageEntity> implements PageService {
 
 
+    @Override
+    public int save(PageEntity pageEntity) {
+        return 0;
+    }
 }

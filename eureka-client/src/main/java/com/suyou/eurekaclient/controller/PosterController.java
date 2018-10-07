@@ -1,6 +1,7 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.suyou.eurekaclient.service.PosterService;
 import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:47
  */
+@Slf4j
 @RestController
 @RequestMapping("poster")
 public class PosterController {
@@ -53,18 +56,24 @@ public class PosterController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("generator:poster:save")
-    public R save(@RequestBody PosterEntity poster) {
-        posterService.insert(poster);
-
-        return R.ok();
+    public BaseResp save(@RequestBody PosterEntity poster) {
+        try {
+            poster.setCreatedDate(new Date());
+            boolean result =posterService.insert(poster);
+            if (result){
+                return BaseResp.ok("添加海报成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("添加海报异常，异常信息为 ： "+ e.getMessage());
+        }
+        return BaseResp.error("添加海报失败");
     }
 
     /**
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("generator:poster:update")
     public R update(@RequestBody PosterEntity poster) {
         posterService.updateById(poster);
 
@@ -75,7 +84,6 @@ public class PosterController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("generator:poster:delete")
     public R delete(@RequestBody Integer[] ids) {
         posterService.deleteBatchIds(Arrays.asList(ids));
 

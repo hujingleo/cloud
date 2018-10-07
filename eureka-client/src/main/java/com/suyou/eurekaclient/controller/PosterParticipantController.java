@@ -1,6 +1,7 @@
 package com.suyou.eurekaclient.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import com.suyou.eurekaclient.service.PosterParticipantService;
 import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
 import com.suyou.eurekaclient.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:46
  */
+@Slf4j
 @RestController
 @RequestMapping("posterParticipant")
 public class PosterParticipantController {
@@ -53,18 +56,25 @@ public class PosterParticipantController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("generator:posterparticipant:save")
-    public R save(@RequestBody PosterParticipantEntity posterParticipant) {
-        posterParticipantService.insert(posterParticipant);
-
-        return R.ok();
+    public BaseResp save(@RequestBody PosterParticipantEntity posterParticipant) {
+        try {
+            posterParticipant.setCreatedDate(new Date());
+            boolean result = posterParticipantService.insert(posterParticipant);
+            if (result){
+                return BaseResp.ok("添加海报参与者成功");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("添加海报参与者异常，异常信息为 ： " + e.getMessage());
+            return BaseResp.error("添加海报参与者异常");
+        }
+        return BaseResp.error("添加海报参与者失败");
     }
 
     /**
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("generator:posterparticipant:update")
     public R update(@RequestBody PosterParticipantEntity posterParticipant) {
         posterParticipantService.updateById(posterParticipant);
 
@@ -75,7 +85,6 @@ public class PosterParticipantController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("generator:posterparticipant:delete")
     public R delete(@RequestBody Integer[] ids) {
         posterParticipantService.deleteBatchIds(Arrays.asList(ids));
 
