@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -42,6 +43,7 @@ public class PageController {
      */
     @PostMapping("/save")
     public BaseResp save(@RequestBody PageEntity pageEntity) {
+        pageEntity.setCreatedDate(new Date());
         return pageService.save(pageEntity);
     }
 }

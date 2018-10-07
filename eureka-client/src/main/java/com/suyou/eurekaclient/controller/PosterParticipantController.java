@@ -56,9 +56,9 @@ public class PosterParticipantController {
      * 保存
      */
     @RequestMapping("/save")
-    public BaseResp save(@RequestBody PosterParticipantEntity posterParticipant) {
+    public BaseResp save( PosterParticipantEntity posterParticipant) {
         try {
-            posterParticipant.setCreatedDate(new Date());
+//            posterParticipant.setCreatedDate(new Date());
             boolean result = posterParticipantService.insert(posterParticipant);
             if (result){
                 return BaseResp.ok("添加海报参与者成功");

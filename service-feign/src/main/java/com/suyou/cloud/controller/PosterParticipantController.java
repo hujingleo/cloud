@@ -1,13 +1,13 @@
 package com.suyou.cloud.controller;
 
 import com.suyou.cloud.entity.PosterParticipantEntity;
+import com.suyou.cloud.entity.PosterStyleEntity;
 import com.suyou.cloud.service.PosterParticipantService;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 
 /**
@@ -43,8 +43,13 @@ public class PosterParticipantController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    public BaseResp save(@RequestBody PosterParticipantEntity posterParticipant) {
+    @PostMapping("/save")
+    public BaseResp save(Integer userId,Integer posterId,int type) {
+        PosterParticipantEntity posterParticipant = new PosterParticipantEntity();
+        posterParticipant.setCreatedDate(new Date());
+        posterParticipant.setUserId(userId);
+        posterParticipant.setPosterId(posterId);
+        posterParticipant.setType(type);
         return posterParticipantService.save(posterParticipant);
     }
 }

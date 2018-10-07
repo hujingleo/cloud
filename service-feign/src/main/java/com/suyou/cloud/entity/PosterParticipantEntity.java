@@ -35,7 +35,7 @@ public class PosterParticipantEntity implements Serializable {
 	/**
 	 *
 	 */
-	private Integer type;
+	private int type;
 	/**
 	 * 
 	 */

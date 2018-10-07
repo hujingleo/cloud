@@ -52,9 +52,9 @@ public class PageController {
      * 保存
      */
     @PostMapping("/save")
-    public BaseResp save(@RequestBody PageEntity pageEntity) {
+    public BaseResp save( PageEntity pageEntity) {
         try {
-            pageEntity.setCreatedDate(new Date());
+//            pageEntity.setCreatedDate(new Date());
             boolean result = pageService.insert(pageEntity);
             if (result){
                 return BaseResp.ok("添加banner成功");

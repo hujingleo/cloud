@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 
 /**
  * 
@@ -45,6 +47,7 @@ public class PosterController {
      */
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterEntity poster) {
+        poster.setCreatedDate(new Date());
         return posterService.save(poster);
     }
 }

@@ -56,9 +56,9 @@ public class PosterStyleController {
      * 保存
      */
     @RequestMapping("/save")
-    public BaseResp save(@RequestBody PosterStyleEntity posterStyle) {
+    public BaseResp save(PosterStyleEntity posterStyle) {
         try {
-            posterStyle.setCreatedDate(new Date());
+//            posterStyle.setCreatedDate(new Date());
             boolean result =         posterStyleService.insert(posterStyle);
         if (result){
             return BaseResp.ok("添加海报风格成功");
