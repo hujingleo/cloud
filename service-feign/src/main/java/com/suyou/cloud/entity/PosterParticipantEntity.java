@@ -27,7 +27,7 @@ public class PosterParticipantEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private Integer userId;
+	private String openId;
 	/**
 	 * 
 	 */

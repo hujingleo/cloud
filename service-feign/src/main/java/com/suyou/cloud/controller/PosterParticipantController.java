@@ -4,9 +4,11 @@ import com.suyou.cloud.entity.PosterParticipantEntity;
 import com.suyou.cloud.entity.PosterStyleEntity;
 import com.suyou.cloud.service.PosterParticipantService;
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 
@@ -44,10 +46,10 @@ public class PosterParticipantController {
      * 保存
      */
     @PostMapping("/save")
-    public BaseResp save(Integer userId,Integer posterId,int type) {
+    public BaseResp save(HttpServletRequest request,Integer posterId, int type) {
         PosterParticipantEntity posterParticipant = new PosterParticipantEntity();
         posterParticipant.setCreatedDate(new Date());
-        posterParticipant.setUserId(userId);
+        posterParticipant.setOpenId(JWTUtil.getCurrentUserOpenId(request));
         posterParticipant.setPosterId(posterId);
         posterParticipant.setType(type);
         return posterParticipantService.save(posterParticipant);
