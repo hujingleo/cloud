@@ -2,7 +2,10 @@ package com.suyou.eurekaclient.service;
 
 
 import com.baomidou.mybatisplus.service.IService;
+import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.entity.PosterParticipantEntity;
+
+import java.util.List;
 
 /**
  * 
@@ -12,6 +15,5 @@ import com.suyou.eurekaclient.entity.PosterParticipantEntity;
  * @date 2018-09-28 15:58:46
  */
 public interface PosterParticipantService extends IService<PosterParticipantEntity> {
-
 }
 

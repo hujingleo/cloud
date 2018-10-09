@@ -23,5 +23,20 @@
         <result property="updatedDate" column="updated_date"/>
     </resultMap>
 
-
+    <select id="getByOpenIdAndType" resultMap="posterMap">
+SELECT
+	*
+FROM
+	tb_poster
+WHERE
+	id IN (
+		SELECT
+			poster_id
+		FROM
+			tb_poster_participant
+		WHERE
+			open_id = #{openId}
+		AND type = #{type}
+	);
+</select>
 </mapper>

@@ -10,7 +10,11 @@ public interface PosterService {
     @RequestMapping(value = "/poster/list",method = RequestMethod.GET)
     BaseResp list();
     @GetMapping(value = "/poster/getById")
-    BaseResp getById(@RequestParam(value = "id")Integer id);
+    BaseResp getById(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
     @PostMapping(value = "/poster/save")
     BaseResp save(@RequestBody PosterEntity posterEntity);
+    @GetMapping(value = "/poster/getByOpenIdAndType")
+    BaseResp getByOpenIdAndType(@RequestParam(value = "openId")String openId,@RequestParam(value = "type")String type);
+    @GetMapping(value = "/poster/getMyPoster")
+    BaseResp getMyPoster(@RequestParam(value = "openId")String openId);
 }

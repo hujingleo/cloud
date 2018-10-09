@@ -3,6 +3,9 @@ package com.suyou.eurekaclient.dao;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.suyou.eurekaclient.entity.PosterEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 
@@ -13,5 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface PosterDao extends BaseMapper<PosterEntity> {
-	
+    List<PosterEntity> getByOpenIdAndType(@Param("openId") String openId, @Param("type") String type);
 }

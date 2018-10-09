@@ -1,17 +1,15 @@
 package com.suyou.eurekaclient.controller;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.entity.PosterParticipantEntity;
 import com.suyou.eurekaclient.service.PosterParticipantService;
-import com.suyou.eurekaclient.utils.BaseResp;
-import com.suyou.eurekaclient.utils.PageUtils;
-import com.suyou.eurekaclient.utils.R;
+import com.suyou.eurekaclient.service.PosterService;
+import com.suyou.eurekaclient.utils.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +30,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PosterParticipantController {
     @Autowired
     private PosterParticipantService posterParticipantService;
+    @Autowired
+    private PosterService posterService;
 
     /**
      * 列表
@@ -70,6 +70,9 @@ public class PosterParticipantController {
         }
         return BaseResp.error("添加海报参与者失败");
     }
+
+
+
 
     /**
      * 修改

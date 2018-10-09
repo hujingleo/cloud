@@ -1,8 +1,12 @@
 package com.suyou.eurekaclient.dao;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.entity.PosterParticipantEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 
@@ -13,5 +17,4 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface PosterParticipantDao extends BaseMapper<PosterParticipantEntity> {
-	
 }

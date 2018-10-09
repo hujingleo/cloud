@@ -4,6 +4,8 @@ import com.suyou.cloud.entity.PosterEntity;
 import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.JWTUtil;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -38,10 +41,27 @@ public class PosterController {
      *获取详情
      */
     @GetMapping("/getById")
-    public BaseResp getById(Integer id){
-        return posterService.getById(id);
+    public BaseResp getById(HttpServletRequest request , Integer id){
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        return posterService.getById(openId,id);
     }
 
+    /**
+     * 我的收藏
+     */
+    @RequestMapping("/getByOpenIdAndType")
+    public BaseResp getByOpenIdAndType(HttpServletRequest request,String type) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        return posterService.getByOpenIdAndType(openId,type);
+    }
+    /**
+     * 我的制作
+     */
+    @RequestMapping("/getMyPoster")
+    public BaseResp getMyPoster(HttpServletRequest request) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        return posterService.getMyPoster(openId);
+    }
     /**
      * 保存
      */
