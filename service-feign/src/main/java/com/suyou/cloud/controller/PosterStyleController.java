@@ -30,8 +30,8 @@ public class PosterStyleController {
      * 列表
      */
     @RequestMapping("/list")
-    public BaseResp list(){
-        return posterStyleService.list();
+    public BaseResp list(String type){
+        return posterStyleService.list(type);
     }
 
     /**
