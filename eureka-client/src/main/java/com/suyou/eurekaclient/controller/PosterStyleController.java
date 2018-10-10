@@ -37,8 +37,8 @@ public class PosterStyleController {
      * 列表
      */
     @RequestMapping("/list")
-    public BaseResp list() {
-        List<PosterStyleEntity> list = posterStyleService.selectList(new EntityWrapper<>());
+    public BaseResp list(String type) {
+        List<PosterStyleEntity> list = posterStyleService.selectList(new EntityWrapper<PosterStyleEntity>().eq("type",type));
         return BaseResp.ok(list);
     }
 
