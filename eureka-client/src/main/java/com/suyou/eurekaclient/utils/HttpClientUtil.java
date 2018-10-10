@@ -1,6 +1,6 @@
 package com.suyou.eurekaclient.utils;
 
-import net.sf.json.JSONObject;
+//import net.sf.json.JSONObject;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -8,14 +8,14 @@ import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
+//import org.apache.http.HttpEntity;
+//import org.apache.http.HttpResponse;
+//import org.apache.http.client.methods.HttpPost;
+//import org.apache.http.entity.StringEntity;
+//import org.apache.http.impl.client.DefaultHttpClient;
+//import org.apache.http.message.BasicHeader;
+//import org.apache.http.protocol.HTTP;
+//import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public class HttpClientUtil {
 
 	/**
 	 * 通过Get方法调用第三方接口
-	 * 
+	 *
 	 * @param url
 	 * @return
 	 */
@@ -100,7 +100,7 @@ public class HttpClientUtil {
 
 	/**
 	 * 通过Post方法调用第三方接口
-	 * 
+	 *
 	 * @param url
 	 * @param paramMap
 	 *            添加的参数
@@ -171,82 +171,82 @@ public class HttpClientUtil {
 		return responseContent;
 	}
 
-	/**
-	 * post请求
-	 * @param url
-	 * @param json
-	 * @return
-	 */
-	public static JSONObject doPost(String url,JSONObject json){
-		DefaultHttpClient client = new DefaultHttpClient();
-		HttpPost post = new HttpPost(url);
-		JSONObject response = null;
-		try {
-			StringEntity s = new StringEntity(json.toString());
-			s.setContentEncoding("UTF-8");
-			s.setContentType("application/json");//发送json数据需要设置contentType
-			post.setEntity(s);
-			HttpResponse res = client.execute(post);
-			if(res.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
-				HttpEntity entity = res.getEntity();
-				String result = EntityUtils.toString(res.getEntity());// 返回json格式：
-				response = JSONObject.fromObject(result);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-		return response;
-	}
-
-	public static String post(JSONObject json,String URL) {
-
-		DefaultHttpClient client = new DefaultHttpClient();
-		HttpPost post = new HttpPost(URL);
-		post.setHeader("Content-Type", "application/json");
-		post.addHeader("Authorization", "Basic YWRtaW46");
-		String result = "";
-
-		try {
-
-			StringEntity s = new StringEntity(json.toString(), "utf-8");
-			s.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,
-					"application/json"));
-			post.setEntity(s);
-
-			// 发送请求
-			HttpResponse httpResponse = client.execute(post);
-
-			// 获取响应输入流
-			InputStream inStream = httpResponse.getEntity().getContent();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					inStream, "utf-8"));
-			StringBuilder strber = new StringBuilder();
-			String line = null;
-			while ((line = reader.readLine()) != null)
-				strber.append(line + "\n");
-			inStream.close();
-
-			result = strber.toString();
-			System.out.println(result);
-
-			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-
-				System.out.println("请求服务器成功，做相应处理");
-
-			} else {
-
-				System.out.println("请求服务端失败");
-
-			}
-
-
-		} catch (Exception e) {
-			System.out.println("请求异常");
-			throw new RuntimeException(e);
-		}
-
-		return result;
-	}
+//	/**
+//	 * post请求
+//	 * @param url
+//	 * @param json
+//	 * @return
+//	 */
+//	public static JSONObject doPost(String url,JSONObject json){
+//		DefaultHttpClient client = new DefaultHttpClient();
+//		HttpPost post = new HttpPost(url);
+//		JSONObject response = null;
+//		try {
+//			StringEntity s = new StringEntity(json.toString());
+//			s.setContentEncoding("UTF-8");
+//			s.setContentType("application/json");//发送json数据需要设置contentType
+//			post.setEntity(s);
+//			HttpResponse res = client.execute(post);
+//			if(res.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
+//				HttpEntity entity = res.getEntity();
+//				String result = EntityUtils.toString(res.getEntity());// 返回json格式：
+//				response = JSONObject.fromObject(result);
+//			}
+//		} catch (Exception e) {
+//			throw new RuntimeException(e);
+//		}
+//		return response;
+//	}
+//
+//	public static String post(JSONObject json,String URL) {
+//
+//		DefaultHttpClient client = new DefaultHttpClient();
+//		HttpPost post = new HttpPost(URL);
+//		post.setHeader("Content-Type", "application/json");
+//		post.addHeader("Authorization", "Basic YWRtaW46");
+//		String result = "";
+//
+//		try {
+//
+//			StringEntity s = new StringEntity(json.toString(), "utf-8");
+//			s.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,
+//					"application/json"));
+//			post.setEntity(s);
+//
+//			// 发送请求
+//			HttpResponse httpResponse = client.execute(post);
+//
+//			// 获取响应输入流
+//			InputStream inStream = httpResponse.getEntity().getContent();
+//			BufferedReader reader = new BufferedReader(new InputStreamReader(
+//					inStream, "utf-8"));
+//			StringBuilder strber = new StringBuilder();
+//			String line = null;
+//			while ((line = reader.readLine()) != null)
+//				strber.append(line + "\n");
+//			inStream.close();
+//
+//			result = strber.toString();
+//			System.out.println(result);
+//
+//			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+//
+//				System.out.println("请求服务器成功，做相应处理");
+//
+//			} else {
+//
+//				System.out.println("请求服务端失败");
+//
+//			}
+//
+//
+//		} catch (Exception e) {
+//			System.out.println("请求异常");
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//	}
 
 	public  static String methodPost(String url,NameValuePair[] data){
 
