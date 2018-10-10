@@ -12,45 +12,30 @@ import java.util.Date;
  * 
  * @author chenshun
  * @email sunlightcs@gmail.com
- * @date 2018-09-28 15:45:56
+ * @date 2018-08-31 10:52:33
  */
 @Data
-@TableName("tb_poster_style")
-public class PosterStyleEntity implements Serializable {
+@TableName("tb_user_formid")
+public class UserFormidEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 */
 	@TableId
-	private int id;
+	private Integer id;
 	/**
 	 * 
 	 */
-	private String name;
+	private String openId;
 	/**
 	 * 
 	 */
-	private String content;
+	private String formId;
 	/**
-	 * 
-	 */
-	private String structure;
-	/**
-	 *
-	 */
-	private String imageUrl;
-	/**
-	 *
-	 */
-	private String type;
-	/**p
 	 * 
 	 */
 	private Date createdDate;
-	/**
-	 * 
-	 */
-	private Date updatedDate;
 
+	private String formidType;
 }

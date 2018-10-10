@@ -41,6 +41,10 @@ public class PosterStyleEntity implements Serializable {
 	 */
 	private String imageUrl;
 	/**
+	 *
+	 */
+	private String type;
+	/**
 	 * 
 	 */
 	private Date createdDate;
