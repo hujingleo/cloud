@@ -19,25 +19,25 @@ public class AccessTokenUpdateUtil {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
 
-    @Value("${cikers.wechat.appId}")
-    private String appId;
-    @Value("${cikers.wechat.appSecret}")
-    private String appSecret;
+//    @Value("${cikers.wechat.appId}")
+//    private String appId;
+//    @Value("${cikers.wechat.appSecret}")
+//    private String appSecret;
     @Autowired
     private AccessTokenService accessTokenService;
-    @Scheduled(cron = "0 0/10  *  * * ? ") // 每30分钟执行一次更新accesstoken
-    public void scheduler() {
-        log.warn("开始执行更新accesstoken定时任务" +new Date().toString());
-        String access_token = WechatUtils.getAccessToken(appId, appSecret);
-        log.warn("得到accesstoken为"+access_token);
-        if (StringTools.isNullOrEmpty(access_token)){
-            access_token = WechatUtils.getAccessToken(appId, appSecret);
-        }
-        int updateResult = accessTokenService.updateAccessTokenByAppId(appId,access_token);
-        if (1!=updateResult){
-            log.error("更新access_token失败,access_token为: " + access_token);
-        }
-    }
+//    @Scheduled(cron = "0 0/10  *  * * ? ") // 每30分钟执行一次更新accesstoken
+//    public void scheduler() {
+//        log.warn("开始执行更新accesstoken定时任务" +new Date().toString());
+//        String access_token = WechatUtils.getAccessToken(appId, appSecret);
+//        log.warn("得到accesstoken为"+access_token);
+//        if (StringTools.isNullOrEmpty(access_token)){
+//            access_token = WechatUtils.getAccessToken(appId, appSecret);
+//        }
+//        int updateResult = accessTokenService.updateAccessTokenByAppId(appId,access_token);
+//        if (1!=updateResult){
+//            log.error("更新access_token失败,access_token为: " + access_token);
+//        }
+//    }
 
 
 //    public static void main(String[] args) {
