@@ -141,8 +141,8 @@ public class WechatUtils {
         httpClient = HttpClients.custom().setSSLSocketFactory(sslsf).build();
     }
 
-    public static void main(String[] args) {
-        String a = getAccessToken("wxecd8c4fbea0e9ef1","6cb51c4ceae9ed6893f6429336515dab");
-        System.out.println(a);
-    }
+//    public static void main(String[] args) {
+//        String a = getAccessToken("wxecd8c4fbea0e9ef1","6cb51c4ceae9ed6893f6429336515dab");
+//        System.out.println(a);
+//    }
 }
