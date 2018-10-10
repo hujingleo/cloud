@@ -84,8 +84,12 @@ mybatis-plus:
     jdbc-type-for-null: 'null'
 
 wechat:
-    appId: wxecd8c4fbea0e9ef1
-    appSecret: 6cb51c4ceae9ed6893f6429336515dab
+    appId: wxcb530c140be871b2
+#    wxcb530c140be871b2
+#wxecd8c4fbea0e9ef1
+    appSecret: 1ed62575110442334b944dc841cc0b77
+#    1ed62575110442334b944dc841cc0b77
+#6cb51c4ceae9ed6893f6429336515dab
     grantType: authorization_code
     mchId: 1252369901
     key: RdFN333cKAFRaJVHu4xrt4QX5gADTaYk
