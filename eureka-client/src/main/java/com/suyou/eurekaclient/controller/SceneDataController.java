@@ -49,12 +49,12 @@ public class SceneDataController {
     private UserService userService;
 
     //根据id获取scene_data
-    @GetMapping("/getSceneId")
-    @ApiOperation(value = "根据id获取scene_data")
+    @GetMapping("/getBySceneId")
+    @ApiOperation(value = "根据id获取sceneData")
     @ResponseBody
-    public BaseResp getSceneId(Long sceneId) {
+    public BaseResp getBySceneId(Long sceneId) {
         if (sceneId == null || sceneId == 0) {
-            return BaseResp.error(98, "scene_id不能为空");
+            return BaseResp.error(98, "sceneId不能为空");
         }
         return BaseResp.ok(sceneDataService.getSceneStrById(sceneId));
     }
