@@ -49,7 +49,7 @@ public class SceneDataController {
     private UserService userService;
 
     //根据id获取scene_data
-    @GetMapping(value = "getSceneId")
+    @GetMapping("/getSceneId")
     @ApiOperation(value = "根据id获取scene_data")
     @ResponseBody
     public BaseResp getSceneId(Long scene_id) {
@@ -60,7 +60,7 @@ public class SceneDataController {
     }
 
     //保存scene_data返回对应id
-    @PostMapping(value = "saveSceneData")
+    @PostMapping("/saveSceneData")
     @ApiOperation(value = "保存scene_data返回对应id")
     @ResponseBody
     public BaseResp saveSceneData(String scene_str) {
@@ -81,7 +81,7 @@ public class SceneDataController {
     }
 
     //获取小程序码
-    @RequestMapping("getWXacode.jpg")
+    @RequestMapping("/getWXacode")
     @ResponseBody
     public ResponseEntity<byte[]> getWXacode(HttpServletRequest request, String scene_id, String page) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
