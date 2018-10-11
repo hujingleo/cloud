@@ -68,7 +68,6 @@ public class PosterParticipantController {
         if (StringTools.isNullOrEmpty(openId)){
             return BaseResp.error(-3,"token非法");
         }
-
         return posterParticipantService.reserve(openId,posterId);
     }
 }
