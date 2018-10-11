@@ -15,6 +15,7 @@ import java.util.List;
  */
 public interface PosterService extends IService<PosterEntity> {
     List<PosterEntity> getByOpenIdAndType(String openId,String type);
+    List<PosterEntity> getMyProduction(String openId );
 
 }
 

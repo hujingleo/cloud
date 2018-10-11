@@ -17,4 +17,6 @@ public interface PosterService {
     BaseResp getByOpenIdAndType(@RequestParam(value = "openId")String openId,@RequestParam(value = "type")String type);
     @GetMapping(value = "/poster/getMyPoster")
     BaseResp getMyPoster(@RequestParam(value = "openId")String openId);
+    @GetMapping(value = "/poster/getMyProduction")
+    BaseResp getMyProduction(@RequestParam(value = "openId")String openId);
 }

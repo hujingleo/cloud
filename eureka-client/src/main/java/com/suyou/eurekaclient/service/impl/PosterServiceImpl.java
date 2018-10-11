@@ -18,4 +18,9 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
         return baseMapper.getByOpenIdAndType(openId,type);
     }
 
+    @Override
+    public List<PosterEntity> getMyProduction(String openId) {
+        return baseMapper.getMyProduction(openId);
+    }
+
 }

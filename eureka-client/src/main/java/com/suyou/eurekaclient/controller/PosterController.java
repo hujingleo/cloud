@@ -1,9 +1,6 @@
 package com.suyou.eurekaclient.controller;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.suyou.eurekaclient.entity.PosterEntity;
@@ -127,7 +124,17 @@ public class PosterController {
         List<PosterEntity> list = posterService.selectList(new EntityWrapper<PosterEntity>().eq("created_by", openId));
         return BaseResp.ok(list);
     }
-
+    /**
+     * 我的作品
+     */
+    @RequestMapping("/getMyProduction")
+    public BaseResp getMyProduction(String openId) {
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        List<PosterEntity> list = posterService.getMyProduction(openId);
+        return BaseResp.ok(list);
+    }
     /**
      * 修改
      */

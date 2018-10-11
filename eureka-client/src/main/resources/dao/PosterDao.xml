@@ -3,7 +3,7 @@
 
 <mapper namespace="com.suyou.eurekaclient.dao.PosterDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.suyou.eurekaclient.entity.PosterEntity" id="posterMap">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
@@ -40,5 +40,14 @@ WHERE
 			open_id = #{openId}
 		AND type = #{type}
 	);
+</select>
+    <select id="getMyProduction" resultMap="posterMap">
+SELECT
+	*
+FROM
+	tb_poster
+		WHERE
+			created_by = #{openId}
+		AND type &lt;&gt;  'MEETING'
 </select>
 </mapper>

@@ -65,6 +65,14 @@ public class PosterController {
         return posterService.getMyPoster(openId);
     }
     /**
+     * 我的作品
+     */
+    @RequestMapping("/getMyProduction")
+    public BaseResp getMyProduction(HttpServletRequest request) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        return posterService.getMyProduction(openId);
+    }
+    /**
      * 保存
      */
     @RequestMapping("/save")

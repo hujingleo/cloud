@@ -1,5 +1,6 @@
 package com.suyou.eurekaclient.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
@@ -68,6 +69,7 @@ public class PosterEntity implements Serializable {
 	/**
 	 *
 	 */
+	@TableField(exist = false)
 	private List<String> pictureList;
 	/**
 	 *

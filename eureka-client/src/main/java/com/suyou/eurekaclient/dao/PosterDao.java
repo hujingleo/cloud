@@ -17,4 +17,5 @@ import java.util.List;
 @Mapper
 public interface PosterDao extends BaseMapper<PosterEntity> {
     List<PosterEntity> getByOpenIdAndType(@Param("openId") String openId, @Param("type") String type);
+    List<PosterEntity> getMyProduction(@Param("openId") String openId);
 }
