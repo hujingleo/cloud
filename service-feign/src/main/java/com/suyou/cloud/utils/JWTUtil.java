@@ -73,6 +73,9 @@ public class JWTUtil {
     public static String getCurrentUserOpenId(HttpServletRequest request) {
         try {
             String token=request.getHeader("token");
+            if (StringTools.isNullOrEmpty(token)){
+                return null;
+            }
             DecodedJWT jwt = JWT.decode(token);
             return jwt.getClaim("openId").asString();
         } catch (JWTDecodeException e) {

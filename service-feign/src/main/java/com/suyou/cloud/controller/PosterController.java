@@ -42,6 +42,9 @@ public class PosterController {
     @GetMapping("/getById")
     public BaseResp getById(HttpServletRequest request , Integer id){
         String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token 非法");
+        }
         return posterService.getById(openId,id);
     }
 
