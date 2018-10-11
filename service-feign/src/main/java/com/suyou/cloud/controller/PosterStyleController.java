@@ -4,6 +4,7 @@ import com.suyou.cloud.entity.PosterStyleEntity;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.service.PosterStyleService;
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.StringTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,9 @@ public class PosterStyleController {
      */
     @RequestMapping("/list")
     public BaseResp list(String type){
+        if (StringTools.isNullOrEmpty(type)){
+            return BaseResp.error("type参数不能为空");
+        }
         return posterStyleService.list(type);
     }
 
