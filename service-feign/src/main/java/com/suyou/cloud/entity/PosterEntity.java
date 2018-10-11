@@ -56,6 +56,10 @@ public class PosterEntity implements Serializable {
 	/**
 	 *
 	 */
+	private String previewImage;
+	/**
+	 *
+	 */
 	private String createdBy;
 	/**
 	 *
