@@ -1,18 +1,16 @@
 package com.suyou.cloud.controller;
 
 import com.suyou.cloud.entity.PosterEntity;
-import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.utils.BaseResp;
 import com.suyou.cloud.utils.JWTUtil;
-import com.suyou.cloud.utils.QiNiuUtils;
 import com.suyou.cloud.utils.StringTools;
+import com.suyou.cloud.utils.qiniu.QiNiuUtils;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.List;
 
 
 /**

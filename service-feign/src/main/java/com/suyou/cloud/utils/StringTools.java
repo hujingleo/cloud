@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import org.apache.commons.codec.binary.Base64;
 /**
  * 字符串工具类
  *
@@ -895,6 +895,10 @@ public class StringTools {
         } catch (Exception e) {
             return phone;
         }
+    }
+    //base64字符串转byte[]
+    public static byte[] base64String2ByteFun(String base64Str){
+        return Base64.decodeBase64(base64Str);
     }
 
 }
