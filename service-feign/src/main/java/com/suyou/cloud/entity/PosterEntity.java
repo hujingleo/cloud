@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 
@@ -64,6 +65,22 @@ public class PosterEntity implements Serializable {
 	 *
 	 */
 	private String awardTo;
+	/**
+	 *
+	 */
+	private List<String> pictureList;
+	/**
+	 *
+	 */
+	private String pictures;
+	/**
+	 *
+	 */
+	private int remind;
+	/**
+	 *
+	 */
+	private int remindBefore;
 	/**
 	 * 
 	 */

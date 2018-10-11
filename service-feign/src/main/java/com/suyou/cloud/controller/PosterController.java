@@ -68,6 +68,11 @@ public class PosterController {
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterEntity poster) {
         poster.setCreatedDate(new Date());
+        if (null!=poster.getPictureList()&&!poster.getPictureList().isEmpty()){
+            String pictures = String.join(",", poster.getPictureList());
+            poster.setPictures(pictures);
+            poster.setPictureList(null);
+        }
         return posterService.save(poster);
     }
 }

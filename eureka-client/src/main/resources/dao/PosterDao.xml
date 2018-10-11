@@ -17,6 +17,8 @@
         <result property="birthdayPerson" column="birthday_person"/>
         <result property="awardTo" column="award_to"/>
         <result property="remindBeford" column="remind_beford"/>
+        <result property="pictures" column="pictures"/>
+        <result property="remind" column="remind"/>
         <result property="startDate" column="start_date"/>
         <result property="endDate" column="ent_date"/>
         <result property="createdDate" column="created_date"/>
