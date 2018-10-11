@@ -86,13 +86,14 @@ public class PosterController {
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterEntity poster) {
         try {
-            int id = posterService.save(poster);
-            if (0!=id) {
+            int updateResult  = posterService.save(poster);
+            if(1!=updateResult){
+                return BaseResp.error("插入失败");
+            }
                 BaseResp baseResp = new BaseResp();
                 baseResp.setMsg("插入成功");
-                baseResp.setData(id);
+                baseResp.setData(poster.getId());
                 return baseResp;
-            }
         } catch (Exception e) {
             e.printStackTrace();
             log.error("添加海报异常，异常信息为 ： " + e.getMessage());

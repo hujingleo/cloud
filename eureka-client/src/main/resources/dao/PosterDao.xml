@@ -25,17 +25,17 @@
         <result property="updatedDate" column="updated_date"/>
     </resultMap>
 
-    <insert id="save" parameterType="com.suyou.eurekaclient.entity.PosterEntity"  useGeneratedKeys="true" keyProperty="id">
-    insert into tb_poster
-    (
-name,type,title,content,style_id,state,image_url,created_by,birthday_person,award_to,remind_before,pictures,remind,start_date,end_date,created_date,updated_date
-    ) values
-     (
-#{name},#{type },#{title},#{content},#{styleId},#{state},#{imageUrl},#{createdBy},#{birthdayPerson},#{awardTo},
-#{remindBefore},#{pictures},#{remind},#{startDate},#{endDate},#{createdDate},#{updatedDate}
-     )
+    <insert id="savePoster" parameterType="com.suyou.eurekaclient.entity.PosterEntity"  useGeneratedKeys="true" keyProperty="id">
+        insert into tb_poster
+        (
+        name,type,title,content,style_id,state,image_url,created_by,birthday_person,award_to,remind_before,pictures,remind,start_date,end_date,created_date,updated_date
+        ) values
+        (
+        #{name},#{type },#{title},#{content},#{styleId},#{state},#{imageUrl},#{createdBy},#{birthdayPerson},#{awardTo},
+        #{remindBefore},#{pictures},#{remind},#{startDate},#{endDate},#{createdDate},#{updatedDate}
+        )
     </insert>
-    
+
     <select id="getByOpenIdAndType" resultMap="posterMap">
 SELECT
 	*

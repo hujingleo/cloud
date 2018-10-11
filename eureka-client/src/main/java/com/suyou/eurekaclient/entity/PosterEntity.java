@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -82,7 +83,7 @@ public class PosterEntity implements Serializable {
 	/**
 	 *
 	 */
-	private int remindBefore;
+	private BigInteger remindBefore;
 	/**
 	 * 
 	 */

@@ -24,7 +24,7 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
     @Override
     public int save(PosterEntity posterEntity) {
-        return baseMapper.save(posterEntity);
+        return baseMapper.savePoster(posterEntity);
     }
 
 }
