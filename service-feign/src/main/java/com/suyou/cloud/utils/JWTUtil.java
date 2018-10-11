@@ -57,6 +57,9 @@ public class JWTUtil {
     public static String getCurrentUsername(HttpServletRequest request) {
         try {
             String token=request.getHeader("token");
+            if (StringTools.isNullOrEmpty(token)){
+                return null;
+            }
             DecodedJWT jwt = JWT.decode(token);
             return jwt.getClaim("username").asString();
         } catch (JWTDecodeException e) {

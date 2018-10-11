@@ -14,13 +14,17 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
 
 
     @Override
-    public List<PosterEntity> getByOpenIdAndType(String openId,String type) {
-        return baseMapper.getByOpenIdAndType(openId,type);
+    public List<PosterEntity> getByOpenIdAndType(String openId, String type) {
+        return baseMapper.getByOpenIdAndType(openId, type);
     }
 
     @Override
     public List<PosterEntity> getMyProduction(String openId) {
         return baseMapper.getMyProduction(openId);
+    }
+    @Override
+    public int save(PosterEntity posterEntity) {
+        return baseMapper.save(posterEntity);
     }
 
 }

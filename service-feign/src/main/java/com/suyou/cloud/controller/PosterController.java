@@ -9,10 +9,7 @@ import com.suyou.cloud.utils.QiNiuUtils;
 import com.suyou.cloud.utils.StringTools;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -78,6 +75,9 @@ public class PosterController {
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterEntity poster,HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token 非法");
+        }
         if (!StringTools.isNullOrEmpty(openId)){
             poster.setCreatedBy(openId);
         }
@@ -102,4 +102,11 @@ public class PosterController {
         return BaseResp.ok(upToken);
     }
 
+    /**
+     * 修改
+     */
+    @PostMapping("/update")
+    public BaseResp update(@RequestBody PosterEntity poster) {
+        return posterService.update(poster);
+    }
 }

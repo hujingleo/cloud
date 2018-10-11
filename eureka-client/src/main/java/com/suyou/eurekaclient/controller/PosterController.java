@@ -86,9 +86,12 @@ public class PosterController {
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterEntity poster) {
         try {
-            boolean result = posterService.insert(poster);
-            if (result) {
-                return BaseResp.ok("添加海报成功");
+            int id = posterService.save(poster);
+            if (0!=id) {
+                BaseResp baseResp = new BaseResp();
+                baseResp.setMsg("插入成功");
+                baseResp.setData(id);
+                return baseResp;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,10 +142,20 @@ public class PosterController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody PosterEntity poster) {
-        posterService.updateById(poster);
+    public BaseResp update(@RequestBody PosterEntity poster) {
+        if (0==poster.getId()||null==posterService.selectById(poster.getId())){
+            log.error("更新id非法，id为 ："+poster.getId());
+            return BaseResp.error("更新id非法，id为 ："+poster.getId());
+        }
+        try {
 
-        return R.ok();
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("更新失败，id为 ： "+poster.getId());
+        }
+        boolean result = posterService.updateById(poster);
+
+        return BaseResp.ok();
     }
 
     /**
