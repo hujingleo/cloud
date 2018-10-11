@@ -16,8 +16,6 @@ import java.util.List;
 
 
 /**
- * 
- *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2018-09-28 15:58:47
@@ -32,69 +30,82 @@ public class PosterController {
      * 列表
      */
     @GetMapping("/list")
-    public BaseResp list(){
+    public BaseResp list() {
         return posterService.list();
     }
 
     /**
-     *获取详情
+     * 获取详情
      */
     @GetMapping("/getById")
-    public BaseResp getById(HttpServletRequest request , Integer id){
+    public BaseResp getById(HttpServletRequest request, Integer id) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
-        if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token 非法");
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
         }
-        return posterService.getById(openId,id);
+        return posterService.getById(openId, id);
     }
 
     /**
      * 我的收藏
      */
     @RequestMapping("/getByOpenIdAndType")
-    public BaseResp getByOpenIdAndType(HttpServletRequest request,String type) {
+    public BaseResp getByOpenIdAndType(HttpServletRequest request, String type) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
-        if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token 非法");
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
         }
-        return posterService.getByOpenIdAndType(openId,type);
+        return posterService.getByOpenIdAndType(openId, type);
     }
+
     /**
      * 我的制作
      */
     @RequestMapping("/getMyPoster")
     public BaseResp getMyPoster(HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
-        if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token 非法");
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
         }
         return posterService.getMyPoster(openId);
     }
+
     /**
      * 我的作品
      */
     @RequestMapping("/getMyProduction")
     public BaseResp getMyProduction(HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
-        if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token 非法");
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
         }
         return posterService.getMyProduction(openId);
     }
+
     /**
      * 保存
      */
     @RequestMapping("/save")
-    public BaseResp save(@RequestBody PosterEntity poster,HttpServletRequest request) {
+    public BaseResp save(@RequestBody PosterEntity poster, HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
-        if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token 非法");
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
         }
-        if (!StringTools.isNullOrEmpty(openId)){
-            poster.setCreatedBy(openId);
+        if (StringTools.isNullOrEmpty(poster.getName())){
+            return BaseResp.error("名字不能为空");
         }
+        if (StringTools.isNullOrEmpty(poster.getType())){
+            return BaseResp.error("类型不能为空");
+        }
+        if (StringTools.isNullOrEmpty(poster.getContent())){
+            return BaseResp.error("内容不能为空");
+        }
+        if (StringTools.isNullOrEmpty(poster.getTitle())){
+            return BaseResp.error("标题不能为空");
+        }
+        poster.setCreatedBy(openId);
         poster.setCreatedDate(new Date());
-        if (null!=poster.getPictureList()&&!poster.getPictureList().isEmpty()){
+        if (null != poster.getPictureList() && !poster.getPictureList().isEmpty()) {
             String pictures = String.join(",", poster.getPictureList());
             poster.setPictures(pictures);
             poster.setPictureList(null);
@@ -108,7 +119,7 @@ public class PosterController {
     @RequestMapping("/getQiNiuUpToken")
     public BaseResp getQiNiuUpToken() {
         String upToken = QiNiuUtils.getToken();
-        if (StringTools.isNullOrEmpty(upToken)){
+        if (StringTools.isNullOrEmpty(upToken)) {
             return BaseResp.error("获取七牛token失败");
         }
         return BaseResp.ok(upToken);
@@ -118,10 +129,10 @@ public class PosterController {
      * 修改
      */
     @PostMapping("/update")
-    public BaseResp update(HttpServletRequest request , @RequestBody PosterEntity poster) {
+    public BaseResp update(HttpServletRequest request, @RequestBody PosterEntity poster) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
-        if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token 非法");
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
         }
         return posterService.update(poster);
     }
