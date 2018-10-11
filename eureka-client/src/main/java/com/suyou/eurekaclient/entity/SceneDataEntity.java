@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class SceneDataEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     @TableId
-    private Long id;
+    private long id;
 
-    private String scene_str;
+    private String sceneStr;
 }

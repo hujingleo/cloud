@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 public class SceneDataServiceImpl extends ServiceImpl<SceneDataDao, SceneDataEntity> implements SceneDataService {
 
     @Override
-    public SceneDataEntity getBySceneId(long scene_id) {
-        return baseMapper.selectById(scene_id);
+    public SceneDataEntity getBySceneId(long sceneId) {
+        return baseMapper.selectById(sceneId);
     }
 
     @Override

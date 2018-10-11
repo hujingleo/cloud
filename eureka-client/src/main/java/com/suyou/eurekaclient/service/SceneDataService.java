@@ -12,7 +12,7 @@ import com.suyou.eurekaclient.entity.SceneDataEntity;
  * @date 2017-03-23 15:22:06
  */
 public interface SceneDataService extends IService<SceneDataEntity> {
-    SceneDataEntity getBySceneId(long scene_id);
+    SceneDataEntity getBySceneId(long sceneId);
     Long saveSceneData(SceneDataEntity sceneDataEntity);
     String getSceneStrById(long id);
 }

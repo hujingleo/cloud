@@ -52,26 +52,26 @@ public class SceneDataController {
     @GetMapping("/getSceneId")
     @ApiOperation(value = "根据id获取scene_data")
     @ResponseBody
-    public BaseResp getSceneId(Long scene_id) {
-        if (scene_id == null || scene_id == 0) {
+    public BaseResp getSceneId(Long sceneId) {
+        if (sceneId == null || sceneId == 0) {
             return BaseResp.error(98, "scene_id不能为空");
         }
-        return BaseResp.ok(sceneDataService.getSceneStrById(scene_id));
+        return BaseResp.ok(sceneDataService.getSceneStrById(sceneId));
     }
 
     //保存scene_data返回对应id
     @PostMapping("/saveSceneData")
     @ApiOperation(value = "保存scene_data返回对应id")
     @ResponseBody
-    public BaseResp saveSceneData(String scene_str) {
-        if (scene_str == null || scene_str == "") {
+    public BaseResp saveSceneData(String sceneStr) {
+        if (sceneStr == null || sceneStr == "") {
             return BaseResp.error(98, "scene_str参数异常,不能为空");
         }
         //将emoji表情替换成*
         try {
-            scene_str = EmojiFilterUtils.filterEmoji(scene_str);
+            sceneStr = EmojiFilterUtils.filterEmoji(sceneStr);
             SceneDataEntity sceneDataEntity = new SceneDataEntity();
-            sceneDataEntity.setScene_str(scene_str);
+            sceneDataEntity.setSceneStr(sceneStr);
             return BaseResp.ok(sceneDataService.saveSceneData(sceneDataEntity));
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,13 +83,13 @@ public class SceneDataController {
     //获取小程序码
     @RequestMapping("/getWXacode")
     @ResponseBody
-    public ResponseEntity<byte[]> getWXacode(HttpServletRequest request, String scene_id, String page) throws Exception {
+    public ResponseEntity<byte[]> getWXacode(HttpServletRequest request, String sceneId, String page) throws Exception {
         RestTemplate restTemplate = new RestTemplate();
         String result1 = get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId + "&secret=" + appSecret);
         String access_token = JSONObject.parseObject(result1).getString("access_token");
         String url = "http://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" + access_token;
         Map<String, Object> param = new HashMap<>();
-        param.put("scene", scene_id);
+        param.put("scene", sceneId);
         param.put("page", page);
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
         HttpEntity requestEntity = new HttpEntity(param, headers);

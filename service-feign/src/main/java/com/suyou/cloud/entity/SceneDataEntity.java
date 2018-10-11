@@ -12,5 +12,5 @@ public class SceneDataEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 
-    private String scene_str;
+    private String sceneStr;
 }
