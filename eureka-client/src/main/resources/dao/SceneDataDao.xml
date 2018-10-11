@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cikers.wechat.mall.modules.app.dao.SceneDataDao">
+    <resultMap type="com.cikers.wechat.mall.modules.app.entity.SceneDataEntity" id="sceneDataMap">
+        <result property="id" column="id"/>
+        <result property="scene_str" column="scene_str"/>
+    </resultMap>
+    <insert id="save" keyProperty="id" useGeneratedKeys="true" parameterType="com.cikers.wechat.mall.modules.app.entity.SceneDataEntity">
+        INSERT INTO tb_scene_data (scene_str)
+        VALUES (#{scene_str});
+    </insert>
+    <select id="getSceneStrById"  parameterType="java.lang.Long" resultType="java.lang.String">
+        select scene_str from tb_scene_data
+        where id = #{id}
+    </select>
+</mapper>

@@ -8,9 +8,15 @@ import com.suyou.cloud.utils.StringTools;
 import com.suyou.cloud.utils.qiniu.QiNiuUtils;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -134,4 +140,9 @@ public class PosterController {
         }
         return posterService.update(poster);
     }
+
+
+
+
+
 }

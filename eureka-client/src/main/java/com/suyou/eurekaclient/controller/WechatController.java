@@ -15,12 +15,15 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 
@@ -163,4 +166,29 @@ public class WechatController {
         map.put("token", token);
         return BaseResp.ok(map);
     }
+
+    //获取小程序码
+    @RequestMapping("getWXacode.jpg")
+    @ResponseBody
+    public ResponseEntity<byte[]> getWXacode(String scene_id, String page) throws Exception {
+        RestTemplate restTemplate = new RestTemplate();
+        String result1 = RestTemplateUtils.get("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appId + "&secret=" + appSecret);
+        String access_token = JSONObject.parseObject(result1).getString("access_token");
+        String url = "http://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=" + access_token;
+        Map<String, Object> param = new HashMap<>();
+        param.put("scene", scene_id);
+        param.put("page", page);
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+        HttpEntity requestEntity = new HttpEntity(param, headers);
+        byte[] result = null;
+        String baseString = null;
+        try {
+            return restTemplate.exchange(url, HttpMethod.POST, requestEntity, byte[].class, new Object[0]);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("获取小程序码异常，异常信息为" + e.getMessage());
+            return null;
+        }
+    }
+
 }
