@@ -54,6 +54,9 @@ public class PosterController {
     @RequestMapping("/getByOpenIdAndType")
     public BaseResp getByOpenIdAndType(HttpServletRequest request,String type) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token 非法");
+        }
         return posterService.getByOpenIdAndType(openId,type);
     }
     /**
@@ -62,6 +65,9 @@ public class PosterController {
     @RequestMapping("/getMyPoster")
     public BaseResp getMyPoster(HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token 非法");
+        }
         return posterService.getMyPoster(openId);
     }
     /**
@@ -70,6 +76,9 @@ public class PosterController {
     @RequestMapping("/getMyProduction")
     public BaseResp getMyProduction(HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token 非法");
+        }
         return posterService.getMyProduction(openId);
     }
     /**
@@ -109,7 +118,11 @@ public class PosterController {
      * 修改
      */
     @PostMapping("/update")
-    public BaseResp update(@RequestBody PosterEntity poster) {
+    public BaseResp update(HttpServletRequest request , @RequestBody PosterEntity poster) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token 非法");
+        }
         return posterService.update(poster);
     }
 }
