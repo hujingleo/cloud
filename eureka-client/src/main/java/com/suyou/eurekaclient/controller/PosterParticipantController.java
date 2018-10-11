@@ -58,20 +58,27 @@ public class PosterParticipantController {
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterParticipantEntity posterParticipant) {
         try {
-//            posterParticipant.setCreatedDate(new Date());
             boolean result = posterParticipantService.insert(posterParticipant);
             if (result){
-                return BaseResp.ok("添加海报参与者成功");
+                return BaseResp.ok("添加用户海报关联成功");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("添加海报参与者异常，异常信息为 ： " + e.getMessage());
-            return BaseResp.error("添加海报参与者异常");
+            log.error("添加用户海报关联异常，异常信息为 ： " + e.getMessage());
+            return BaseResp.error("添加用户海报关联异常");
         }
-        return BaseResp.error("添加海报参与者失败");
+        return BaseResp.error("添加用户海报关联异常");
     }
 
+    /**
+     * 删除
+     */
+    @RequestMapping("/reserve")
+    public BaseResp reserve(@RequestBody Integer[] ids) {
+        posterParticipantService.deleteBatchIds(Arrays.asList(ids));
 
+        return BaseResp.ok();
+    }
 
 
     /**

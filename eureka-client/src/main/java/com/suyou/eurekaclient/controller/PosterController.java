@@ -5,6 +5,7 @@ import java.util.*;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.entity.PosterParticipantEntity;
+import com.suyou.eurekaclient.entity.UserEntity;
 import com.suyou.eurekaclient.service.PosterParticipantService;
 import com.suyou.eurekaclient.service.PosterService;
 import com.suyou.eurekaclient.utils.*;
@@ -139,6 +140,16 @@ public class PosterController {
         List<PosterEntity> list = posterService.getMyProduction(openId);
         return BaseResp.ok(list);
     }
+
+    /**
+     * 获取海报参与者
+     */
+    @RequestMapping("/getParticipants")
+    public BaseResp getParticipants(int posterId) {
+        List<UserEntity> list = posterService.getParticipants(posterId);
+        return BaseResp.ok(list);
+    }
+
     /**
      * 修改
      */
@@ -158,6 +169,7 @@ public class PosterController {
 
         return BaseResp.ok();
     }
+
 
     /**
      * 删除

@@ -5,6 +5,7 @@ import com.suyou.cloud.entity.PosterStyleEntity;
 import com.suyou.cloud.service.PosterParticipantService;
 import com.suyou.cloud.utils.BaseResp;
 import com.suyou.cloud.utils.JWTUtil;
+import com.suyou.cloud.utils.StringTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,15 +44,31 @@ public class PosterParticipantController {
 
 
     /**
-     * 保存
+     * 收藏/浏览海报
      */
     @PostMapping("/save")
-    public BaseResp save(HttpServletRequest request,Integer posterId, int type) {
+    public BaseResp save(HttpServletRequest request,Integer posterId, String type) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token非法");
+        }
         PosterParticipantEntity posterParticipant = new PosterParticipantEntity();
         posterParticipant.setCreatedDate(new Date());
-        posterParticipant.setOpenId(JWTUtil.getCurrentUserOpenId(request));
+        posterParticipant.setOpenId(openId);
         posterParticipant.setPosterId(posterId);
         posterParticipant.setType(type);
         return posterParticipantService.save(posterParticipant);
+    }
+    /**
+     * 参加会议
+     */
+    @PostMapping("/reserve")
+    public BaseResp reserve(HttpServletRequest request,Integer posterId) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token非法");
+        }
+
+        return posterParticipantService.reserve(openId,posterId);
     }
 }

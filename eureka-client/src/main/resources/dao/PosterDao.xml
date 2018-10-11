@@ -61,4 +61,21 @@ FROM
 			created_by = #{openId}
 		AND type &lt;&gt;  'MEETING'
 </select>
+    <select id="getParticipants" resultType="com.suyou.eurekaclient.entity.UserEntity">
+SELECT
+	*
+FROM
+	tb_user
+WHERE
+	open_id IN (
+		SELECT
+			open_id
+		FROM
+			tb_poster_participant
+		WHERE
+			type ='RESERVED'
+		AND poster_id = #{posterId}
+	)
+</select>
+
 </mapper>
