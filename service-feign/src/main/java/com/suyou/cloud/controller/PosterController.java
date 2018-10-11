@@ -5,6 +5,7 @@ import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.utils.BaseResp;
 import com.suyou.cloud.utils.JWTUtil;
+import com.suyou.cloud.utils.QiNiuUtils;
 import com.suyou.cloud.utils.StringTools;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,4 +81,17 @@ public class PosterController {
         }
         return posterService.save(poster);
     }
+
+    /**
+     * 我的制作
+     */
+    @RequestMapping("/getQiNiuUpToken")
+    public BaseResp getQiNiuUpToken() {
+        String upToken = QiNiuUtils.getToken();
+        if (StringTools.isNullOrEmpty(upToken)){
+            return BaseResp.error("获取七牛token失败");
+        }
+        return BaseResp.ok(upToken);
+    }
+
 }
