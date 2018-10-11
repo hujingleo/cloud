@@ -3,6 +3,7 @@ package com.suyou.eurekaclient.controller;
 import java.util.*;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.sun.xml.internal.rngom.parse.host.Base;
 import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.entity.PosterParticipantEntity;
 import com.suyou.eurekaclient.service.PosterParticipantService;
@@ -71,13 +72,23 @@ public class PosterParticipantController {
     }
 
     /**
-     * 删除
+     * 参加会议
      */
     @RequestMapping("/reserve")
-    public BaseResp reserve(@RequestBody Integer[] ids) {
-        posterParticipantService.deleteBatchIds(Arrays.asList(ids));
-
-        return BaseResp.ok();
+    public BaseResp reserve(String openId,int posterId) {
+        if (null==posterService.selectById(posterId)){
+            return BaseResp.error("找不到对应的会议，id为 ： "+posterId);
+        }
+        PosterParticipantEntity entity = new PosterParticipantEntity();
+        entity.setType("RESERVED");
+        entity.setPosterId(posterId);
+        entity.setOpenId(openId);
+        entity.setCreatedDate(new Date());
+        boolean result = posterParticipantService.insert(entity);
+        if (result){
+            return BaseResp.ok("添加成功");
+        }
+        return BaseResp.error("添加失败");
     }
 
 
