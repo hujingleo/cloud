@@ -63,14 +63,21 @@ public class PosterController {
             if (null == posterEntity) {
                 return BaseResp.error("找不到对应的海报，id为：" + id);
             }
-            PosterParticipantEntity posterParticipantEntity = new PosterParticipantEntity();
-            posterParticipantEntity.setOpenId(openId);
-            posterParticipantEntity.setPosterId(posterEntity.getId());
-            posterParticipantEntity.setType("READ");
-            posterParticipantEntity.setCreatedDate(new Date());
-            boolean result = posterParticipantService.insert(posterParticipantEntity);
-            if (!result) {
-                log.error("海报详情接口插入访问记录失败，openId为：" + openId);
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("open_id",openId);
+            map.put("poster_id",posterEntity.getId());
+            map.put("type","READ");
+            List<PosterParticipantEntity> list = posterParticipantService.selectList(new EntityWrapper<PosterParticipantEntity>().allEq(map));
+            if (null==list||list.isEmpty()) {
+                PosterParticipantEntity posterParticipantEntity = new PosterParticipantEntity();
+                posterParticipantEntity.setOpenId(openId);
+                posterParticipantEntity.setPosterId(posterEntity.getId());
+                posterParticipantEntity.setType("READ");
+                posterParticipantEntity.setCreatedDate(new Date());
+                boolean result = posterParticipantService.insert(posterParticipantEntity);
+                if (!result) {
+                    log.error("海报详情接口插入访问记录失败，openId为：" + openId);
+                }
             }
             return BaseResp.ok(posterEntity);
         } catch (Exception e) {
