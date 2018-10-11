@@ -5,6 +5,7 @@ import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.utils.BaseResp;
 import com.suyou.cloud.utils.JWTUtil;
+import com.suyou.cloud.utils.StringTools;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,7 +67,11 @@ public class PosterController {
      * 保存
      */
     @RequestMapping("/save")
-    public BaseResp save(@RequestBody PosterEntity poster) {
+    public BaseResp save(@RequestBody PosterEntity poster,HttpServletRequest request) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (!StringTools.isNullOrEmpty(openId)){
+            poster.setCreatedBy(openId);
+        }
         poster.setCreatedDate(new Date());
         if (null!=poster.getPictureList()&&!poster.getPictureList().isEmpty()){
             String pictures = String.join(",", poster.getPictureList());

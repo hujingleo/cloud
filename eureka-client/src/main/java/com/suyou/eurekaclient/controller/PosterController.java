@@ -89,7 +89,6 @@ public class PosterController {
     @RequestMapping("/save")
     public BaseResp save(@RequestBody PosterEntity poster) {
         try {
-//            poster.setCreatedDate(new Date());
             boolean result = posterService.insert(poster);
             if (result) {
                 return BaseResp.ok("添加海报成功");
