@@ -30,8 +30,8 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
 
     @Override
-    public List<String> getReaderAvatars(int posterId) {
-        return baseMapper.getReaderAvatars(posterId);
+    public List<UserEntity> getReaderAvatars(Integer offset , Integer pageSize , int id) {
+        return baseMapper.getReaderAvatars(offset,pageSize,id);
     }
 
     @Override

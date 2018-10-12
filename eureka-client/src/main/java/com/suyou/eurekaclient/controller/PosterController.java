@@ -79,10 +79,7 @@ public class PosterController {
                     log.error("海报详情接口插入访问记录失败，openId为：" + openId);
                 }
             }
-            List<String> readerAvatars = posterService.getReaderAvatars(id);
-            if (!readerAvatars.isEmpty()){
-                posterEntity.setReaderAvatars(readerAvatars);
-            }
+
             return BaseResp.ok(posterEntity);
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,6 +88,22 @@ public class PosterController {
         }
     }
 
+
+    /**
+     * 获取已读用户
+     */
+    @RequestMapping("/getReaders")
+    public BaseResp getReaders(Integer pageIndex , Integer pageSize , int id) {
+        if (null==pageIndex){
+            pageIndex=1;
+        }
+        if (null==pageSize){
+            pageSize=10;
+        }
+        Integer offset = (pageIndex-1)*pageSize;
+        List<UserEntity> readerAvatars = posterService.getReaderAvatars(offset,pageSize,id);
+        return BaseResp.ok(readerAvatars);
+    }
 
     /**
      * 保存

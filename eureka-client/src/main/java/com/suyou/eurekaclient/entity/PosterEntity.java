@@ -105,7 +105,5 @@ public class PosterEntity implements Serializable {
 	 */
 	private Date updatedDate;
 
-	@TableField(exist = false)
-	private List<String> readerAvatars;
 
 }
