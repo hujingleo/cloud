@@ -21,8 +21,10 @@ public interface PosterService {
     BaseResp getByOpenIdAndType(@RequestParam(value = "openId")String openId,@RequestParam(value = "type")String type);
     @GetMapping(value = "/poster/getMyPoster")
     BaseResp getMyPoster(@RequestParam(value = "openId")String openId);
-    @GetMapping(value = "/poster/getMyMeeting")
-    BaseResp getMyMeeting(@RequestParam(value = "openId")String openId);
+    @GetMapping(value = "/poster/getMyEndingMeeting")
+    BaseResp getMyEndingMeeting(@RequestParam(value = "pageIndex")Integer pageIndex,@RequestParam(value = "pageSize")Integer pageSize,@RequestParam(value = "openId")String openId);
+    @GetMapping(value = "/poster/getMyComingMeeting")
+    BaseResp getMyComingMeeting(@RequestParam(value = "pageIndex")Integer pageIndex,@RequestParam(value = "pageSize")Integer pageSize,@RequestParam(value = "openId")String openId);
     @GetMapping(value = "/poster/getMyProduction")
     BaseResp getMyProduction(@RequestParam(value = "openId")String openId);
     @GetMapping(value = "/poster/reserveMeeting")

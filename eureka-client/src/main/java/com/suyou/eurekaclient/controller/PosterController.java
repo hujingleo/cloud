@@ -166,11 +166,34 @@ public class PosterController {
     }
 
     /**
-     * 我的会议
+     * 我的会议--指已经参加且结束的会议
      */
-    @RequestMapping("/getMyMeeting")
-    public BaseResp getMyMeeting(String openId) {
-        List<PosterEntity> list = posterService.getMyMeeting(openId);
+    @RequestMapping("/getMyEndingMeeting")
+    public BaseResp getMyEndingMeeting(Integer pageIndex , Integer pageSize,String openId) {
+        if (null==pageIndex){
+            pageIndex=1;
+        }
+        if (null==pageSize){
+            pageSize=10;
+        }
+        Integer offset = (pageIndex-1)*pageSize;
+        List<PosterEntity> list = posterService.getMyEndingMeeting(offset,pageSize,openId);
+        return BaseResp.ok(list);
+    }
+
+    /**
+     * 待办会议--指已经参加还未结束的会议
+     */
+    @RequestMapping("/getMyComingMeeting")
+    public BaseResp getMyComingMeeting(Integer pageIndex , Integer pageSize,String openId) {
+        if (null==pageIndex){
+            pageIndex=1;
+        }
+        if (null==pageSize){
+            pageSize=10;
+        }
+        Integer offset = (pageIndex-1)*pageSize;
+        List<PosterEntity> list = posterService.getMyComingMeeting(offset,pageSize,openId);
         return BaseResp.ok(list);
     }
 

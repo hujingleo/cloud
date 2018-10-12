@@ -25,8 +25,13 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
 
     @Override
-    public List<PosterEntity> getMyMeeting(String openId) {
-        return baseMapper.getMyMeeting(openId);
+    public List<PosterEntity> getMyEndingMeeting(Integer offset , Integer pageSize,String openId) {
+        return baseMapper.getMyEndingMeeting(offset,pageSize,openId);
+    }
+
+    @Override
+    public List<PosterEntity> getMyComingMeeting(Integer offset , Integer pageSize,String openId) {
+        return baseMapper.getMyComingMeeting(offset,pageSize,openId);
     }
 
     @Override

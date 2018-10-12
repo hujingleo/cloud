@@ -109,15 +109,27 @@ public class PosterController {
     }
 
     /**
-     * 我的会议
+     * 我的会议--指已经参加且结束的会议
      */
-    @RequestMapping("/getMyMeeting")
-    public BaseResp getMyMeeting(HttpServletRequest request ) {
+    @RequestMapping("/getMyEndingMeeting")
+    public BaseResp getMyEndingMeeting(Integer pageIndex , Integer pageSize,HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token非法");
+            return BaseResp.error(-3, "token 非法");
         }
-        return posterService.getMyMeeting(openId);
+        return posterService.getMyEndingMeeting(pageIndex,pageSize,openId);
+    }
+
+    /**
+     * 待办会议--指已经参加还未结束的会议
+     */
+    @RequestMapping("/getMyComingMeeting")
+    public BaseResp getMyComingMeeting(Integer pageIndex , Integer pageSize,HttpServletRequest request) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3, "token 非法");
+        }
+        return posterService.getMyComingMeeting(pageIndex,pageSize,openId);
     }
 
     /**

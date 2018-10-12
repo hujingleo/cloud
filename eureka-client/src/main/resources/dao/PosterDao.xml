@@ -62,7 +62,7 @@ FROM
 			created_by = #{openId}
 		AND type &lt;&gt;  'MEETING'
 </select>
-	<select id="getMyMeeting" resultMap="posterMap">
+	<select id="getMyEndingMeeting" resultMap="posterMap">
 SELECT
 	*
 FROM
@@ -77,6 +77,26 @@ WHERE
 			type = 'RESERVED'
 		AND open_id = #{openId}
 	)
+	and start_date &lt; now()
+		LIMIT #{offset}, #{pageSize}
+</select>
+	<select id="getMyComingMeeting" resultMap="posterMap">
+SELECT
+	*
+FROM
+	tb_poster
+WHERE
+	id IN (
+		SELECT
+			poster_id
+		FROM
+			tb_poster_participant
+		WHERE
+			type = 'RESERVED'
+		AND open_id = #{openId}
+	)
+	and start_date &gt; now()
+		LIMIT #{offset}, #{pageSize}
 </select>
     <select id="getParticipants" resultType="com.suyou.eurekaclient.entity.UserEntity">
 SELECT
