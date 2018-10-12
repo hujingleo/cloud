@@ -79,4 +79,20 @@ WHERE
 	)
 </select>
 
+    <select id="getReaderAvatars" resultType="java.lang.String">
+SELECT
+	avatar_url
+FROM
+	tb_user
+WHERE
+	open_id IN (
+		SELECT
+			open_id
+		FROM
+			tb_poster_participant
+		WHERE
+			poster_id = #{posterId}
+	)
+</select>
+
 </mapper>

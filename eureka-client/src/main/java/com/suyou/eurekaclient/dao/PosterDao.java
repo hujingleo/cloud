@@ -21,5 +21,5 @@ public interface PosterDao extends BaseMapper<PosterEntity> {
     List<PosterEntity> getByOpenIdAndType(@Param("openId") String openId, @Param("type") String type);
     List<PosterEntity> getMyProduction(@Param("openId") String openId);
     List<UserEntity> getParticipants(@Param("posterId") int posterId);
-
+    List<String> getReaderAvatars(@Param("posterId") int posterId);
 }
