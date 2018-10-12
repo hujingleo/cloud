@@ -18,6 +18,7 @@ public interface PosterService extends IService<PosterEntity> {
     List<PosterEntity> getByOpenIdAndType(String openId,String type);
     List<PosterEntity> getMyProduction(String openId );
     List<UserEntity> getParticipants(int posterId );
+    List<String> getReaderAvatars(int posterId);
     int save(PosterEntity posterEntity);
 }
 

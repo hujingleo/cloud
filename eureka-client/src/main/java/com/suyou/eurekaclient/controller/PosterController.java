@@ -79,7 +79,10 @@ public class PosterController {
                     log.error("海报详情接口插入访问记录失败，openId为：" + openId);
                 }
             }
-
+            List<String> readerAvatars = posterService.getReaderAvatars(id);
+            if (!readerAvatars.isEmpty()){
+                posterEntity.setReaderAvatars(readerAvatars);
+            }
             return BaseResp.ok(posterEntity);
         } catch (Exception e) {
             e.printStackTrace();

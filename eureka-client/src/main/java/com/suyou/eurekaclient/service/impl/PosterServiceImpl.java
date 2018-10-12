@@ -30,6 +30,11 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
 
     @Override
+    public List<String> getReaderAvatars(int posterId) {
+        return baseMapper.getReaderAvatars(posterId);
+    }
+
+    @Override
     public int save(PosterEntity posterEntity) {
         return baseMapper.savePoster(posterEntity);
     }
