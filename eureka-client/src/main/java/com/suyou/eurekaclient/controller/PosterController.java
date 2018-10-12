@@ -184,6 +184,35 @@ public class PosterController {
     }
 
     /**
+     * 参加会议
+     */
+    @RequestMapping("/reserveMeeting")
+    public BaseResp reserveMeeting(String openId ,int id) {
+        PosterEntity posterEntity = posterService.selectById(id);
+        if (null==posterEntity||!posterEntity.getType().equalsIgnoreCase("MEETING")){
+            return BaseResp.error("找不到id为 : "+id+" 的会议");
+        }
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("open_id",openId);
+        map.put("type","RESERVED");
+        map.put("poster_id",id);
+        List<PosterParticipantEntity> list = posterParticipantService.selectList(new EntityWrapper<PosterParticipantEntity>().allEq(map));
+        if (!list.isEmpty()){
+            return BaseResp.ok("您已经参加了改会议,请勿重复参加");
+        }
+        PosterParticipantEntity entity = new PosterParticipantEntity();
+        entity.setOpenId(openId);
+        entity.setCreatedDate(new Date());
+        entity.setPosterId(id);
+        entity.setType("RESERVED");
+        boolean result = posterParticipantService.insert(entity);
+        if (result){
+            return BaseResp.ok();
+        }
+        return BaseResp.error("参加会议失败");
+    }
+
+    /**
      * 修改
      */
     @RequestMapping("/update")
