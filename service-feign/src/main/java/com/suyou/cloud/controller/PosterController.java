@@ -87,12 +87,12 @@ public class PosterController {
      * 我的作品
      */
     @RequestMapping("/getMyProduction")
-    public BaseResp getMyProduction(HttpServletRequest request) {
+    public BaseResp getMyProduction(Integer pageIndex , Integer pageSize,HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
             return BaseResp.error(-3, "token 非法");
         }
-        return posterService.getMyProduction(openId);
+        return posterService.getMyProduction(pageIndex,pageSize,openId);
     }
 
 

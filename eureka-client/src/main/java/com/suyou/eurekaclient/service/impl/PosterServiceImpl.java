@@ -20,8 +20,8 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
 
     @Override
-    public List<PosterEntity> getMyProduction(String openId) {
-        return baseMapper.getMyProduction(openId);
+    public List<PosterEntity> getMyProduction(Integer offset , Integer pageSize,String openId) {
+        return baseMapper.getMyProduction(offset,pageSize,openId);
     }
 
     @Override

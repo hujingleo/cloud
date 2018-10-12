@@ -61,6 +61,7 @@ FROM
 		WHERE
 			created_by = #{openId}
 		AND type &lt;&gt;  'MEETING'
+				LIMIT #{offset}, #{pageSize}
 </select>
 	<select id="getMyEndingMeeting" resultMap="posterMap">
 SELECT

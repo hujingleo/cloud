@@ -157,11 +157,18 @@ public class PosterController {
      * 我的作品
      */
     @RequestMapping("/getMyProduction")
-    public BaseResp getMyProduction(String openId) {
+    public BaseResp getMyProduction(Integer pageIndex , Integer pageSize,String openId) {
+        if (null==pageIndex){
+            pageIndex=1;
+        }
+        if (null==pageSize){
+            pageSize=10;
+        }
+        Integer offset = (pageIndex-1)*pageSize;
         if (StringTools.isNullOrEmpty(openId)) {
             return BaseResp.error(-3, "token invalid.");
         }
-        List<PosterEntity> list = posterService.getMyProduction(openId);
+        List<PosterEntity> list = posterService.getMyProduction(offset,pageSize,openId);
         return BaseResp.ok(list);
     }
 

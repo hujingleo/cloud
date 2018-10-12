@@ -19,7 +19,7 @@ import java.util.List;
 public interface PosterDao extends BaseMapper<PosterEntity> {
     int savePoster(PosterEntity posterEntity);
     List<PosterEntity> getByOpenIdAndType(@Param("openId") String openId, @Param("type") String type);
-    List<PosterEntity> getMyProduction(@Param("openId") String openId);
+    List<PosterEntity> getMyProduction(@Param("offset") int pageIndex,@Param("pageSize") int pageSize,@Param("openId") String openId);
     List<PosterEntity> getMyEndingMeeting(@Param("offset") int pageIndex,@Param("pageSize") int pageSize,@Param("openId") String openId);
     List<PosterEntity> getMyComingMeeting(@Param("offset") int pageIndex,@Param("pageSize") int pageSize,@Param("openId") String openId);
     List<UserEntity> getParticipants(@Param("posterId") int posterId);
