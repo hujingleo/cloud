@@ -63,6 +63,15 @@ FROM
 		AND type &lt;&gt;  'MEETING'
 				LIMIT #{offset}, #{pageSize}
 </select>
+	<select id="countMyProduction" resultType="java.lang.Integer">
+SELECT
+	count(*)
+FROM
+	tb_poster
+		WHERE
+			created_by = #{openId}
+		AND type &lt;&gt;  'MEETING'
+</select>
 	<select id="getMyEndingMeeting" resultMap="posterMap">
 SELECT
 	*
@@ -81,6 +90,23 @@ WHERE
 	and start_date &lt; now()
 		LIMIT #{offset}, #{pageSize}
 </select>
+	<select id="countMyEndingMeeting" resultType="java.lang.Integer">
+SELECT
+	count(*)
+FROM
+	tb_poster
+WHERE
+	id IN (
+		SELECT
+			poster_id
+		FROM
+			tb_poster_participant
+		WHERE
+			type = 'RESERVED'
+		AND open_id = #{openId}
+	)
+	and start_date &lt; now()
+</select>
 	<select id="getMyComingMeeting" resultMap="posterMap">
 SELECT
 	*
@@ -98,6 +124,23 @@ WHERE
 	)
 	and start_date &gt; now()
 		LIMIT #{offset}, #{pageSize}
+</select>
+	<select id="countMyComingMeeting" resultType="java.lang.Integer">
+SELECT
+	count(*)
+FROM
+	tb_poster
+WHERE
+	id IN (
+		SELECT
+			poster_id
+		FROM
+			tb_poster_participant
+		WHERE
+			type = 'RESERVED'
+		AND open_id = #{openId}
+	)
+	and start_date &gt; now()
 </select>
     <select id="getParticipants" resultType="com.suyou.eurekaclient.entity.UserEntity">
 SELECT

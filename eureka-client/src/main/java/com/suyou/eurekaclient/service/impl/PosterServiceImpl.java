@@ -20,6 +20,21 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
 
     @Override
+    public int countMyProduction(String openId) {
+        return baseMapper.countMyProduction(openId);
+    }
+
+    @Override
+    public int countMyEndingMeeting(String openId) {
+        return baseMapper.countMyEndingMeeting(openId);
+    }
+
+    @Override
+    public int countMyComingMeeting(String openId) {
+        return baseMapper.countMyComingMeeting(openId);
+    }
+
+    @Override
     public List<PosterEntity> getMyProduction(Integer offset , Integer pageSize,String openId) {
         return baseMapper.getMyProduction(offset,pageSize,openId);
     }

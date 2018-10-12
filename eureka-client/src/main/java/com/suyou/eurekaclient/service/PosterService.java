@@ -16,6 +16,9 @@ import java.util.List;
  */
 public interface PosterService extends IService<PosterEntity> {
     List<PosterEntity> getByOpenIdAndType(String openId,String type);
+    int countMyProduction(String openId );
+    int countMyEndingMeeting(String openId );
+    int countMyComingMeeting(String openId );
     List<PosterEntity> getMyProduction(Integer offset , Integer pageSize,String openId );
     List<PosterEntity> getMyEndingMeeting(Integer offset , Integer pageSize,String openId );
     List<PosterEntity> getMyComingMeeting(Integer offset , Integer pageSize,String openId );

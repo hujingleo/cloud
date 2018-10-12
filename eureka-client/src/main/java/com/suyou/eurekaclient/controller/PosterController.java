@@ -169,7 +169,11 @@ public class PosterController {
             return BaseResp.error(-3, "token invalid.");
         }
         List<PosterEntity> list = posterService.getMyProduction(offset,pageSize,openId);
-        return BaseResp.ok(list);
+        int total = posterService.countMyProduction(openId);
+        BaseResp baseResp = new BaseResp();
+        baseResp.setData(list);
+        baseResp.setTotal(total);
+        return baseResp;
     }
 
     /**
@@ -185,7 +189,11 @@ public class PosterController {
         }
         Integer offset = (pageIndex-1)*pageSize;
         List<PosterEntity> list = posterService.getMyEndingMeeting(offset,pageSize,openId);
-        return BaseResp.ok(list);
+        int total = posterService.countMyEndingMeeting(openId);
+        BaseResp baseResp = new BaseResp();
+        baseResp.setData(list);
+        baseResp.setTotal(total);
+        return baseResp;
     }
 
     /**
@@ -201,7 +209,11 @@ public class PosterController {
         }
         Integer offset = (pageIndex-1)*pageSize;
         List<PosterEntity> list = posterService.getMyComingMeeting(offset,pageSize,openId);
-        return BaseResp.ok(list);
+        int total = posterService.countMyComingMeeting(openId);
+        BaseResp baseResp = new BaseResp();
+        baseResp.setData(list);
+        baseResp.setTotal(total);
+        return baseResp;
     }
 
     /**
