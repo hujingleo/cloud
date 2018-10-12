@@ -96,6 +96,14 @@ public class PosterController {
     }
 
     /**
+     * 我的会议
+     */
+    @RequestMapping("/getMyMeeting")
+    public BaseResp getMyMeeting(String openId) {
+        return posterService.getMyMeeting(openId);
+    }
+
+    /**
      * 保存
      */
     @RequestMapping("/save")
