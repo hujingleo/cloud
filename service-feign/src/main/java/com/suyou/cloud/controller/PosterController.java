@@ -99,7 +99,11 @@ public class PosterController {
      * 我的会议
      */
     @RequestMapping("/getMyMeeting")
-    public BaseResp getMyMeeting(String openId) {
+    public BaseResp getMyMeeting(HttpServletRequest request ) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3,"token非法");
+        }
         return posterService.getMyMeeting(openId);
     }
 
