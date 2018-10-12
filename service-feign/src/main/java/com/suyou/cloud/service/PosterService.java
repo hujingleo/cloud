@@ -11,6 +11,8 @@ public interface PosterService {
     BaseResp list();
     @GetMapping(value = "/poster/getById")
     BaseResp getById(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
+    @GetMapping(value = "/poster/getReaders")
+    BaseResp getReaders(@RequestParam(value = "pageIndex")Integer pageIndex,@RequestParam(value = "pageSize")Integer pageSize,@RequestParam(value = "id")Integer id);
     @PostMapping(value = "/poster/save")
     BaseResp save(@RequestBody PosterEntity posterEntity);
     @PostMapping(value = "/poster/update")

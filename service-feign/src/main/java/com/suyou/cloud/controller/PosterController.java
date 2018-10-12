@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -48,6 +49,14 @@ public class PosterController {
             return BaseResp.error(-3, "token 非法");
         }
         return posterService.getById(openId, id);
+    }
+
+    /**
+     * 获取已读用户
+     */
+    @RequestMapping("/getReaders")
+    public BaseResp getReaders(Integer pageIndex , Integer pageSize , int id) {
+        return posterService.getReaders(pageIndex,pageSize,id);
     }
 
     /**
