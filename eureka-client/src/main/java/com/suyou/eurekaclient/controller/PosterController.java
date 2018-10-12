@@ -166,6 +166,15 @@ public class PosterController {
     }
 
     /**
+     * 我的会议
+     */
+    @RequestMapping("/getMyMeeting")
+    public BaseResp getMyMeeting(String openId) {
+        List<PosterEntity> list = posterService.getMyMeeting(openId);
+        return BaseResp.ok(list);
+    }
+
+    /**
      * 获取海报参与者
      */
     @RequestMapping("/getParticipants")

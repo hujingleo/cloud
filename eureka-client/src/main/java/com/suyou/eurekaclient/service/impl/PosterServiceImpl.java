@@ -25,6 +25,11 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     }
 
     @Override
+    public List<PosterEntity> getMyMeeting(String openId) {
+        return baseMapper.getMyMeeting(openId);
+    }
+
+    @Override
     public List<UserEntity> getParticipants(int posterId) {
         return null;
     }

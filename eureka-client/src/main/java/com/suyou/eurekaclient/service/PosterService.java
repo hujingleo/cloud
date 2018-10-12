@@ -17,6 +17,7 @@ import java.util.List;
 public interface PosterService extends IService<PosterEntity> {
     List<PosterEntity> getByOpenIdAndType(String openId,String type);
     List<PosterEntity> getMyProduction(String openId );
+    List<PosterEntity> getMyMeeting(String openId );
     List<UserEntity> getParticipants(int posterId );
     List<UserEntity> getReaderAvatars(Integer offset , Integer pageSize , int id);
     int save(PosterEntity posterEntity);
