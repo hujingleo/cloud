@@ -79,6 +79,7 @@ public class PosterController {
                     log.error("海报详情接口插入访问记录失败，openId为：" + openId);
                 }
             }
+
             return BaseResp.ok(posterEntity);
         } catch (Exception e) {
             e.printStackTrace();
@@ -173,8 +174,13 @@ public class PosterController {
             log.error("更新失败，id为 ： "+poster.getId());
         }
         boolean result = posterService.updateById(poster);
-
-        return BaseResp.ok();
+        if (result){
+            BaseResp baseResp = new BaseResp();
+            baseResp.setData(poster.getId());
+            baseResp.setMsg("success");
+            return baseResp;
+        }
+        return BaseResp.error("更新失败");
     }
 
 
