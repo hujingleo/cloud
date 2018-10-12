@@ -95,6 +95,19 @@ public class PosterController {
         return posterService.getMyProduction(openId);
     }
 
+
+    /**
+     * 参加会议
+     */
+    @RequestMapping("/reserveMeeting")
+    public BaseResp reserveMeeting(HttpServletRequest request ,int id) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)){
+            return BaseResp.error(-3, "token 非法");
+        }
+        return posterService.reserveMeeting(openId,id);
+    }
+
     /**
      * 我的会议
      */

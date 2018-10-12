@@ -25,4 +25,7 @@ public interface PosterService {
     BaseResp getMyMeeting(@RequestParam(value = "openId")String openId);
     @GetMapping(value = "/poster/getMyProduction")
     BaseResp getMyProduction(@RequestParam(value = "openId")String openId);
+    @GetMapping(value = "/poster/reserveMeeting")
+    BaseResp reserveMeeting(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
+
 }
