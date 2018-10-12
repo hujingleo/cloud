@@ -60,9 +60,9 @@ public class PosterStyleController {
         if (StringTools.isNullOrEmpty(posterStyle.getStructure())){
             return BaseResp.error("风格结构不能为空");
         }
-        if (StringTools.isNullOrEmpty(posterStyle.getImageUrl())){
-            return BaseResp.error("风格图片不能为空");
-        }
+//        if (StringTools.isNullOrEmpty(posterStyle.getImageUrl())){
+//            return BaseResp.error("风格图片不能为空");
+//        }
         if (StringTools.isNullOrEmpty(posterStyle.getType())){
             return BaseResp.error("风格类型不能为空");
         }
