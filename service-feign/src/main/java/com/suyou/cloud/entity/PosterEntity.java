@@ -2,7 +2,9 @@ package com.suyou.cloud.entity;
 
 //import com.baomidou.mybatisplus.annotations.TableId;
 //import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -88,10 +90,12 @@ public class PosterEntity implements Serializable {
 	/**
 	 * 
 	 */
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date startDate;
 	/**
 	 *
 	 */
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date endDate;
 	/**
 	 *
@@ -101,6 +105,9 @@ public class PosterEntity implements Serializable {
 	 * 
 	 */
 	private Date updatedDate;
-
+	/**
+	 *
+	 */
+	private boolean hasReserved;
 
 }

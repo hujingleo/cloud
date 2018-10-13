@@ -79,7 +79,16 @@ public class PosterController {
                     log.error("海报详情接口插入访问记录失败，openId为：" + openId);
                 }
             }
-
+            //判断该用户是否参加这个
+            if (posterEntity.getType().equalsIgnoreCase("MEETING")){
+                map.put("open_id",openId);
+                map.put("type","RESERVED");
+                map.put("poster_id",id);
+                 list = posterParticipantService.selectList(new EntityWrapper<PosterParticipantEntity>().allEq(map));
+                 if (!list.isEmpty()){
+                     posterEntity.setHasReserved(true);
+                 }
+            }
             return BaseResp.ok(posterEntity);
         } catch (Exception e) {
             e.printStackTrace();

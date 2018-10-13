@@ -3,7 +3,9 @@ package com.suyou.eurekaclient.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -88,13 +90,23 @@ public class PosterEntity implements Serializable {
 	 *
 	 */
 	private BigInteger remindBefore;
+//	/**
+//	 *
+//	 */
+//	private Long startMS;
+//	/**
+//	 *
+//	 */
+//	private Long endMS;
 	/**
 	 * 
 	 */
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date startDate;
 	/**
 	 *
 	 */
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date endDate;
 	/**
 	 *
@@ -104,6 +116,9 @@ public class PosterEntity implements Serializable {
 	 * 
 	 */
 	private Date updatedDate;
-
-
+	/**
+	 *
+	 */
+	@TableField(exist = false)
+	private boolean hasReserved;
 }
