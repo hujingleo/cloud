@@ -106,10 +106,11 @@ public class PosterParticipantController {
      * 删除
      */
     @RequestMapping("/delete")
-    public R delete(@RequestBody Integer[] ids) {
-        posterParticipantService.deleteBatchIds(Arrays.asList(ids));
-
-        return R.ok();
+    public BaseResp delete(String openId ,Integer id) {
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("created_by",openId);
+        map.put("id",id);
+        return BaseResp.ok();
     }
 
 }

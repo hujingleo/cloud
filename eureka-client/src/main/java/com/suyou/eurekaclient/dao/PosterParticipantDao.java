@@ -17,4 +17,6 @@ import java.util.List;
  */
 @Mapper
 public interface PosterParticipantDao extends BaseMapper<PosterParticipantEntity> {
+    PosterParticipantEntity getMyEndingMeetingRecordByPosterId(@Param(value = "openId") String openId,@Param(value = "posterId") Integer posterId);
+    PosterParticipantEntity getMyComingMeetingRecordByPosterId(@Param(value = "openId") String openId,@Param(value = "posterId") Integer posterId);
 }

@@ -29,5 +29,10 @@ public interface PosterService {
     BaseResp getMyProduction(@RequestParam(value = "pageIndex")Integer pageIndex,@RequestParam(value = "pageSize")Integer pageSize,@RequestParam(value = "openId")String openId);
     @GetMapping(value = "/poster/reserveMeeting")
     BaseResp reserveMeeting(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
-
+    @GetMapping(value = "/poster/deleteMyProduction")
+    BaseResp deleteMyProduction(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
+    @GetMapping(value = "/poster/deleteMyComingMeetingRecord")
+    BaseResp deleteMyComingMeetingRecord(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
+    @GetMapping(value = "/poster/deleteMyEndingMeetingRecord")
+    BaseResp deleteMyEndingMeetingRecord(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
 }

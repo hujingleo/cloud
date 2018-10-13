@@ -188,7 +188,39 @@ public class PosterController {
     }
 
 
+    /**
+     * 删除我的作品
+     */
+    @RequestMapping("/deleteMyProduction")
+    public BaseResp deleteMyProductionRecord(HttpServletRequest request, Integer id) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
+        }
+        return posterService.deleteMyProduction(openId,id);
+    }
+    /**
+     * 删除待办会议
+     */
+    @RequestMapping("/deleteMyComingMeetingRecord")
+    public BaseResp deleteMyComingMeetingRecord(HttpServletRequest request, Integer id) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
+        }
+        return posterService.deleteMyComingMeetingRecord(openId,id);
+    }
 
-
+    /**
+     * 删除我的会议
+     */
+    @RequestMapping("/deleteMyEndingMeetingRecord")
+    public BaseResp deleteMyEndingMeetingRecord(HttpServletRequest request, Integer id) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
+        }
+        return posterService.deleteMyEndingMeetingRecord(openId,id);
+    }
 
 }

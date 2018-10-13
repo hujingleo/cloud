@@ -290,13 +290,105 @@ public class PosterController {
 
 
     /**
-     * 删除
+     * 删除我的作品
      */
-    @RequestMapping("/delete")
-    public R delete(@RequestBody Integer[] ids) {
-        posterService.deleteBatchIds(Arrays.asList(ids));
+    @RequestMapping("/deleteMyProduction")
+    public BaseResp deleteMyProduction(String openId, Integer id) {
+        try {
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("created_by",openId);
+            map.put("id",id);
+            List<PosterEntity> list =posterService.selectList(new EntityWrapper<PosterEntity>().allEq(map));
+            if (list.isEmpty()){
+                return BaseResp.error("删除失败,找不到该用户创建的id为: "+id+"的作品");
+            }
+            if (list.size()>1){
+                return BaseResp.error("删除异常,发现多条id为: "+id+"的作品");
+            }
+            PosterEntity entity = list.get(0);
+            if (entity.getType().equalsIgnoreCase("MEETING")){
+                return BaseResp.error("删除失败,不能id为: "+id+"的作品,该作品为会议");
+            }
+            boolean result = posterService.deleteById(id);
+            if (result){
+                return BaseResp.ok("删除成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("删除异常,异常信息为 : "+e.getMessage());
+        }
+        return BaseResp.error("删除失败");
+    }
+    /**
+     * 删除待办会议
+     */
+    @RequestMapping("/deleteMyComingMeetingRecord")
+    public BaseResp getMyComingMeetingRecord(String openId, Integer id) {
+        try {
+            PosterEntity posterEntity =posterService.selectById(id);
+            if (null==posterEntity){
+                return BaseResp.error("找不到id为 :"+id+"的海报");
+            }
+            if (posterEntity.getStartDate().compareTo(new Date())<0){
+                return BaseResp.error("id为"+id+"的会议已举行");
+            }
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("open_id",openId);
+            map.put("poster_id",id);
+            map.put("type","RESERVED");
+            List<PosterParticipantEntity> list =posterParticipantService.selectList(new EntityWrapper<PosterParticipantEntity>().allEq(map));
+            if (list.isEmpty()){
+                return BaseResp.error("删除失败,找不到该用户参加的poster_id为: "+id+"的会议记录");
+            }
+            if (list.size()>1){
+                return BaseResp.error("删除异常,发现多条该用户参加的poster_id为: "+id+"的会议记录");
+            }
+            PosterParticipantEntity entity =list.get(0);
+            boolean result = posterParticipantService.deleteById(entity.getId());
+            if (result){
+                return BaseResp.ok("删除成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("删除异常,异常信息为 : "+e.getMessage());
+        }
+        return BaseResp.error("删除失败");
+    }
 
-        return R.ok();
+    /**
+     * 删除待办会议
+     */
+    @RequestMapping("/deleteMyEndingMeetingRecord")
+    public BaseResp getMyEndingMeetingRecord(String openId, Integer id) {
+        try {
+            PosterEntity posterEntity =posterService.selectById(id);
+            if (null==posterEntity){
+                return BaseResp.error("找不到id为 :"+id+"的海报");
+            }
+            if (posterEntity.getEndDate().compareTo(new Date())>0){
+                return BaseResp.error("id为"+id+"的会议未结束");
+            }
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("open_id",openId);
+            map.put("poster_id",id);
+            map.put("type","RESERVED");
+            List<PosterParticipantEntity> list =posterParticipantService.selectList(new EntityWrapper<PosterParticipantEntity>().allEq(map));
+            if (list.isEmpty()){
+                return BaseResp.error("删除失败,找不到该用户参加的poster_id为: "+id+"的会议记录");
+            }
+            if (list.size()>1){
+                return BaseResp.error("删除异常,发现多条该用户参加的poster_id为: "+id+"的会议记录");
+            }
+            PosterParticipantEntity entity =list.get(0);
+            boolean result = posterParticipantService.deleteById(entity.getId());
+            if (result){
+                return BaseResp.ok("删除成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("删除异常,异常信息为 : "+e.getMessage());
+        }
+        return BaseResp.error("删除失败");
     }
 
 }
