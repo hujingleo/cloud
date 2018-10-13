@@ -14,11 +14,7 @@ import com.suyou.eurekaclient.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -68,6 +64,36 @@ public class PosterStyleController {
             return BaseResp.error("添加海报风格异常");
         }
         return BaseResp.error("添加海报风格失败");
+    }
+
+    /**
+     * 修改
+     */
+    @PostMapping("/updateStatus")
+    public BaseResp unShelve(Integer id,Integer status) {
+        try {
+            PosterStyleEntity posterStyleEntity = posterStyleService.selectById(id);
+            if (null==posterStyleEntity){
+                return BaseResp.error("找不到id为："+id+"的风格");
+            }
+            if (0==status&&0==posterStyleEntity.getStatus()){
+                return BaseResp.error("改风格已经下架,请勿重复操作");
+            }
+            if (1==status&&1==posterStyleEntity.getStatus()){
+                return BaseResp.error("改风格已经上架,请勿重复操作");
+            }
+            posterStyleEntity.setStatus(status);
+            posterStyleEntity.setUpdatedDate(new Date());
+            boolean result = posterStyleService.updateById(posterStyleEntity);
+            if (result){
+                return BaseResp.ok("操作成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("操作异常，异常信息为："+e.getMessage());
+            return BaseResp.ok("操作异常");
+        }
+        return BaseResp.ok("操作失败");
     }
 
     /**

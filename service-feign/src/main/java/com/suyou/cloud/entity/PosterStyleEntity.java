@@ -45,6 +45,10 @@ public class PosterStyleEntity implements Serializable {
 	 */
 	private String type;
 	/**
+	 *
+	 */
+	private int status;
+	/**
 	 * 
 	 */
 	private Date createdDate;

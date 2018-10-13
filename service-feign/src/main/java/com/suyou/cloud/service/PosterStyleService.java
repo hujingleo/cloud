@@ -11,6 +11,8 @@ public interface PosterStyleService {
     BaseResp list(@RequestParam(value = "type")String type);
     @GetMapping(value = "/posterStyle/getById")
     BaseResp getById(@RequestParam(value = "id") Integer id);
+    @PostMapping(value = "/posterStyle/updateStatus")
+    BaseResp updateStatus(@RequestParam(value = "id") Integer id,@RequestParam(value = "status") Integer status);
     @PostMapping(value = "posterStyle/save")
     BaseResp save(@RequestBody PosterStyleEntity posterStyleEntity);
 }

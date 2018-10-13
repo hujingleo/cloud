@@ -6,10 +6,7 @@ import com.suyou.cloud.service.PosterStyleService;
 import com.suyou.cloud.utils.BaseResp;
 import com.suyou.cloud.utils.StringTools;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -44,6 +41,14 @@ public class PosterStyleController {
     @GetMapping("/getById")
     public BaseResp getById(Integer id){
         return posterStyleService.getById(id);
+    }
+
+    /**
+     *下架风格
+     */
+    @PostMapping("/updateStatus")
+    public BaseResp unShelve(Integer id,Integer status){
+        return posterStyleService.updateStatus(id,status);
     }
 
     /**
