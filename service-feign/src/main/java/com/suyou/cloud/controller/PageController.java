@@ -3,9 +3,11 @@ package com.suyou.cloud.controller;
 import com.suyou.cloud.entity.PageEntity;
 import com.suyou.cloud.service.PageService;
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.JWTUtil;
 import com.suyou.cloud.utils.StringTools;
 import com.suyou.cloud.utils.qiniu.QiNiuUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +34,11 @@ public class PageController {
      * 列表
      */
     @GetMapping("/list")
-    public BaseResp list(){
+    public BaseResp list(HttpServletRequest request){
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token 非法");
+        }
         return pageService.list();
     }
     /**
