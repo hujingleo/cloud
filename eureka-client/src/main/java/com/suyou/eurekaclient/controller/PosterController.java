@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -118,11 +119,23 @@ public class PosterController {
      * 保存
      */
     @RequestMapping("/save")
+    @Transactional(rollbackFor = Exception.class)
     public BaseResp save(@RequestBody PosterEntity poster) {
         try {
             int updateResult  = posterService.save(poster);
             if(1!=updateResult){
-                return BaseResp.error("插入失败");
+                throw new Exception("保存海报失败异常");
+            }
+            if (poster.getType().equalsIgnoreCase("MEETING")){
+                PosterParticipantEntity entity = new PosterParticipantEntity();
+                entity.setType("RESERVED");
+                entity.setPosterId(poster.getId());
+                entity.setOpenId(poster.getCreatedBy());
+                entity.setCreatedDate(new Date());
+                boolean result = posterParticipantService.insert(entity);
+                if (!result){
+                    throw new Exception("保存海报成功后添加海报创建人为参与者异常");
+                }
             }
                 BaseResp baseResp = new BaseResp();
                 baseResp.setMsg("插入成功");
