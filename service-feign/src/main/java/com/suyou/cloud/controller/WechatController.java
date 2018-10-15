@@ -55,15 +55,15 @@ public class WechatController {
         log.warn("获取公众号openid并保存接口code为:"+code);
         log.warn("获取公众号openid并保存接口openid为:"+openid);
         String openId = openid;
-//        if (StringTools.isNullOrEmpty(openId)) {
-//
-//            log.error("获取公众号openid并保存接口token为空或非法,token为: "+token);
-//            response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
-//        }
+        if (StringTools.isNullOrEmpty(openId)) {
+            log.error("获取公众号openid并保存接口openId为空");
+            response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
+        }
         BaseResp baseResp = userService.saveUserOfficialAccountsOpenId(code,openId);
-        if (!baseResp.getMsg().equalsIgnoreCase("success")){
+        if (baseResp.getE()!=0){
             log.error("获取公众号openid并保存接口失败,返回信息为: "+baseResp.getMsg());
         }
+        log.warn("获取公众号openid并保存接口成功");
         response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
     }
 
