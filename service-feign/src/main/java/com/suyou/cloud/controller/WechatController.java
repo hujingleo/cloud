@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * @author chenshun
@@ -44,15 +46,21 @@ public class WechatController {
     //获取公众号openid并保存
     @GetMapping(value = "/saveUserOfficialAccountsOpenId")
     @ResponseBody
-    public BaseResp saveUserOfficialAccountsOpenId(HttpServletRequest request,String code) {
+    public void saveUserOfficialAccountsOpenId(HttpServletResponse response,String token, String code) throws IOException {
         if (StringTools.isNullOrEmpty(code)){
-            return BaseResp.error("code为空");
+            log.error("获取公众号openid并保存接口code为空");
+            response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
         }
-        String openId = JWTUtil.getCurrentUserOpenId(request);
+        String openId = JWTUtil.getUsername(token);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token invalid.");
+            log.error("获取公众号openid并保存接口token为空或非法");
+            response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
         }
-        return userService.saveUserOfficialAccountsOpenId(code,openId);
+        BaseResp baseResp = userService.saveUserOfficialAccountsOpenId(code,openId);
+        if (!baseResp.getMsg().equalsIgnoreCase("success")){
+            log.error("获取公众号openid并保存接口失败,返回信息为: "+baseResp.getMsg());
+        }
+        response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
     }
 
     //判断用户是否有公众号openid
