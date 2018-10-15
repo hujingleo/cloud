@@ -12,6 +12,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author chenshun
  * @email sunlightcs@gmail.com
@@ -42,11 +44,11 @@ public class WechatController {
     //获取公众号openid并保存
     @PostMapping(value = "/saveUserOfficialAccountsOpenId")
     @ResponseBody
-    public BaseResp saveUserOfficialAccountsOpenId(String code, String state) {
+    public BaseResp saveUserOfficialAccountsOpenId(HttpServletRequest request,String code) {
         if (StringTools.isNullOrEmpty(code)){
             return BaseResp.error("code为空");
         }
-        String openId = JWTUtil.getCurrentUserOpenIdByToken(state);
+        String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
             return BaseResp.error(-3, "token invalid.");
         }
