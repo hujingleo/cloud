@@ -46,12 +46,12 @@ public class WechatController {
     //获取公众号openid并保存
     @GetMapping(value = "/saveUserOfficialAccountsOpenId")
     @ResponseBody
-    public void saveUserOfficialAccountsOpenId(HttpServletResponse response,String token, String code) throws IOException {
+    public void saveUserOfficialAccountsOpenId(HttpServletResponse response,HttpServletRequest request, String code) throws IOException {
         if (StringTools.isNullOrEmpty(code)){
             log.error("获取公众号openid并保存接口code为空");
             response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
         }
-        String openId = JWTUtil.getUsername(token);
+        String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
             log.error("获取公众号openid并保存接口token为空或非法");
             response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");

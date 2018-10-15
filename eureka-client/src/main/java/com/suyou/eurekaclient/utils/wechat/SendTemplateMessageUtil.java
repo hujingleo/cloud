@@ -1,7 +1,6 @@
 //package com.suyou.eurekaclient.utils.wechat;
 //
 //import com.alibaba.fastjson.JSON;
-//import com.baomidou.mybatisplus.mapper.EntityWrapper;
 //import com.suyou.eurekaclient.entity.PosterEntity;
 //import com.suyou.eurekaclient.entity.RemindEntity;
 //import com.suyou.eurekaclient.entity.UserEntity;
@@ -9,17 +8,12 @@
 //import com.suyou.eurekaclient.service.PosterService;
 //import com.suyou.eurekaclient.utils.HttpClientUtil;
 //import com.suyou.eurekaclient.utils.StringTools;
-//import com.suyou.eurekaclient.utils.WechatUtils;
 //import lombok.extern.slf4j.Slf4j;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.scheduling.annotation.EnableScheduling;
 //import org.springframework.scheduling.annotation.Scheduled;
-//
-//import java.math.BigInteger;
 //import java.util.*;
 //
 //@Configuration
@@ -55,6 +49,7 @@
 //                        List<UserEntity> userEntityList = posterService.getParticipants(posterId);
 //                        if (!userEntityList.isEmpty()){
 //                            //发送模板消息
+//                            log.warn("开始发送模板消息");
 //                            //发送完标记会议已经提醒
 //                        }
 //                    }
