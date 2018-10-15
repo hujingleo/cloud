@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suyou.eurekaclient.dao.AccessTokenDao">
+    <resultMap type="com.suyou.eurekaclient.entity.AccessTokenEntity" id="accessTokenMap">
+        <result property="id" column="id"/>
+        <result property="appid" column="appid"/>
+        <result property="access_token" column="access_token"/>
+        <result property="created_date" column="created_date"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.suyou.eurekaclient.entity.AccessTokenEntity">
+        INSERT INTO tb_access_token (appid, access_token, created_date)
+        VALUES (#{appid},#{access_token}, #{created_date});
+    </insert>
+    <select id="getLatestToken" parameterType="java.lang.String" resultMap="accessTokenMap">
+        select * from tb_access_token  where appid=#{appid}
+    </select>
+    <select id="getNewestToken" parameterType="java.lang.String" resultMap="accessTokenMap">
+        select * from tb_access_token  where appid=#{appid}
+    </select>
+    <update id="updatePvByStoreId" >
+        update  tb_access_token set  created_date = now()  , access_token = #{access_token}  where appid=#{appid}
+    </update>
+    <update id="updateAccessTokenByAppId" >
+        update  tb_access_token set  created_date = now()  , access_token = #{access_token}  where appid=#{appid}
+    </update>
+</mapper>

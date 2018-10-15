@@ -51,7 +51,7 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
 
     @Override
     public List<UserEntity> getParticipants(int posterId) {
-        return null;
+        return baseMapper.getParticipants(posterId);
     }
 
     @Override
@@ -63,5 +63,12 @@ public class PosterServiceImpl extends ServiceImpl<PosterDao, PosterEntity> impl
     public int save(PosterEntity posterEntity) {
         return baseMapper.savePoster(posterEntity);
     }
+
+    @Override
+    public List<PosterEntity> getComingMeeting() {
+        return baseMapper.getComingMeeting();
+    }
+
+
 
 }

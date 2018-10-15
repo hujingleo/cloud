@@ -25,5 +25,6 @@ public interface PosterService extends IService<PosterEntity> {
     List<UserEntity> getParticipants(int posterId );
     List<UserEntity> getReaderAvatars(Integer offset , Integer pageSize , int id);
     int save(PosterEntity posterEntity);
+    List<PosterEntity> getComingMeeting();
 }
 

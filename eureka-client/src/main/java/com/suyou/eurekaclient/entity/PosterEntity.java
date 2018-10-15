@@ -89,7 +89,11 @@ public class PosterEntity implements Serializable {
 	/**
 	 *
 	 */
-	private BigInteger remindBefore;
+	private int hasRemind;
+	/**
+	 *
+	 */
+	private int remindBefore;
 //	/**
 //	 *
 //	 */

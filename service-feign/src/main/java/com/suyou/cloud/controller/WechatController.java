@@ -42,7 +42,7 @@ public class WechatController {
     }
 
     //获取公众号openid并保存
-    @PostMapping(value = "/saveUserOfficialAccountsOpenId")
+    @GetMapping(value = "/saveUserOfficialAccountsOpenId")
     @ResponseBody
     public BaseResp saveUserOfficialAccountsOpenId(HttpServletRequest request,String code) {
         if (StringTools.isNullOrEmpty(code)){
@@ -56,7 +56,7 @@ public class WechatController {
     }
 
     //判断用户是否有公众号openid
-    @PostMapping(value = "/getUserOfficialAccountsOpenId")
+    @GetMapping(value = "/getUserOfficialAccountsOpenId")
     @ResponseBody
     public BaseResp getUserOfficialAccountsOpenId(HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);

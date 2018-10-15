@@ -28,4 +28,6 @@ public interface PosterDao extends BaseMapper<PosterEntity> {
     List<PosterEntity> getMyComingMeeting(@Param("offset") int pageIndex,@Param("pageSize") int pageSize,@Param("openId") String openId);
     List<UserEntity> getParticipants(@Param("posterId") int posterId);
     List<UserEntity> getReaderAvatars(@Param("offset") int pageIndex,@Param("pageSize") int pageSize,@Param("id") int id);
+    List<PosterEntity> getComingMeeting();
+    List<UserEntity> getReservedUser();
 }

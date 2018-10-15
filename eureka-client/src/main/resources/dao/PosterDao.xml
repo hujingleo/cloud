@@ -20,6 +20,7 @@
         <result property="remindBefore" column="remind_before"/>
         <result property="pictures" column="pictures"/>
         <result property="remind" column="remind"/>
+        <result property="hasRemind" column="has_remind"/>
         <result property="startDate" column="start_date"/>
         <result property="endDate" column="end_date"/>
         <result property="createdDate" column="created_date"/>
@@ -174,6 +175,10 @@ WHERE
 			poster_id = #{id}
 	)
 	LIMIT #{offset}, #{pageSize}
+</select>
+
+	<select id="getComingMeeting" resultMap="posterMap">
+select * from tb_poster where type='MEETING' and remind=1 and start_date > NOW()
 </select>
 
 </mapper>
