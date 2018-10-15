@@ -9,6 +9,7 @@
         <result property="name" column="name"/>
         <result property="style" column="style"/>
         <result property="imageUrl" column="image_url"/>
+        <result property="redirectUrl" column="redirect_url"/>
         <result property="title" column="title"/>
         <result property="content" column="content"/>
         <result property="state" column="state"/>

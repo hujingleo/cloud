@@ -35,6 +35,10 @@ public class PageEntity implements Serializable {
 	 */
 	private String imageUrl;
 	/**
+	 *
+	 */
+	private String redirectUrl;
+	/**
 	 * 
 	 */
 	private String title;
