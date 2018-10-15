@@ -5,6 +5,7 @@ import com.suyou.cloud.utils.BaseResp;
 import com.suyou.cloud.utils.JWTUtil;
 import com.suyou.cloud.utils.StringTools;
 import com.suyou.cloud.utils.WechatLoginForm;
+import jdk.nashorn.internal.parser.Token;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +52,11 @@ public class WechatController {
             log.error("获取公众号openid并保存接口code为空");
             response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
         }
+        log.warn("获取公众号openid并保存接口code为:"+code);
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            log.error("获取公众号openid并保存接口token为空或非法");
+
+            log.error("获取公众号openid并保存接口token为空或非法,token为: "+request.getHeader("token"));
             response.getWriter().write("<script language=\"javascript\">window.opener=null;window.close();</script>");
         }
         BaseResp baseResp = userService.saveUserOfficialAccountsOpenId(code,openId);
