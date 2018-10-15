@@ -55,5 +55,15 @@ public class WechatController {
         return userService.saveUserOfficialAccountsOpenId(code,openId);
     }
 
+    //判断用户是否有公众号openid
+    @PostMapping(value = "/getUserOfficialAccountsOpenId")
+    @ResponseBody
+    public BaseResp getUserOfficialAccountsOpenId(HttpServletRequest request) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        return userService.getUserOfficialAccountsOpenId(openId);
+    }
 
 }

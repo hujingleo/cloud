@@ -26,4 +26,6 @@ public interface UserService {
     BaseResp wechatLogin(@RequestBody WechatLoginForm wechatLoginForm);
     @RequestMapping(value = "/wechat/saveUserOfficialAccountsOpenId",method = RequestMethod.POST)
     BaseResp saveUserOfficialAccountsOpenId( @RequestParam(value = "code")String code,@RequestParam(value = "openId") String openId);
+    @RequestMapping(value = "/wechat/getUserOfficialAccountsOpenId",method = RequestMethod.POST)
+    BaseResp getUserOfficialAccountsOpenId(@RequestParam(value = "openId") String openId);
 }

@@ -230,5 +230,25 @@ public class WechatController {
         return BaseResp.error("更新用户公众号openid失败");
     }
 
+    @PostMapping(value = "getUserOfficialAccountsOpenId")
+    @ApiOperation(value = "判断用户是否有公众号openId")
+    @ResponseBody
+    public BaseResp getUserOfficialAccountsOpenId(String openId) {
+        UserEntity userEntity = userService.selectOne(new EntityWrapper<UserEntity>().eq("open_id",openId));
+        if (null == userEntity) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        BaseResp baseResp = new BaseResp();
+        if (StringTools.isNullOrEmpty(userEntity.getOfficialAccountsOpenId())) {
+            baseResp.setE(0);
+            baseResp.setData("0");
+            baseResp.setMsg("未找到用户公众号openid");
+        } else {
+            baseResp.setE(0);
+            baseResp.setData("1");
+            baseResp.setMsg("用户已存在公众号openid");
+        }
+        return baseResp;
+    }
 
 }
