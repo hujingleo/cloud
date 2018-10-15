@@ -50,7 +50,7 @@ public class PosterParticipantController {
     public BaseResp save(HttpServletRequest request,Integer posterId, String type) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token非法");
+            return BaseResp.error(-3,"token invalid.");
         }
         PosterParticipantEntity posterParticipant = new PosterParticipantEntity();
         posterParticipant.setCreatedDate(new Date());
@@ -66,7 +66,7 @@ public class PosterParticipantController {
     public BaseResp reserve(HttpServletRequest request,Integer posterId) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3,"token非法");
+            return BaseResp.error(-3,"token invalid.");
         }
         return posterParticipantService.reserve(openId,posterId);
     }

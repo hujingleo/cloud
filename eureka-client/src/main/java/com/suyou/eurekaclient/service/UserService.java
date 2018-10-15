@@ -12,6 +12,5 @@ import com.suyou.eurekaclient.entity.UserEntity;
  * @date 2018-09-28 15:58:47
  */
 public interface UserService extends IService<UserEntity> {
-    UserEntity queryByOpenId(String open_id);
 }
 

@@ -43,6 +43,9 @@ public class WechatController {
     private String grantType;
     private String mchId;
     private String key;
+
+    private String officialAccountsAppId;
+    private String officialAccountsAppSecret;
 //    @Autowired
 //    private RestTemplate restTemplate;
     @Autowired
@@ -190,5 +193,42 @@ public class WechatController {
             return null;
         }
     }
+
+    //获取公众号openid并保存
+    @PostMapping(value = "saveUserOfficialAccountsOpenId")
+    @ApiOperation(value = "获取公众号openid并保存")
+    @ResponseBody
+    public BaseResp saveUserOfficialAccountsOpenId(String code, String openId) {
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        UserEntity userEntity = userService.selectOne(new EntityWrapper<UserEntity>().eq("open_id",openId));
+        if (null == userEntity) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?";
+        url += "appid=" + officialAccountsAppId + "&secret=" + officialAccountsAppSecret + "&code=" + code + "&grant_type=authorization_code";
+        //get json数据
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForEntity(url, String.class).getBody();
+        if (StringTools.isNullOrEmpty(result)) {
+            return BaseResp.ok("获取用户信息失败");
+        }
+        JSONObject rsJosn = JSON.parseObject(result);
+        if (null == rsJosn.get("openid") ){
+            return BaseResp.error("获取用户信息失败");
+        }
+        if (!StringTools.isNullOrEmpty(rsJosn.get("openid").toString())) {
+            String officialAccountsOpenId = rsJosn.get("openid").toString();
+            userEntity.setOfficialAccountsOpenId(officialAccountsOpenId);
+            boolean updateresult = userService.updateById(userEntity);
+            if (!updateresult ) {
+                return BaseResp.ok("更新用户公众号openid失败");
+            }
+            return BaseResp.ok("更新用户公众号openid成功");
+        }
+        return BaseResp.error("更新用户公众号openid失败");
+    }
+
 
 }

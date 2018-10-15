@@ -112,7 +112,7 @@ public class JWTUtil {
 
     public static void main(String[] args) {
         String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcGVuX2lkIjoib1prVzk0dmJUcFpFRFdtVjBEXzNKM1VfS3BCbyIsImV4cCI6MTg1MzU5NzI5MH0.6tbCaEn6j1XrIrX35vN_2J-";
-        String openid = "oZkW94lPOrck8ZyLvIcmz5Ii_cbk";
+        String openid = "oAdfi5Osa_7PZNywRsokP_pMCisM";
 //        boolean b = verify(token,getCurrentUserOpenIdByToken(token));
        String token2 = sign(openid);
 //        String openId = "oZkW94vbTpZEDWmV0D_3J3U_KpBo";

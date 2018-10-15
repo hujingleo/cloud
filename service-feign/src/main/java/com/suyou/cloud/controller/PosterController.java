@@ -46,7 +46,7 @@ public class PosterController {
     public BaseResp getById(HttpServletRequest request, Integer id) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.getById(openId, id);
     }
@@ -66,7 +66,7 @@ public class PosterController {
     public BaseResp getByOpenIdAndType(HttpServletRequest request, String type) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.getByOpenIdAndType(openId, type);
     }
@@ -78,7 +78,7 @@ public class PosterController {
     public BaseResp getMyPoster(HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.getMyPoster(openId);
     }
@@ -90,7 +90,7 @@ public class PosterController {
     public BaseResp getMyProduction(Integer pageIndex , Integer pageSize,HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.getMyProduction(pageIndex,pageSize,openId);
     }
@@ -103,7 +103,7 @@ public class PosterController {
     public BaseResp reserveMeeting(HttpServletRequest request ,int id) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.reserveMeeting(openId,id);
     }
@@ -115,7 +115,7 @@ public class PosterController {
     public BaseResp getMyEndingMeeting(Integer pageIndex , Integer pageSize,HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.getMyEndingMeeting(pageIndex,pageSize,openId);
     }
@@ -127,7 +127,7 @@ public class PosterController {
     public BaseResp getMyComingMeeting(Integer pageIndex , Integer pageSize,HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)){
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.getMyComingMeeting(pageIndex,pageSize,openId);
     }
@@ -139,7 +139,7 @@ public class PosterController {
     public BaseResp save(@RequestBody PosterEntity poster, HttpServletRequest request) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         if (StringTools.isNullOrEmpty(poster.getName())){
             return BaseResp.error("名字不能为空");
@@ -182,7 +182,7 @@ public class PosterController {
     public BaseResp update(HttpServletRequest request, @RequestBody PosterEntity poster) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.update(poster);
     }
@@ -195,7 +195,7 @@ public class PosterController {
     public BaseResp deleteMyProductionRecord(HttpServletRequest request, Integer id) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.deleteMyProduction(openId,id);
     }
@@ -206,7 +206,7 @@ public class PosterController {
     public BaseResp deleteMyComingMeetingRecord(HttpServletRequest request, Integer id) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.deleteMyComingMeetingRecord(openId,id);
     }
@@ -218,7 +218,7 @@ public class PosterController {
     public BaseResp deleteMyEndingMeetingRecord(HttpServletRequest request, Integer id) {
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return posterService.deleteMyEndingMeetingRecord(openId,id);
     }

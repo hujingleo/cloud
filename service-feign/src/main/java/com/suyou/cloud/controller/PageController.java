@@ -37,7 +37,7 @@ public class PageController {
     public BaseResp list(HttpServletRequest request){
         String openId = JWTUtil.getCurrentUserOpenId(request);
         if (StringTools.isNullOrEmpty(openId)) {
-            return BaseResp.error(-3, "token 非法");
+            return BaseResp.error(-3, "token invalid.");
         }
         return pageService.list();
     }

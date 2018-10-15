@@ -2,15 +2,15 @@ package com.suyou.cloud.controller;
 
 import com.suyou.cloud.service.UserService;
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.JWTUtil;
+import com.suyou.cloud.utils.StringTools;
 import com.suyou.cloud.utils.WechatLoginForm;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author chenshun
@@ -38,4 +38,20 @@ public class WechatController {
         BaseResp baseResp = userService.wechatLogin(wechatLoginForm);
         return  baseResp;
     }
+
+    //获取公众号openid并保存
+    @PostMapping(value = "/saveUserOfficialAccountsOpenId")
+    @ResponseBody
+    public BaseResp saveUserOfficialAccountsOpenId(String code, String state) {
+        if (StringTools.isNullOrEmpty(code)){
+            return BaseResp.error("code为空");
+        }
+        String openId = JWTUtil.getCurrentUserOpenIdByToken(state);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        return userService.saveUserOfficialAccountsOpenId(code,openId);
+    }
+
+
 }

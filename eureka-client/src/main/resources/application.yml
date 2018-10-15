@@ -93,3 +93,5 @@ wechat:
     grantType: authorization_code
     mchId: 1252369901
     key: RdFN333cKAFRaJVHu4xrt4QX5gADTaYk
+    officialAccountsAppId: wxc9f8070bf847afdb
+    officialAccountsAppSecret: ff9abc64cb6ce1965deacbc9a40d6e65
