@@ -21,6 +21,7 @@
         <result property="pictures" column="pictures"/>
         <result property="remind" column="remind"/>
         <result property="hasRemind" column="has_remind"/>
+        <result property="address" column="address"/>
         <result property="startDate" column="start_date"/>
         <result property="endDate" column="end_date"/>
         <result property="createdDate" column="created_date"/>
