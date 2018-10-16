@@ -49,7 +49,7 @@ public class AccessTokenServiceImpl extends ServiceImpl<AccessTokenDao, AccessTo
             cal.setTime(created_date);
             cal.add(Calendar.HOUR, 1);
             //判断access_token是否过期,如果过期则重新获取并更新数据库
-            if (cal.getTime().before(created_date)) {
+            if (cal.getTime().before(new Date())) {
                 access_token = WechatUtils.getAccessToken(appid, appSecret);
                 int updateResult = baseMapper.updatePvByStoreId(appid,access_token);
                 if (1!=updateResult){
