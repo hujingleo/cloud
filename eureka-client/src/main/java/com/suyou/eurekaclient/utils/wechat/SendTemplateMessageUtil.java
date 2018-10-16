@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Configuration
@@ -35,8 +36,10 @@ public class SendTemplateMessageUtil {
     public void scheduler() {
         //先查询需要推送的用户以及海报id
         //获取未开始的会议
+        log.warn("开始执行定时推送会议提醒任务");
         List<PosterEntity> posterEntityList = posterService.getComingMeeting();
-        if (!posterEntityList.isEmpty()) {
+        if (posterEntityList != null && !posterEntityList.isEmpty()) {
+
             for (PosterEntity posterEntity : posterEntityList) {
                 Date startDate = posterEntity.getStartDate();
                 int remindTime = posterEntity.getRemindBefore();
@@ -45,11 +48,13 @@ public class SendTemplateMessageUtil {
                     cal.setTime(startDate);
                     cal.add(Calendar.SECOND, -remindTime);
                     Date remindDate = cal.getTime();
-                    if (remindDate.after(new Date())) {
+                    if (remindDate.before(new Date())) {
                         int posterId = posterEntity.getId();
                         //查出该会议下所有参与者
                         List<UserEntity> userEntityList = posterService.getParticipants(posterId);
-                        if (!userEntityList.isEmpty()) {
+
+                        if (null != userEntityList && !userEntityList.isEmpty()) {
+                            log.warn("需要提醒的会议海报id为:" + posterId + "需要提醒用户数为:" + userEntityList.size());
                             //发送模板消息
                             for (UserEntity userEntity : userEntityList) {
                                 log.warn("开始发送模板消息");
@@ -61,12 +66,16 @@ public class SendTemplateMessageUtil {
                                 String content = posterEntity.getContent();
                                 JSONObject jsonObject = JSONObject.parseObject(content);
                                 String name = jsonObject.get("title").toString();
-                                String startTime =posterEntity.getStartDate().toString()+"--"+posterEntity.getEndDate() ;
-                                String address =posterEntity.getAddress() ;
+                                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                String enddatestr = sdf.format(posterEntity.getEndDate());
+                                String startdatestr = sdf2.format(posterEntity.getStartDate());
+                                String startTime = startdatestr + "--" + enddatestr;
+                                String address = posterEntity.getAddress();
 
-                                int remindMinutes = posterEntity.getRemindBefore()/60;
+                                int remindMinutes = posterEntity.getRemindBefore() / 60;
                                 String remindstr = String.valueOf(remindMinutes);
-                                data.setFirst(new Keyword("您好,"+remindstr+"分钟后会议即将开始", "#173177"));
+                                data.setFirst(new Keyword("您好," + remindstr + "分钟后会议即将开始", "#173177"));
                                 data.setKeyword1(new Keyword(name, "#173177"));
                                 data.setKeyword2(new Keyword(startTime, "#173177"));
                                 data.setKeyword3(new Keyword(address, "#173177"));
@@ -77,34 +86,27 @@ public class SendTemplateMessageUtil {
                                 json.put("miniprogram", miniprogram);
                                 json.put("data", data);
                                 log.warn("请求微信模板消息参数为: " + json.toString());
-                                boolean result = WechatUtils.sendTemplateMessage(accessTokenService.getLatestToken(appId,appSecret),json.toJSONString());
-                                if (result){
-                                    log.warn("发送会议提醒模板消息成功,海报id为: "+posterEntity.getId());
+                                boolean result = WechatUtils.sendTemplateMessage(accessTokenService.getLatestToken(appId, appSecret), json.toJSONString());
+                                if (result) {
+                                    log.warn("发送会议提醒模板消息成功,海报id为: " + posterEntity.getId());
                                     //发送成功标记会议已经提醒
                                     posterEntity.setHasRemind(1);
                                     boolean updateresult = posterService.updateById(posterEntity);
-                                    if (!updateresult){
-                                        log.error("发送会议提醒模板消息成功但标记会议海报已经推送失败,海报id为: "+posterEntity.getId());
+                                    if (!updateresult) {
+                                        log.error("发送会议提醒模板消息成功但标记会议海报已经推送失败,海报id为: " + posterEntity.getId());
                                     }
-                                }else {
-                                    log.warn("发送会议提醒模板消息失败,海报id为: "+posterEntity.getId());
+                                } else {
+                                    log.warn("发送会议提醒模板消息失败,海报id为: " + posterEntity.getId());
                                 }
                             }
-
+                        } else {
+                            log.warn("需要提醒的会议海报id为:" + posterId + "需要提醒用户数为:" + userEntityList.size());
                         }
                     }
                 }
-
             }
-            log.warn("开始执行模板消息定时推送任务" + new Date().toString());
-            String url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
-            Map<String, String> paramMap = new HashMap<String, String>();
-            String result = HttpClientUtil.getPostResponse(url, paramMap);
-            if (!StringTools.isNullOrEmpty(result) && JSON.parseObject(result).get("errmsg").equals("ok")) {
-                //如果模板消息发送成功则插入一条发送记录
-                RemindEntity entity = new RemindEntity();
-
-            }
+        } else {
+            log.warn("没有需要提醒的会议海报");
         }
     }
 
