@@ -151,7 +151,7 @@ public class WechatController {
                     userEntity.setUnionId(unionId);
                     userEntity.setAvatarUrl(avatarUrl);
                     userEntity.setGender(gender);
-                    nickName = URLEncoder.encode(nickName,"utf-8");
+//                    nickName = URLEncoder.encode(nickName,"utf-8");
                     userEntity.setNickName(nickName);
                     userEntity.setCreatedDate(new Date());
                     if (!userService.insert(userEntity)) {
