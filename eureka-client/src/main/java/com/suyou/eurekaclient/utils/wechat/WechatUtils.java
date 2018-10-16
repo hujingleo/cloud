@@ -2,6 +2,8 @@ package com.suyou.eurekaclient.utils.wechat;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.suyou.eurekaclient.service.AccessTokenService;
+import com.suyou.eurekaclient.service.PosterService;
 import com.suyou.eurekaclient.utils.HttpClientUtil;
 import com.suyou.eurekaclient.utils.StringTools;
 import com.suyou.eurekaclient.utils.wechat.Keyword;
@@ -9,6 +11,7 @@ import com.suyou.eurekaclient.utils.wechat.Miniprogram;
 import com.suyou.eurekaclient.utils.wechat.TemplateSendData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -18,11 +21,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.KeyStore;
 @Slf4j
+@Configuration
 public class WechatUtils {
 
     private static int socketTimeout = 10000;// 连接超时时间，默认10秒
     private static int connectTimeout = 30000;// 传输超时时间，默认30秒
-
+    @Autowired
+    private AccessTokenService accessTokenService;
+    @Autowired
+    private PosterService posterService;
     /**
      * 获取用户信息
      * @param openId 用户标识
@@ -102,6 +109,7 @@ public class WechatUtils {
 //        json.put("miniprogram", miniprogram);
 //        json.put("data", data);
 //        log.warn("请求微信模板消息参数为: " + json.toString());
+        log.warn("开始请求微信模板消息: " + requestUrl);
         String wxTemplateSendUrlResult = HttpClientUtil.sendJsonHttpPost(requestUrl,sendJson);
 //        String wxTemplateSendUrlResult = HttpClientUtil.sendJsonHttpPost(requestUrl,json.toJSONString());
         log.warn("请求微信模板消息结果为: " + wxTemplateSendUrlResult);
