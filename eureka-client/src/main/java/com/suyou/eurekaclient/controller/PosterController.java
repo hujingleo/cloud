@@ -211,6 +211,7 @@ public class PosterController {
         }
         Integer offset = (pageIndex-1)*pageSize;
         List<PosterEntity> list = posterService.getMyEndingMeeting(offset,pageSize,openId);
+        log.warn("获得我的会议数量为"+ list.size());
         int total = posterService.countMyEndingMeeting(openId);
         BaseResp baseResp = new BaseResp();
         baseResp.setData(list);

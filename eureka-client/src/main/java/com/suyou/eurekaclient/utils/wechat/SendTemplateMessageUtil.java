@@ -22,9 +22,9 @@ import java.util.*;
 @EnableScheduling
 @Slf4j
 public class SendTemplateMessageUtil {
-    @Value("${wechat.appId}")
+    @Value("${wechat.officialAccountsAppId}")
     private String appId;
-    @Value("${wechat.appSecret}")
+    @Value("${wechat.officialAccountsAppSecret}")
     private String appSecret;
     @Autowired
     private AccessTokenService accessTokenService;
@@ -61,13 +61,16 @@ public class SendTemplateMessageUtil {
                                 String content = posterEntity.getContent();
                                 JSONObject jsonObject = JSONObject.parseObject(content);
                                 String name = jsonObject.get("title").toString();
-                                String startTime =posterEntity.getStartDate().toString() ;
+                                String startTime =posterEntity.getStartDate().toString()+"--"+posterEntity.getEndDate() ;
                                 String address =posterEntity.getAddress() ;
-                                data.setFirst(new Keyword("你好,你有一个新的会议", "#173177"));
+
+                                int remindMinutes = posterEntity.getRemindBefore()/60;
+                                String remindstr = String.valueOf(remindMinutes);
+                                data.setFirst(new Keyword("您好,"+remindstr+"分钟后会议即将开始", "#173177"));
                                 data.setKeyword1(new Keyword(name, "#173177"));
                                 data.setKeyword2(new Keyword(startTime, "#173177"));
                                 data.setKeyword3(new Keyword(address, "#173177"));
-                                data.setRemark(new Keyword("请及时参加会议", "#173177"));
+                                data.setRemark(new Keyword("请做好准备,请及时参加会议", "#173177"));
                                 json.put("touser", userEntity.getOfficialAccountsOpenId());
                                 json.put("template_id", "JWcS4nKbNJQV0qyRLk1dLsduX6K-h4NQnTQTBKhOZNU");
                                 json.put("url", "http://weixin.qq.com/download");

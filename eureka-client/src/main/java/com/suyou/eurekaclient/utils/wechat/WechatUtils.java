@@ -81,11 +81,11 @@ public class WechatUtils {
      */
     public static boolean sendTemplateMessage(String access_token ,String  sendJson) {
         // 拼接请求地址
-        access_token = getAccessToken("wxcb530c140be871b2","1ed62575110442334b944dc841cc0b77");
-        log.warn("accesstoken为: "+access_token);
-//        officialAccountsOpenId = "oMImQ0bVScpLH7-PVo4nfM7vjyog";
+//        access_token = getAccessToken("wxc9f8070bf847afdb","ff9abc64cb6ce1965deacbc9a40d6e65");
+//        log.warn("accesstoken为: "+access_token);
+//        String officialAccountsOpenId = "oMImQ0bVScpLH7-PVo4nfM7vjyog";
         String requestUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
-        requestUrl = requestUrl.replace("ACCESS_TOKEN",access_token);
+//        requestUrl = requestUrl.replace("ACCESS_TOKEN",access_token);
 //        Miniprogram miniprogram = new Miniprogram();
 //        miniprogram.setAppid("wxcb530c140be871b2");
 //        miniprogram.setPagepath("pages/myWaitting/myWaitting");
@@ -94,15 +94,16 @@ public class WechatUtils {
 //        data.setFirst(new Keyword("你好,你有一个新的会议","#173177"));
 //        data.setKeyword1(new Keyword("名称","#173177"));
 //        data.setKeyword2(new Keyword("时间","#173177"));
-//        data.setKeyword3(new Keyword("地点","#173177"));
+//        data.setKeyword3(new Keyword("地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点地点","#173177"));
 //        data.setRemark(new Keyword("请及时参加会议","#173177"));
 //        json.put("touser", officialAccountsOpenId);
 //        json.put("template_id", "JWcS4nKbNJQV0qyRLk1dLsduX6K-h4NQnTQTBKhOZNU");
-//        json.put("url", "http://weixin.qq.com/download");
+////        json.put("url", "http://weixin.qq.com/download");
 //        json.put("miniprogram", miniprogram);
 //        json.put("data", data);
 //        log.warn("请求微信模板消息参数为: " + json.toString());
         String wxTemplateSendUrlResult = HttpClientUtil.sendJsonHttpPost(requestUrl,sendJson);
+//        String wxTemplateSendUrlResult = HttpClientUtil.sendJsonHttpPost(requestUrl,json.toJSONString());
         log.warn("请求微信模板消息结果为: " + wxTemplateSendUrlResult);
         JSONObject wxTemplateSendUrlResultJson = JSONObject.parseObject(wxTemplateSendUrlResult);
         if (null!=wxTemplateSendUrlResultJson&&wxTemplateSendUrlResultJson.get("errmsg").equals("ok")){
@@ -114,7 +115,8 @@ public class WechatUtils {
     }
 
     public static void main(String[] args) {
-        String access_token = getAccessToken("wxc9f8070bf847afdb","ff9abc64cb6ce1965deacbc9a40d6e65");
-        System.out.println("get accesstoken is "+ access_token);
+//        String access_token = getAccessToken("wxc9f8070bf847afdb","ff9abc64cb6ce1965deacbc9a40d6e65");
+//        System.out.println("get accesstoken is "+ access_token);
+//        sendTemplateMessage("","");
     }
 }
