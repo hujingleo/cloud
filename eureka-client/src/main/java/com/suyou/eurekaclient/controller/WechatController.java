@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.URLDecoder;
 import java.util.*;
 
 
@@ -149,6 +150,7 @@ public class WechatController {
                     userEntity.setUnionId(unionId);
                     userEntity.setAvatarUrl(avatarUrl);
                     userEntity.setGender(gender);
+                    nickName = URLDecoder.decode(nickName,"utf-8");
                     userEntity.setNickName(nickName);
                     userEntity.setCreatedDate(new Date());
                     if (!userService.insert(userEntity)) {
