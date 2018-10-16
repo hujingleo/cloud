@@ -92,7 +92,7 @@ public class WechatUtils {
 //        log.warn("accesstoken为: "+access_token);
 //        String officialAccountsOpenId = "oMImQ0bVScpLH7-PVo4nfM7vjyog";
         String requestUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
-//        requestUrl = requestUrl.replace("ACCESS_TOKEN",access_token);
+        requestUrl = requestUrl.replace("ACCESS_TOKEN",access_token);
 //        Miniprogram miniprogram = new Miniprogram();
 //        miniprogram.setAppid("wxcb530c140be871b2");
 //        miniprogram.setPagepath("pages/myWaitting/myWaitting");
