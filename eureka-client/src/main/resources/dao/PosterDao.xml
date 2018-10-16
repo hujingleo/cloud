@@ -157,7 +157,7 @@ WHERE
 		WHERE
 			type ='RESERVED'
 		AND poster_id = #{posterId}
-	)
+	) and official_accounts_open_id !=null and official_accounts_open_id !=''
 </select>
 
     <select id="getReaderAvatars" resultType="com.suyou.eurekaclient.entity.UserEntity">

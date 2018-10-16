@@ -1,8 +1,15 @@
-package com.suyou.eurekaclient.utils;
+package com.suyou.eurekaclient.utils.wechat;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.suyou.eurekaclient.utils.HttpClientUtil;
+import com.suyou.eurekaclient.utils.StringTools;
+import com.suyou.eurekaclient.utils.wechat.Keyword;
+import com.suyou.eurekaclient.utils.wechat.Miniprogram;
+import com.suyou.eurekaclient.utils.wechat.TemplateSendData;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.client.RestTemplate;
 
 
 import javax.net.ssl.SSLContext;
@@ -67,7 +74,47 @@ public class WechatUtils {
         return access_token;
     }
 
-//    public static void main(String[] args) {
-//        getAccessToken("wxcb530c140be871b2","1ed62575110442334b944dc841cc0b77");
-//    }
+    /**
+     * 发送模板消息
+     * @param
+     * @return WeixinUserInfo
+     */
+    public static boolean sendTemplateMessage(String access_token ,String  sendJson) {
+        // 拼接请求地址
+        access_token = getAccessToken("wxcb530c140be871b2","1ed62575110442334b944dc841cc0b77");
+        log.warn("accesstoken为: "+access_token);
+//        officialAccountsOpenId = "oMImQ0bVScpLH7-PVo4nfM7vjyog";
+        String requestUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
+        requestUrl = requestUrl.replace("ACCESS_TOKEN",access_token);
+//        Miniprogram miniprogram = new Miniprogram();
+//        miniprogram.setAppid("wxcb530c140be871b2");
+//        miniprogram.setPagepath("pages/myWaitting/myWaitting");
+//        JSONObject json = new JSONObject();
+//        TemplateSendData data = new TemplateSendData();
+//        data.setFirst(new Keyword("你好,你有一个新的会议","#173177"));
+//        data.setKeyword1(new Keyword("名称","#173177"));
+//        data.setKeyword2(new Keyword("时间","#173177"));
+//        data.setKeyword3(new Keyword("地点","#173177"));
+//        data.setRemark(new Keyword("请及时参加会议","#173177"));
+//        json.put("touser", officialAccountsOpenId);
+//        json.put("template_id", "JWcS4nKbNJQV0qyRLk1dLsduX6K-h4NQnTQTBKhOZNU");
+//        json.put("url", "http://weixin.qq.com/download");
+//        json.put("miniprogram", miniprogram);
+//        json.put("data", data);
+//        log.warn("请求微信模板消息参数为: " + json.toString());
+        String wxTemplateSendUrlResult = HttpClientUtil.sendJsonHttpPost(requestUrl,sendJson);
+        log.warn("请求微信模板消息结果为: " + wxTemplateSendUrlResult);
+        JSONObject wxTemplateSendUrlResultJson = JSONObject.parseObject(wxTemplateSendUrlResult);
+        if (null!=wxTemplateSendUrlResultJson&&wxTemplateSendUrlResultJson.get("errmsg").equals("ok")){
+            log.warn("模板消息发送成功");
+            return true;
+        }
+        log.error("模板消息发送失败");
+        return false;
+    }
+
+    public static void main(String[] args) {
+        String access_token = getAccessToken("wxc9f8070bf847afdb","ff9abc64cb6ce1965deacbc9a40d6e65");
+        System.out.println("get accesstoken is "+ access_token);
+    }
 }

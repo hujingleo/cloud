@@ -5,9 +5,11 @@ import lombok.Data;
 @Data
 public class Keyword {
     private String value;
-    public Keyword(String value){
+    private String color;
+    public Keyword(String value,String color){
         super();
         this.value=value;
+        this.color=color;
     }
     public Keyword(){
     }

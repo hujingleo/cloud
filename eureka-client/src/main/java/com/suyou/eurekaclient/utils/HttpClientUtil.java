@@ -1,6 +1,7 @@
 package com.suyou.eurekaclient.utils;
 
-//import net.sf.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
+import com.netflix.client.http.HttpResponse;
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -8,14 +9,16 @@ import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.commons.lang.StringUtils;
-//import org.apache.http.HttpEntity;
-//import org.apache.http.HttpResponse;
-//import org.apache.http.client.methods.HttpPost;
-//import org.apache.http.entity.StringEntity;
-//import org.apache.http.impl.client.DefaultHttpClient;
-//import org.apache.http.message.BasicHeader;
-//import org.apache.http.protocol.HTTP;
-//import org.apache.http.util.EntityUtils;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.CharsetUtils;
+import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import static javax.print.attribute.standard.ReferenceUriSchemesSupported.HTTP;
 
 public class HttpClientUtil {
 
@@ -198,55 +203,83 @@ public class HttpClientUtil {
 //		return response;
 //	}
 //
-//	public static String post(JSONObject json,String URL) {
+//public static String post(JSONObject json,String URL) {
 //
-//		DefaultHttpClient client = new DefaultHttpClient();
-//		HttpPost post = new HttpPost(URL);
-//		post.setHeader("Content-Type", "application/json");
-//		post.addHeader("Authorization", "Basic YWRtaW46");
-//		String result = "";
+//	HttpClient client = new DefaultHttpClient();
+//	HttpPost post = new HttpPost(URL);
+//	post.setHeader("Content-Type", "application/json");
+//	post.addHeader("Authorization", "Basic YWRtaW46");
+//	String result = "";
 //
-//		try {
+//	try {
 //
-//			StringEntity s = new StringEntity(json.toString(), "utf-8");
-//			s.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,
-//					"application/json"));
-//			post.setEntity(s);
+//		StringEntity s = new StringEntity(json.toString(), "utf-8");
+//		s.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE,
+//				"application/json"));
+//		post.setEntity(s);
 //
-//			// 发送请求
-//			HttpResponse httpResponse = client.execute(post);
+//		// 发送请求
+//		HttpResponse httpResponse = client.execute(post);
 //
-//			// 获取响应输入流
-//			InputStream inStream = httpResponse.getEntity().getContent();
-//			BufferedReader reader = new BufferedReader(new InputStreamReader(
-//					inStream, "utf-8"));
-//			StringBuilder strber = new StringBuilder();
-//			String line = null;
-//			while ((line = reader.readLine()) != null)
-//				strber.append(line + "\n");
-//			inStream.close();
+//		// 获取响应输入流
+//		InputStream inStream = httpResponse.getEntity().getContent();
+//		BufferedReader reader = new BufferedReader(new InputStreamReader(
+//				inStream, "utf-8"));
+//		StringBuilder strber = new StringBuilder();
+//		String line = null;
+//		while ((line = reader.readLine()) != null)
+//			strber.append(line + "\n");
+//		inStream.close();
 //
-//			result = strber.toString();
-//			System.out.println(result);
+//		result = strber.toString();
+//		System.out.println(result);
 //
-//			if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+//		if (httpResponse.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 //
-//				System.out.println("请求服务器成功，做相应处理");
+//			System.out.println("请求服务器成功，做相应处理");
 //
-//			} else {
+//		} else {
 //
-//				System.out.println("请求服务端失败");
+//			System.out.println("请求服务端失败");
 //
-//			}
-//
-//
-//		} catch (Exception e) {
-//			System.out.println("请求异常");
-//			throw new RuntimeException(e);
 //		}
 //
-//		return result;
+//
+//	} catch (Exception e) {
+//		System.out.println("请求异常");
+//		throw new RuntimeException(e);
 //	}
+//
+//	return result;
+//}
+public static  String sendJsonHttpPost(String url, String json) {
+
+	CloseableHttpClient httpclient = HttpClients.createDefault();
+	String responseInfo = null;
+	try {
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.addHeader("Content-Type", "application/json;charset=UTF-8");
+		ContentType contentType = ContentType.create("application/json", CharsetUtils.get("UTF-8"));
+		httpPost.setEntity(new StringEntity(json, contentType));
+		CloseableHttpResponse response = httpclient.execute(httpPost);
+		HttpEntity entity = response.getEntity();
+		int status = response.getStatusLine().getStatusCode();
+		if (status >= 200 && status < 300) {
+			if (null != entity) {
+				responseInfo = EntityUtils.toString(entity);
+			}
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			httpclient.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	return responseInfo;
+}
 
 	public  static String methodPost(String url,NameValuePair[] data){
 

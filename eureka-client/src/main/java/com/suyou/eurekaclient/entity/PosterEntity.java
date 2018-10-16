@@ -105,6 +105,7 @@ public class PosterEntity implements Serializable {
 	/**
 	 * 
 	 */
+	private String address;
 	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date startDate;
 	/**

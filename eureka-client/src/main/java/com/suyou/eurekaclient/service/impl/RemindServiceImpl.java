@@ -9,7 +9,6 @@ import com.suyou.eurekaclient.entity.RemindEntity;
 import com.suyou.eurekaclient.service.AccessTokenService;
 import com.suyou.eurekaclient.service.RemindService;
 import com.suyou.eurekaclient.utils.StringTools;
-import com.suyou.eurekaclient.utils.WechatUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

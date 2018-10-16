@@ -6,7 +6,7 @@ import com.suyou.eurekaclient.dao.AccessTokenDao;
 import com.suyou.eurekaclient.entity.AccessTokenEntity;
 import com.suyou.eurekaclient.service.AccessTokenService;
 import com.suyou.eurekaclient.utils.StringTools;
-import com.suyou.eurekaclient.utils.WechatUtils;
+import com.suyou.eurekaclient.utils.wechat.WechatUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
