@@ -43,7 +43,8 @@ public class SendTemplateMessageUtil {
             for (PosterEntity posterEntity : posterEntityList) {
                 Date startDate = posterEntity.getStartDate();
                 int remindTime = posterEntity.getRemindBefore();
-                if (0 != remindTime) {
+                int hasRemind = posterEntity.getHasRemind();
+                if (0 != remindTime&&hasRemind!=1) {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(startDate);
                     cal.add(Calendar.SECOND, -remindTime);
