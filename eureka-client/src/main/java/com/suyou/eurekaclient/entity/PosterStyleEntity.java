@@ -47,7 +47,7 @@ public class PosterStyleEntity implements Serializable {
 	/**
 	 *0下架1上架
 	 */
-	private int status;
+	private int state;
 	/**p
 	 * 
 	 */

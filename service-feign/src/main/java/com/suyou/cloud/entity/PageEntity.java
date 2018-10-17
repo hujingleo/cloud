@@ -46,7 +46,7 @@ public class PageEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String state;
+	private int state;
 	/**
 	 *
 	 */

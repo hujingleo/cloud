@@ -72,4 +72,17 @@ public class PageController {
         String reslut = QiNiuUtils.upload(images);
         return BaseResp.ok(reslut);
     }
+    /**
+     *上/下架banner
+     */
+    @GetMapping("/updateState")
+    public BaseResp updateState(Integer id,Integer state){
+        if (null==id){
+            return BaseResp.error("id不能为空");
+        }
+        if (null==state){
+            return BaseResp.error("state不能为空");
+        }
+        return pageService.updateState(id,state);
+    }
 }

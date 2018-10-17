@@ -13,4 +13,6 @@ public interface PageService {
     BaseResp getById(@RequestParam(value = "id") Integer id);
     @PostMapping(value = "/page/save")
     BaseResp save(@RequestBody PageEntity pageEntity);
+    @GetMapping(value = "/page/updateState")
+    BaseResp updateState(@RequestParam(value = "id") Integer id,@RequestParam(value = "state") Integer state);
 }

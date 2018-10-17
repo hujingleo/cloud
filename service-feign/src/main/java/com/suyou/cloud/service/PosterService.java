@@ -35,4 +35,6 @@ public interface PosterService {
     BaseResp deleteMyComingMeetingRecord(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
     @GetMapping(value = "/poster/deleteMyEndingMeetingRecord")
     BaseResp deleteMyEndingMeetingRecord(@RequestParam(value = "openId")String openId,@RequestParam(value = "id")Integer id);
+    @GetMapping(value = "/poster/updateState")
+    BaseResp updateState(@RequestParam(value = "id")Integer id,@RequestParam(value = "state")Integer state);
 }

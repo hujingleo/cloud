@@ -52,7 +52,7 @@ public class PosterEntity implements Serializable {
 	/**
 	 * 
 	 */
-	private String state;
+	private int state;
 	/**
 	 *
 	 */

@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.sun.xml.internal.rngom.parse.host.Base;
 import com.suyou.eurekaclient.entity.PageEntity;
+import com.suyou.eurekaclient.entity.PosterEntity;
 import com.suyou.eurekaclient.service.PageService;
 import com.suyou.eurekaclient.utils.BaseResp;
 import com.suyou.eurekaclient.utils.PageUtils;
@@ -34,7 +36,7 @@ public class PageController {
      */
     @RequestMapping("/list")
     public BaseResp list() {
-        List<PageEntity> list = pageService.selectList(new EntityWrapper<>());
+        List<PageEntity> list = pageService.selectList(new EntityWrapper<PageEntity>().eq("state", 1));
         return BaseResp.ok(list);
     }
 
@@ -56,17 +58,16 @@ public class PageController {
         try {
 //            pageEntity.setCreatedDate(new Date());
             boolean result = pageService.insert(pageEntity);
-            if (result){
+            if (result) {
                 return BaseResp.ok("添加banner成功");
             }
-        }catch (Exception e ){
+        } catch (Exception e) {
             e.printStackTrace();
-            log.error("添加banner异常，异常信息为 ： "+e.getMessage());
+            log.error("添加banner异常，异常信息为 ： " + e.getMessage());
             return BaseResp.error("添加banner异常");
         }
         return BaseResp.error("添加banner失败");
     }
-
 
 
     /**
@@ -79,14 +80,35 @@ public class PageController {
         return R.ok();
     }
 
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    public R delete(@RequestBody Integer[] ids) {
-        pageService.deleteBatchIds(Arrays.asList(ids));
 
-        return R.ok();
+    /**
+     * 上/下架
+     */
+    @GetMapping("/updateState")
+    public BaseResp updateState(Integer id,Integer state) {
+        try {
+            PageEntity entity = pageService.selectById(id);
+            if (null==entity){
+                return BaseResp.error("找不到id为："+id+"的banner");
+            }
+            if (0==state&&0==entity.getState()){
+                return BaseResp.error("该banner已经下架,请勿重复操作");
+            }
+            if (1==state&&1==entity.getState()){
+                return BaseResp.error("该banner已经上架,请勿重复操作");
+            }
+            entity.setState(state);
+            entity.setUpdatedDate(new Date());
+            boolean result = pageService.updateById(entity);
+            if (result){
+                return BaseResp.ok("操作成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("操作异常，异常信息为："+e.getMessage());
+            return BaseResp.ok("操作异常");
+        }
+        return BaseResp.ok("操作失败");
     }
 
 }

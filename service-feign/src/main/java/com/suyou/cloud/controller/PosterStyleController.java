@@ -44,11 +44,11 @@ public class PosterStyleController {
     }
 
     /**
-     *下架风格
+     *上/下架风格
      */
-    @PostMapping("/updateStatus")
-    public BaseResp unShelve(Integer id,Integer status){
-        return posterStyleService.updateStatus(id,status);
+    @GetMapping("/updateState")
+    public BaseResp updateState(Integer id,Integer state){
+        return posterStyleService.updateState(id,state);
     }
 
     /**

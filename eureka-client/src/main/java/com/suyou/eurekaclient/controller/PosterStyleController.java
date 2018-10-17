@@ -69,20 +69,20 @@ public class PosterStyleController {
     /**
      * 修改
      */
-    @PostMapping("/updateStatus")
-    public BaseResp unShelve(Integer id,Integer status) {
+    @GetMapping("/updateState")
+    public BaseResp updateState(Integer id,Integer state) {
         try {
             PosterStyleEntity posterStyleEntity = posterStyleService.selectById(id);
             if (null==posterStyleEntity){
                 return BaseResp.error("找不到id为："+id+"的风格");
             }
-            if (0==status&&0==posterStyleEntity.getStatus()){
+            if (0==state&&0==posterStyleEntity.getState()){
                 return BaseResp.error("改风格已经下架,请勿重复操作");
             }
-            if (1==status&&1==posterStyleEntity.getStatus()){
+            if (1==state&&1==posterStyleEntity.getState()){
                 return BaseResp.error("改风格已经上架,请勿重复操作");
             }
-            posterStyleEntity.setStatus(status);
+            posterStyleEntity.setState(state);
             posterStyleEntity.setUpdatedDate(new Date());
             boolean result = posterStyleService.updateById(posterStyleEntity);
             if (result){

@@ -3,9 +3,7 @@ package com.suyou.eurekaclient.controller;
 import java.util.*;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.suyou.eurekaclient.entity.PosterEntity;
-import com.suyou.eurekaclient.entity.PosterParticipantEntity;
-import com.suyou.eurekaclient.entity.UserEntity;
+import com.suyou.eurekaclient.entity.*;
 import com.suyou.eurekaclient.service.PosterParticipantService;
 import com.suyou.eurekaclient.service.PosterService;
 import com.suyou.eurekaclient.utils.*;
@@ -14,11 +12,7 @@ import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -41,7 +35,7 @@ public class PosterController {
     @RequestMapping("/list")
     public BaseResp list() {
         try {
-            List<PosterEntity> list = posterService.selectList(new EntityWrapper<PosterEntity>());
+            List<PosterEntity> list = posterService.selectList(new EntityWrapper<PosterEntity>().eq("state",1));
             return BaseResp.ok(list);
         } catch (Exception e) {
             e.printStackTrace();
@@ -403,6 +397,36 @@ public class PosterController {
             log.error("删除异常,异常信息为 : "+e.getMessage());
         }
         return BaseResp.error("删除失败");
+    }
+
+    /**
+     * 修改
+     */
+    @GetMapping("/updateState")
+    public BaseResp updateState(Integer id,Integer state) {
+        try {
+            PosterEntity entity = posterService.selectById(id);
+            if (null==entity){
+                return BaseResp.error("找不到id为："+id+"的海报");
+            }
+            if (0==state&&0==entity.getState()){
+                return BaseResp.error("该海报已经下架,请勿重复操作");
+            }
+            if (1==state&&1==entity.getState()){
+                return BaseResp.error("该海报已经上架,请勿重复操作");
+            }
+            entity.setState(state);
+            entity.setUpdatedDate(new Date());
+            boolean result = posterService.updateById(entity);
+            if (result){
+                return BaseResp.ok("操作成功");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("操作异常，异常信息为："+e.getMessage());
+            return BaseResp.ok("操作异常");
+        }
+        return BaseResp.ok("操作失败");
     }
 
 }

@@ -222,5 +222,11 @@ public class PosterController {
         }
         return posterService.deleteMyEndingMeetingRecord(openId,id);
     }
-
+    /**
+     *上/下架海报
+     */
+    @GetMapping("/updateState")
+    public BaseResp updateState(Integer id,Integer state){
+        return posterService.updateState(id,state);
+    }
 }
