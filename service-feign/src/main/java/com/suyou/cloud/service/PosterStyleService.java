@@ -1,5 +1,6 @@
 package com.suyou.cloud.service;
 
+import com.suyou.cloud.entity.PosterEntity;
 import com.suyou.cloud.entity.PosterStyleEntity;
 import com.suyou.cloud.utils.BaseResp;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -15,4 +16,6 @@ public interface PosterStyleService {
     BaseResp updateState(@RequestParam(value = "id") Integer id,@RequestParam(value = "state") Integer state);
     @PostMapping(value = "posterStyle/save")
     BaseResp save(@RequestBody PosterStyleEntity posterStyleEntity);
+    @PostMapping(value = "/posterStyle/update")
+    BaseResp update(@RequestBody PosterStyleEntity posterStyleEntity);
 }

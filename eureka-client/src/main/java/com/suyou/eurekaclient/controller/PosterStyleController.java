@@ -100,10 +100,25 @@ public class PosterStyleController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody PosterStyleEntity posterStyle) {
-        posterStyleService.updateById(posterStyle);
+    public BaseResp update(@RequestBody PosterStyleEntity posterStyle) {
+        if (0==posterStyle.getId()||null==posterStyleService.selectById(posterStyle.getId())){
+            log.error("更新id非法，id为 ："+posterStyle.getId());
+            return BaseResp.error("更新id非法，id为 ："+posterStyle.getId());
+        }
+        try {
 
-        return R.ok();
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error("更新失败，id为 ： "+posterStyle.getId());
+        }
+        boolean result = posterStyleService.updateById(posterStyle);
+        if (result){
+            BaseResp baseResp = new BaseResp();
+            baseResp.setData(posterStyle.getId());
+            baseResp.setMsg("success");
+            return baseResp;
+        }
+        return BaseResp.error("更新失败");
     }
 
     /**

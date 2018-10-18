@@ -1,10 +1,13 @@
 package com.suyou.cloud.controller;
 
+import com.suyou.cloud.entity.PosterEntity;
 import com.suyou.cloud.entity.PosterStyleEntity;
 import com.suyou.cloud.service.PosterService;
 import com.suyou.cloud.service.PosterStyleService;
 import com.suyou.cloud.utils.BaseResp;
+import com.suyou.cloud.utils.JWTUtil;
 import com.suyou.cloud.utils.StringTools;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +44,18 @@ public class PosterStyleController {
     @GetMapping("/getById")
     public BaseResp getById(Integer id){
         return posterStyleService.getById(id);
+    }
+
+    /**
+     * 修改
+     */
+    @PostMapping("/update")
+    public BaseResp update(HttpServletRequest request, @RequestBody PosterStyleEntity entity) {
+        String openId = JWTUtil.getCurrentUserOpenId(request);
+        if (StringTools.isNullOrEmpty(openId)) {
+            return BaseResp.error(-3, "token invalid.");
+        }
+        return posterStyleService.update(entity);
     }
 
     /**
