@@ -2,6 +2,7 @@ package com.suyou.cloud.entity;
 
 //import com.baomidou.mybatisplus.annotations.TableId;
 //import com.baomidou.mybatisplus.annotations.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -51,10 +52,12 @@ public class PosterStyleEntity implements Serializable {
 	/**
 	 * 
 	 */
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date createdDate;
 	/**
 	 * 
 	 */
+	@JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
 	private Date updatedDate;
 
 }
